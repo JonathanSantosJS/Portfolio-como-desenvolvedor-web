@@ -1,163 +1,143 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/web-16px.png" type="image/x-icon">
-    <title>Portfólio | Jônathan Santos</title>
-    <style>
-        /* Reset básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(90deg, #0066cc, #003366);
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.8;
-        }
-
-        main {
-            max-width: 1100px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        .about {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .about img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-            border: 4px solid #0066cc;
-        }
-
-        .about h2 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .about p {
-            font-size: 1rem;
-            color: #555;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .projects {
-            margin-top: 40px;
-        }
-
-        .projects h2 {
-            font-size: 1.8rem;
-            color: #0066cc;
-            border-bottom: 2px solid #0066cc;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        .projects ul {
-            display: flex;
-            flex-wrap: wrap;
-            list-style: none;
-            gap: 20px;
-            justify-content: center;
-            padding: 0;
-        }
-
-        .projects ul li {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            width: 280px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .projects ul li:hover {
-            transform: scale(1.05);
-        }
-
-        .projects ul li a {
-            text-decoration: none;
-            color: #333;
-            display: block;
-            text-align: center;
-            padding: 20px;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .projects ul li a:hover {
-            color: #0066cc;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #003366;
-            color: #fff;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: #4fc3f7;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="icon" href="img/web.jpg" type="image/x-icon">
+    <title>Portfólio | Jônathan Barbosa</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="javascript/script.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Jônathan Santos</h1>
-        <p>Estudante de Ciência da Computação | Desenvolvedor em formação</p>
-    </header>
-    <main>
-        <section class="about">
-            <img src="img/jb-160px.jpeg" alt="Foto de Jônathan Barbosa">
-            <h2>Sobre Mim</h2>
-            <p>Olá! Meu nome é Jônathan Barbosa dos Santos, e sou estudante de Ciência da Computação. Estou aprendendo a criar soluções digitais com HTML, CSS, JavaScript e Python. Este portfólio é o espaço onde compartilho meus projetos e meu progresso como desenvolvedor web.</p>
-        </section>
-        <section class="projects">
-            <h2>Meus Projetos</h2>
-            <ul>
-                <li><a href="#" target="_blank">Projeto 1 - Em breve</a></li>
-                <li><a href="#" target="_blank">Projeto 2 - Em breve</a></li>
-                <li><a href="#" target="_blank">Projeto 3 - Em breve</a></li>
-                <li><a href="#" target="_blank">Projeto 4 - Em breve</a></li>
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-text">JB</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
             </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Olá, eu sou <span class="highlight">Jônathan Barbosa</span></h1>
+                <h2>Desenvolvedor Web Full Stack</h2>
+                <p>Transformando ideias em experiências digitais incríveis</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn primary">Ver Projetos</a>
+                    <a href="#contact" class="btn secondary">Contato</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">Sobre Mim</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="img/jb.jpeg" alt="Jônathan Barbosa">
+                    </div>
+                    <div class="about-text">
+                        <p>Estudante de Ciência da Computação apaixonado por tecnologia e desenvolvimento web. Busco constantemente aprender novas tecnologias e criar soluções inovadoras.</p>
+                        <div class="personal-info">
+                            <div class="info-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Ciência da Computação</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-code"></i>
+                                <span>Desenvolvedor Full Stack</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title">Habilidades</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fab fa-html5"></i>
+                        <h3>HTML5</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-css3-alt"></i>
+                        <h3>CSS3</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-js"></i>
+                        <h3>JavaScript</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-python"></i>
+                        <h3>Python</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Projetos</h2>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-content">
+                            <h3>Quiz para fertilização feminina</h3>
+                            <p>Esse quiz é composto por 8 perguntas relacionado a sua rotina de vida, em seguida da um resultado baseado em suas resposta, é um projeto simples de html css e javascript</p>
+                            <div class="project-links">
+                                <a href="#" class="btn-project"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://webjs.com.br/metodovmf/" class="btn-project"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Adicione mais projetos aqui -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Contato</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:jonathan.santos-ti@hotmail.com">jonathan.santos-ti@hotmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/JonathanSantosJS" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
+
     <footer>
-        <p>© 2024 Jônathan Santos | <a href="https://github.com/JonathanSantosJS" target="_blank">Visite meu GitHub</a></p>
+        <div class="container">
+            <p>© 2024 Jônathan Barbosa. Todos os direitos reservados.</p>
+        </div>
     </footer>
 </body>
 </html>
