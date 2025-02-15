@@ -105,7 +105,41 @@ function showResult() {
     }
     
     resultContent.innerHTML = `
-        <p class="result-message">${message}</p>
-        <p class="result-tip">✨ Com o Método Você Mais Fértil, você terá acesso a estratégias comprovadas para aumentar sua fertilidade naturalmente!</p>
+        <div class="result-section">
+            <p class="result-message">${message}</p>
+            <div class="divider"></div>
+            <p class="result-tip">✨ Com o Método Você Mais Fértil, você terá acesso a estratégias comprovadas para aumentar sua fertilidade naturalmente!</p>
+        </div>
+        
+        <div class="testimonial-section">
+            <div class="testimonial-card">
+                <span class="quote-mark">"</span>
+                <p class="testimonial-text">
+                    Acho que conseguimos engravidar bem rápido porque nosso corpo estava muito preparado. O método mudou completamente nossa jornada. Ficamos muito felizes!
+                </p>
+                <p class="testimonial-author">- Maria Santos, conseguiu engravidar em 3 meses</p>
+            </div>
+        </div>
+
+        <div class="expert-section">
+            <div class="expert-card">
+                <h3 class="expert-title">Quem está por trás do método?</h3>
+                <div class="divider"></div>
+                <p class="expert-info">
+                    O Método Você Mais Fértil foi desenvolvido pela nutricionista <strong>Tamyres Fogo</strong>, 
+                    especialista em fertilidade, gestação e saúde da mulher.
+                </p>
+                <p class="expert-credentials">
+                    Com mais de 8 anos de experiência, ela já ajudou centenas de mulheres a prepararem 
+                    seus corpos para a gravidez através de uma alimentação equilibrada e hábitos 
+                    saudáveis comprovados cientificamente.
+                </p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <div class="divider"></div>
+            <p class="urgency-text">🎯 Chegou sua hora de transformar seu sonho em realidade!</p>
+        </div>
     `;
 }
