@@ -1,43 +1,51 @@
 const questions = [
     {
-        question: "Com que frequência você consome alimentos processados ou fast food?",
-        answers: ["Diariamente", "Algumas vezes por semana", "Raramente", "Nunca"],
-        category: "alimentacao"
+        question: "1️⃣ Você já tentou engravidar e não conseguiu?",
+        answers: [
+            "Sim, há mais de um ano",
+            "Sim, há alguns meses",
+            "Ainda não tentei, mas quero me preparar"
+        ]
     },
     {
-        question: "Você inclui frutas e vegetais frescos em suas refeições diárias?",
-        answers: ["Nunca", "Raramente", "Algumas vezes por semana", "Diariamente"],
-        category: "alimentacao"
+        question: "2️⃣ Seu ciclo menstrual costuma ser irregular?",
+        answers: [
+            "Sim, frequentemente",
+            "Às vezes, mas nunca investiguei a fundo",
+            "Não, meu ciclo é regulado"
+        ]
     },
     {
-        question: "Quantos copos de água você bebe por dia?",
-        answers: ["Menos de 4", "4-6", "7-9", "10 ou mais"],
-        category: "hidratacao"
+        question: "3️⃣ Como você avalia sua alimentação?",
+        answers: [
+            "Muito saudável, focada em nutrientes essenciais",
+            "Razoável, mas sem um foco específico",
+            "Preciso melhorar bastante"
+        ]
     },
     {
-        question: "Com que frequência você pratica exercícios físicos?",
-        answers: ["Nunca", "Menos de 2 vezes por semana", "2-4 vezes por semana", "Mais de 4 vezes por semana"],
-        category: "exercicio"
+        question: "4️⃣ Você já usou suplementos para melhorar a fertilidade?",
+        answers: [
+            "Sim, sob orientação profissional",
+            "Já ouvi falar, mas não sei quais são os melhores",
+            "Não, nunca considerei isso"
+        ]
     },
     {
-        question: "Quantas horas de sono você tem, em média, por noite?",
-        answers: ["Menos de 5 horas", "5-6 horas", "7-8 horas", "Mais de 8 horas"],
-        category: "sono"
+        question: "5️⃣ Você sente sintomas como fadiga, inchaço ou dificuldade em perder peso?",
+        answers: [
+            "Sim, com frequência",
+            "Às vezes, mas não me incomoda tanto",
+            "Não, me sinto bem e com energia"
+        ]
     },
     {
-        question: "Como você classificaria seu nível de estresse diário?",
-        answers: ["Muito alto", "Alto", "Moderado", "Baixo"],
-        category: "estresse"
-    },
-    {
-        question: "Você consome bebidas alcoólicas com que frequência?",
-        answers: ["Diariamente", "Algumas vezes por semana", "Raramente", "Nunca"],
-        category: "habitos"
-    },
-    {
-        question: "Você fuma ou utiliza produtos de tabaco?",
-        answers: ["Sim, diariamente", "Sim, ocasionalmente", "Não, mas já fumei no passado", "Nunca"],
-        category: "habitos"
+        question: "6️⃣ Você acredita que sua saúde emocional pode estar afetando sua fertilidade?",
+        answers: [
+            "Sim, sinto que o estresse e ansiedade me afetam",
+            "Talvez, mas nunca pensei muito nisso",
+            "Não, acho que não tem relação"
+        ]
     }
 ];
 
@@ -70,10 +78,7 @@ function showQuestion() {
 }
 
 function selectAnswer(answerIndex) {
-    userAnswers.push({
-        category: questions[currentQuestion].category,
-        score: answerIndex
-    });
+    userAnswers.push(answerIndex);
     
     if (currentQuestion < questions.length - 1) {
         currentQuestion++;
@@ -83,83 +88,24 @@ function selectAnswer(answerIndex) {
     }
 }
 
-function analyzeResponses() {
-    const categoryScores = {
-        alimentacao: 0,
-        hidratacao: 0,
-        exercicio: 0,
-        sono: 0,
-        estresse: 0,
-        habitos: 0
-    };
-    
-    userAnswers.forEach(answer => {
-        categoryScores[answer.category] += answer.score;
-    });
-    
-    return categoryScores;
-}
-
 function showResult() {
     document.getElementById('quiz-card').classList.remove('active');
     document.getElementById('result-card').classList.add('active');
     
-    const scores = analyzeResponses();
     const resultContent = document.getElementById('result-content');
+    const positiveAnswers = userAnswers.filter(answer => answer === 0).length;
     
-    let feedback = "<h3>Análise Personalizada da Sua Fertilidade</h3>";
+    let message = '';
+    if (positiveAnswers >= 4) {
+        message = "Parabéns! Você já está no caminho certo, mas pode potencializar ainda mais suas chances de engravidar com um método estruturado e seguro!";
+    } else if (positiveAnswers >= 2) {
+        message = "Você está buscando informações, mas pode estar deixando de lado estratégias essenciais. O segredo para engravidar pode estar nos detalhes que ainda não aplicou!";
+    } else {
+        message = "Seu corpo pode não estar totalmente preparado para uma gestação saudável. Mas não se preocupe! Com os ajustes certos, você pode aumentar suas chances naturalmente.";
+    }
     
-    // Alimentação
-    if (scores.alimentacao <= 2) {
-        feedback += "<p>🍎 <strong>Alimentação:</strong> Seus hábitos alimentares precisam de atenção. Considere aumentar o consumo de alimentos frescos e reduzir processados para melhorar sua fertilidade.</p>";
-    } else if (scores.alimentacao <= 4) {
-        feedback += "<p>🍎 <strong>Alimentação:</strong> Sua alimentação está no caminho certo, mas ainda há espaço para melhorias. Tente incluir mais alimentos ricos em antioxidantes.</p>";
-    } else {
-        feedback += "<p>🍎 <strong>Alimentação:</strong> Excelentes escolhas alimentares! Continue mantendo uma dieta rica em nutrientes essenciais para a fertilidade.</p>";
-    }
-
-    // Hidratação
-    if (scores.hidratacao <= 1) {
-        feedback += "<p>💧 <strong>Hidratação:</strong> Você precisa aumentar significativamente seu consumo de água. A hidratação adequada é crucial para a saúde reprodutiva.</p>";
-    } else if (scores.hidratacao <= 2) {
-        feedback += "<p>💧 <strong>Hidratação:</strong> Sua hidratação está razoável, mas aumentar o consumo de água pode trazer benefícios adicionais.</p>";
-    } else {
-        feedback += "<p>💧 <strong>Hidratação:</strong> Ótimo nível de hidratação! Continue mantendo este hábito saudável.</p>";
-    }
-
-    // Exercícios
-    if (scores.exercicio <= 1) {
-        feedback += "<p>🏃‍♀️ <strong>Atividade Física:</strong> Considere incluir mais exercícios em sua rotina. Atividades moderadas podem melhorar significativamente sua fertilidade.</p>";
-    } else {
-        feedback += "<p>🏃‍♀️ <strong>Atividade Física:</strong> Seu nível de atividade física está contribuindo positivamente para sua saúde reprodutiva!</p>";
-    }
-
-    // Sono
-    if (scores.sono <= 2) {
-        feedback += "<p>😴 <strong>Qualidade do Sono:</strong> Seu padrão de sono pode estar afetando sua fertilidade. Tente estabelecer uma rotina mais regular de sono.</p>";
-    } else {
-        feedback += "<p>😴 <strong>Qualidade do Sono:</strong> Você mantém bons hábitos de sono, o que é excelente para o equilíbrio hormonal.</p>";
-    }
-
-    // Estresse
-    if (scores.estresse <= 1) {
-        feedback += "<p>🧘‍♀️ <strong>Nível de Estresse:</strong> Altos níveis de estresse podem impactar negativamente sua fertilidade. Considere técnicas de relaxamento e meditação.</p>";
-    } else {
-        feedback += "<p>🧘‍♀️ <strong>Nível de Estresse:</strong> Você está lidando bem com o estresse, continue mantendo este equilíbrio.</p>";
-    }
-
-    // Hábitos
-    if (scores.habitos <= 4) {
-        feedback += "<p>⚠️ <strong>Hábitos Gerais:</strong> Alguns de seus hábitos podem estar impactando sua fertilidade. Considere fazer mudanças graduais para um estilo de vida mais saudável.</p>";
-    } else {
-        feedback += "<p>✨ <strong>Hábitos Gerais:</strong> Seus hábitos de vida estão alinhados com uma boa saúde reprodutiva!</p>";
-    }
-
-    feedback += "<p class='summary'><strong>Próximos Passos:</strong> Com base em sua análise, recomendamos fortemente conhecer o Método Você Mais Fértil para potencializar ainda mais seus resultados.</p>";
-
-    resultContent.innerHTML = feedback;
-}
-
-function calculateScore() {
-    return userAnswers.reduce((total, answer) => total + answer.score, 0);
+    resultContent.innerHTML = `
+        <p class="result-message">${message}</p>
+        <p class="result-tip">✨ Com o Método Você Mais Fértil, você terá acesso a estratégias comprovadas para aumentar sua fertilidade naturalmente!</p>
+    `;
 }
