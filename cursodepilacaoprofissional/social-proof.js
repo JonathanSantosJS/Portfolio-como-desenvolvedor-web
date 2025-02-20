@@ -1,41 +1,37 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const container = document.getElementById("social-proof-container");
-
-    const clientes = [
-        { nome: "Ana", cidade: "São Paulo" },
-        { nome: "Carlos", cidade: "Rio de Janeiro" },
-        { nome: "Mariana", cidade: "Belo Horizonte" },
-        { nome: "Roberto", cidade: "Curitiba" },
-        { nome: "Fernanda", cidade: "Salvador" },
-        { nome: "Patricia", cidade: "Florianópolis" },
-        { nome: "Julia", cidade: "Porto Alegre" },
-        { nome: "Beatriz", cidade: "Recife" }
+function initSocialProof() {
+    const notifications = [
+        { name: 'Ana Silva', location: 'São Paulo', action: 'comprou o curso' },
+        { name: 'Maria Santos', location: 'Rio de Janeiro', action: 'se inscreveu' },
+        { name: 'Julia Costa', location: 'Belo Horizonte', action: 'começou agora' }
     ];
 
-    function mostrarNotificacao() {
-        const cliente = clientes[Math.floor(Math.random() * clientes.length)];
-        const notificacao = document.createElement("div");
-        notificacao.className = "social-proof";
-        notificacao.innerHTML = `
+    const container = document.createElement('div');
+    container.id = 'social-proof-container';
+    document.body.appendChild(container);
+
+    function showNotification(data) {
+        const notification = document.createElement('div');
+        notification.className = 'social-proof-notification';
+        notification.innerHTML = `
             <div class="notification-content">
-                <span class="notification-icon">🎓</span>
-                <span><strong>${cliente.nome}</strong> de ${cliente.cidade}<br>acabou de se matricular!</span>
-            </div>`;
-
-        container.appendChild(notificacao);
-
+                <strong>${data.name}</strong> de ${data.location}<br>
+                ${data.action} 🎉
+            </div>
+        `;
+        
+        container.appendChild(notification);
+        setTimeout(() => notification.classList.add('show'), 100);
         setTimeout(() => {
-            notificacao.classList.add('fade-out');
-            setTimeout(() => {
-                notificacao.remove();
-            }, 500);
-        }, 4500);
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 500);
+        }, 4000);
     }
 
-    // Primeira notificação após 3 segundos
-    setTimeout(() => {
-        mostrarNotificacao();
-        // Depois, mostrar a cada 15 segundos
-        setInterval(mostrarNotificacao, 15000);
-    }, 3000);
-});
+    let index = 0;
+    setInterval(() => {
+        showNotification(notifications[index]);
+        index = (index + 1) % notifications.length;
+    }, 8000);
+}
+
+document.addEventListener('DOMContentLoaded', initSocialProof);
