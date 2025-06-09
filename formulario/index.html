@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css">
+  <title>Diagnóstico Profissional – Posicionamento Estratégico</title>
+ 
+</head>
+
+<body>
+  <header>
+    <h1>Diagnóstico Profissional  <span class="highlight">WebJS</span></h1>
+    <p class="intro">Esse formulário vai me ajudar a entender o seu negócio, o seu público e o que te torna diferente, para que eu possa criar uma presença digital que realmente funcione para você.<br>Responda com calma. Quanto mais claro você for, mais estratégico será o resultado.</p>
+  </header>
+
+  <main>
+    <div class="progress-container">
+  <div id="progressBar"></div>
+</div>
+
+    <div class="form-container">
+      <form id="quizForm">
+        <!-- Etapa 1 -->
+        <div class="step">
+          <h2>BLOCO 1 – ENTENDENDO O PROBLEMA E A SOLUÇÃO</h2>
+          <div class="form-group">
+            <label class="question-label" for="q1">
+              1. Que problema(s) você resolve?
+              <span class="help-icon">?
+                <span class="help-tooltip">Ex: "Ajudo empresas a aumentar vendas online" ou "Resolvo dores nas costas de pessoas que trabalham muito tempo sentadas"</span>
+              </span>
+            </label>
+            <textarea id="q1" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="question-label" for="q2">
+              2. Como esse cliente buscaria no Google?
+              <span class="help-icon">?
+                <span class="help-tooltip">Ex: "como aumentar vendas", "dor nas costas remédio", "personal trainer perto de mim"</span>
+              </span>
+            </label>
+            <textarea id="q2" required></textarea>
+          </div>
+          <button type="button" class="next-btn">Próximo</button>
+        </div>
+
+        <!-- Etapa 2 -->
+        <div class="step" style="display:none;">
+          <h2>BLOCO 1 – continuação</h2>
+          <div class="form-group">
+            <label class="question-label" for="q3">
+              3. Argumentos fortes para convencer:
+              <span class="help-icon">?
+                <span class="help-tooltip">Ex: "10 anos de experiência", "resultados em 30 dias", "método exclusivo comprovado"</span>
+              </span>
+            </label>
+            <textarea id="q3" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="question-label" for="q4">
+              4. Ofertas que você já usou ou pretende:
+              <span class="help-icon">?
+                <span class="help-tooltip">Ex: "Consulta gratuita", "E-book grátis", "Desconto de 50%", "Garantia de 30 dias"</span>
+              </span>
+            </label>
+            <textarea id="q4" required></textarea>
+          </div>
+          <button type="button" class="prev-btn">Voltar</button>
+          <button type="button" class="next-btn">Próximo</button>
+        </div>
+
+        <!-- Etapa 3 -->
+        <div class="step" style="display:none;">
+          <h2>BLOCO 2 – CONHECENDO O PÚBLICO-ALVO</h2>
+          <div class="form-group">
+            <label class="question-label" for="q5">
+              5. Quem é seu cliente ideal?
+              <span class="help-icon">?
+                <span class="help-tooltip">Ex: "Mulheres de 30-45 anos, empresárias, renda acima de R$5mil, moram em SP"</span>
+              </span>
+            </label>
+            <textarea id="q5" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="question-label" for="q6">
+              6. Dores ou sofrimentos desse cliente?
+              <span class="help-icon">?
+                <span class="help-tooltip">Ex: "Não consegue vender online", "Sente dores constantes", "Não tem tempo para exercícios"</span>
+              </span>
+            </label>
+            <textarea id="q6" required></textarea>
+          </div>
+          <button type="button" class="prev-btn">Voltar</button>
+          <button type="button" class="next-btn">Próximo</button>
+        </div>
+
+        <!-- Etapa 4 -->
+        <div class="step" style="display:none;">
+          <h2>Continuação do Público-Alvo</h2>
+          <div class="form-group">
+            <label class="question-label" for="q7">
+              7. Sonhos, desejos ou objetivos?
+              <span class="help-icon">?
+                <span class="help-tooltip">Ex: "Ter um negócio próspero", "Viver sem dores", "Ter mais tempo livre", "Ser reconhecido"</span>
+              </span>
+            </label>
+            <textarea id="q7" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="question-label" for="q8">
+              8. Quais objeções podem ter?
+              <span class="help-icon">?
+                <span class="help-tooltip">Ex: "É muito caro", "Não tenho tempo", "Já tentei antes e não deu certo", "Não confio em vendas online"</span>
+              </span>
+            </label>
+            <textarea id="q8" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="question-label" for="q9">
+              9. O que esse cliente valoriza?
+              <span class="help-icon">?
+                <span class="help-tooltip">Ex: "Qualidade", "Rapidez", "Confiança", "Bom atendimento", "Resultados comprovados"</span>
+              </span>
+            </label>
+            <textarea id="q9" required></textarea>
+          </div>
+          <button type="button" class="prev-btn">Voltar</button>
+          <button type="button" class="next-btn">Próximo</button>
+        </div>
+
+        <!-- Etapa 5 -->
+        <div class="step" style="display:none;">
+          <h2>Bloco 2 – Extras do Público</h2>
+          <div class="form-group">
+            <label class="question-label" for="q10">
+              10. O que esse cliente odeia?
+              <span class="help-icon">?
+                <span class="help-tooltip">Ex: "Perder tempo", "Ser enganado", "Atendimento ruim", "Promessas falsas", "Complicação"</span>
+              </span>
+            </label>
+            <textarea id="q10" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="question-label">
+              11. Onde ele está? (Escolha):
+              <span class="help-icon">?
+                <span class="help-tooltip">Marque as plataformas onde seu cliente ideal mais passa tempo ou busca soluções</span>
+              </span>
+            </label>
+            <div class="checkbox-grid">
+              <label><input type="checkbox" id="chk1" /> Google</label>
+              <label><input type="checkbox" id="chk2" /> Instagram</label>
+              <label><input type="checkbox" id="chk3" /> YouTube</label>
+              <label><input type="checkbox" id="chk4" /> Facebook</label>
+              <label><input type="checkbox" id="chk5" /> TikTok</label>
+              <label><input type="checkbox" id="chk6" /> WhatsApp</label>
+            </div>
+          </div>
+          <button type="button" class="prev-btn">Voltar</button>
+          <button type="button" class="next-btn">Próximo</button>
+        </div>
+
+        <!-- Etapa 6 -->
+        <div class="step" style="display:none;">
+          <h2>Bloco 3 – Comunicação & Visibilidade</h2>
+          <div class="form-group">
+            <label class="question-label" for="q12">
+              12. Em que momento da jornada ele está?
+              <span class="help-icon">?
+                <span class="help-tooltip">Escolha o estágio em que a maioria dos seus clientes se encontra quando te procuram</span>
+              </span>
+            </label>
+            <select id="q12" required>
+              <option value="">Selecione...</option>
+              <option>Ainda descobrindo</option>
+              <option>Reconhece o problema</option>
+              <option>Busca solução</option>
+              <option>Compara soluções</option>
+              <option>Pronto para comprar</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="question-label" for="q13">
+              13. Termos de pesquisa bons:
+              <span class="help-icon">?
+                <span class="help-tooltip">Palavras-chave que você QUER ser encontrado. Ex: "especialista em vendas", "melhor personal trainer"</span>
+              </span>
+            </label>
+            <textarea id="q13" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="question-label" for="q14">
+              14. Termos ruins que quer evitar:
+              <span class="help-icon">?
+                <span class="help-tooltip">Palavras que podem atrair o público errado. Ex: "barato", "grátis", "sem experiência"</span>
+              </span>
+            </label>
+            <textarea id="q14" required></textarea>
+          </div>
+          <button type="button" class="prev-btn">Voltar</button>
+          <button type="button" class="next-btn">Próximo</button>
+        </div>
+
+        <!-- Etapa 7 -->
+        <div class="step" style="display:none;">
+          <h2>Bloco 3 – Continuação</h2>
+          <div class="form-group">
+            <label class="question-label" for="q15">
+              15. Que tipo de linguagem chama atenção?
+              <span class="help-icon">?
+                <span class="help-tooltip">Ex: "Formal e técnica", "Descontraída e amigável", "Direta e objetiva", "Emocional e inspiradora"</span>
+              </span>
+            </label>
+            <textarea id="q15" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="question-label" for="q16">
+              16. Quem são seus concorrentes diretos?
+              <span class="help-icon">?
+                <span class="help-tooltip">Empresas ou profissionais que oferecem exatamente o mesmo serviço que você</span>
+              </span>
+            </label>
+            <textarea id="q16" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="question-label" for="q17">
+              17. Quem concorre indiretamente?
+              <span class="help-icon">?
+                <span class="help-tooltip">Alternativas que o cliente pode escolher no lugar do seu serviço. Ex: fazer sozinho, não fazer nada, outras soluções</span>
+              </span>
+            </label>
+            <textarea id="q17" required></textarea>
+          </div>
+          <button type="button" class="prev-btn">Voltar</button>
+          <button type="button" class="next-btn">Próximo</button>
+        </div>
+
+        <!-- Etapa 8 -->
+        <div class="step" style="display:none;">
+          <h2>Bloco 4 – Diferenciais & Observações</h2>
+          <div class="form-group">
+            <label class="question-label" for="q18">
+              18. O que te torna único ou melhor?
+              <span class="help-icon">?
+                <span class="help-tooltip">Seus diferenciais competitivos. Ex: "Método exclusivo", "Atendimento 24h", "Garantia única no mercado"</span>
+              </span>
+            </label>
+            <textarea id="q18" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="question-label" for="q19">
+              19. Observações gerais:
+              <span class="help-icon">?
+                <span class="help-tooltip">Qualquer informação adicional que considere importante para entender seu negócio</span>
+              </span>
+            </label>
+            <textarea id="q19"></textarea>
+          </div>
+          <button type="button" class="prev-btn">Voltar</button>
+          <button type="submit">Enviar Diagnóstico</button>
+        </div>
+
+      </form>
+    </div>
+  </main>
+  <!-- Modal de Confirmação -->
+<div class="modal-overlay" id="modalOverlay" aria-hidden="true" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
+  <div class="modal" role="document">
+    <div class="modal-header">
+      <h2 id="modalTitle">Confirme seus Dados</h2>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <!-- Conteúdo renderizado dinamicamente aqui -->
+    </div>
+    <div class="modal-actions">
+      <button type="button" onclick="closeModal()" class="btn btn-secondary" aria-label="Editar respostas">Editar</button>
+      <button type="button" onclick="sendToWhatsApp()" class="btn" aria-label="Enviar diagnóstico para WhatsApp">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal de confirmação (já existente) -->
+  ...
+  <script src="js/comando.js"></script>
+  
+</body
