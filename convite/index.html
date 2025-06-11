@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirmação - Festa do Davi</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="titulo">Davi <span>3 anos</span></h1>
+    <p class="subtitulo">Embarque nessa aventura! 🎈</p>
+
+    <form id="formulario">
+      <input type="text" id="nome" placeholder="Seu nome" required />
+      <input type="number" id="acompanhantes" placeholder="Quantidade de acompanhantes" min="0" required />
+      <textarea id="mensagem" placeholder="Deixe uma mensagem (opcional)"></textarea>
+      <button type="submit">Confirmar Presença</button>
+    </form>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script src="js/controle.js"></script>
+</body>
+</html>
