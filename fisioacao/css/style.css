@@ -1,0 +1,382 @@
+/* =========[ VARIÁVEIS DE CORES ]========= */
+:root {
+  --cor-principal: #613b18; /* 60% */
+  --cor-secundaria: #fde5cd; /* 30% */
+  --cor-destaque: #f2994a; /* 10% */
+  --cor-neutra: #222222; /* 10% */
+  --fonte-principal: 'Segoe UI', sans-serif;
+}
+
+/* =========[ RESET BÁSICO ]========= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--fonte-principal);
+  background-color: var(--cor-secundaria);
+  color: var(--cor-neutra);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* =========[ CONTAINER GENÉRICO ]========= */
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* =========[ HERO / BANNER ]========= */
+.hero {
+  position: relative;
+  height: 80vh;
+  background: url('../img/clinicaweb.webp') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  animation: fadeInHero 2s ease-in-out;
+}
+
+.hero .container {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero .tagline {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--cor-destaque);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #e27c1c;
+}
+.cta-button:focus {
+  outline: var(--cor-secundaria);
+}
+
+/* =========[ SEÇÃO: QUEM SOMOS ]========= */
+.about .cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  border-left: 5px solid var(--cor-principal);
+  padding: 15px;
+  flex: 1 1 300px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardWly {
+  background: url('../img/wlyweb.webp') no-repeat center top;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+  border-radius: 8px 8px 0 0;
+}
+.cardAline {
+  background: url('../img/alineweb.webp') no-repeat center top;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+  border-radius: 8px 8px 0 0;
+}
+
+/* =========[ SEÇÃO: SERVIÇOS ]========= */
+.services ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.services li {
+  background-color: #ffffff;
+  border-left: 6px solid var(--cor-destaque);
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.services li:hover {
+  transform: translateY(-3px);
+}
+
+.services li strong {
+  color: var(--cor-principal);
+}
+.pergunta {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--cor-principal);
+  margin-bottom: 4px;
+}
+.pergunta::before {
+  content: '❓ ';
+  color: var(--cor-destaque);
+}
+
+/* =========[ SEÇÃO: CONTATO ]========= */
+.contact {
+  background-color: var(--cor-principal);
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+}
+
+/*======[ DEPOIMENTOS ]========*/
+.depoimento {
+  background-color: #fff;
+  padding: 60px 20px;
+  color: var(--cor-neutra);
+}
+
+.depoimento h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: var(--cor-principal);
+}
+
+.depoimentos-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.depoimento-item {
+  background-color: var(--cor-secundaria);
+  border-left: 5px solid var(--cor-destaque);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  max-width: 320px;
+  flex: 1 1 280px;
+}
+
+.depoimento-item .mensagem {
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.depoimento-item .autor {
+  text-align: right;
+  font-weight: bold;
+  color: var(--cor-principal);
+}
+
+/* =========[ RODAPÉ ]========= */
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  background: #111;
+  color: #aaa;
+}
+
+/* =========[ FORMULÁRIO DE PRÉ-ATENDIMENTO ]========= */
+form {
+  background-color: #ffffff;
+  padding: 32px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  max-width: 640px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: #333;
+}
+
+form h2 {
+  color: var(--cor-principal);
+  font-size: 2rem;
+  margin-bottom: 28px;
+  text-align: center;
+  font-weight: 600;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+form input[type='text'],
+form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #fdfdfd;
+}
+
+form input[type='text']:focus,
+form textarea:focus {
+  border-color: var(--cor-principal);
+  box-shadow: 0 0 0 3px rgba(0, 140, 255, 0.1);
+  outline: none;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Botão */
+form .cta-button {
+  display: inline-block;
+  width: 100%;
+  padding: 16px;
+  background-color: var(--cor-destaque);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+form .cta-button:hover {
+  background-color: #e27c1c;
+  transform: translateY(-1px);
+}
+
+/* =========[ RESPONSIVO ]========= */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+    animation: none;
+    background: url('../img/clinicaMobile.webp') center/cover no-repeat;
+  }
+
+  .hero .container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .about .cards {
+    flex-direction: column;
+  }
+  .cardWly {
+    background: url('../img/wlyweb.webp') no-repeat center top;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .cardAline {
+    background: url('../img/alineweb.webp') no-repeat center top;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .cardConteudo {
+    background-color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 0 0 8px 8px;
+    font-weight: bold;
+    color: var(--cor-neutra);
+  }
+
+  form {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 90%;
+    border-radius: 12px;
+  }
+
+  form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  form label {
+    font-size: 0.95rem;
+  }
+
+  form input[type='text'],
+  form textarea {
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  form .cta-button {
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .close {
+    font-size: 1.6rem;
+    top: 10px;
+    right: 12px;
+  }
+
+  .depoimentos-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
