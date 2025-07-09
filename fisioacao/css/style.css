@@ -39,7 +39,7 @@ a {
 .hero {
   position: relative;
   height: 80vh;
-  background: url('../img/clinicaweb.webp') center/cover no-repeat;
+  background: url('../img/clinicaWEB.webp') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,11 +52,12 @@ a {
   background-color: rgba(0, 0, 0, 0.4);
   padding: 20px;
   border-radius: 10px;
+  width: 40%;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+.hero .logo {
+  width: 250px;
+  height: 250px;
 }
 
 .hero .tagline {
@@ -293,16 +294,18 @@ form .cta-button:hover {
     background-size: cover;
     background-position: center;
     animation: none;
-    background: url('../img/clinicaMobile.webp') center/cover no-repeat;
+    background: url('../img/clinicaMOBILE.webp') center/cover no-repeat;
   }
 
   .hero .container {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.4);
     padding: 10px;
+    width: 85%;
   }
 
-  .hero h1 {
-    font-size: 1.8rem;
+  .hero .logo {
+    width: 200px;
+    height: 200px;
   }
 
   .about .cards {
