@@ -220,7 +220,7 @@ a {
   gap: 10px;
   background-color: white;
   border-left: 5px solid var(--cor-principal);
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 /* =========[ SEÇÃO: CONTATO ]========= */
@@ -369,9 +369,7 @@ form .cta-button:hover {
   }
 
   .listaServicos {
-    display: flex;
     flex-direction: column;
-    border-radius: 15px;
   }
 
   .listaServicos ul {
