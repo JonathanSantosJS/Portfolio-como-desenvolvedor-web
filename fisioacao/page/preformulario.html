@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pré-Atendimento - FisioAção</title>
+    <link
+      rel="shortcut icon"
+      href="../img/favicon-32x32.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/form.css" />
+  </head>
+  <body>
+    <section class="pre-atendimento-section">
+      <form id="preAtendimentoForm" class="pre-atendimento-form">
+        <h2>Pré-Atendimento</h2>
+
+        <div class="form-group">
+          <label for="nome" class="form-label">Seu nome completo:</label>
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            class="form-control"
+            placeholder="Digite seu nome completo"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="dor" class="form-label"
+            >Descreva seu desconforto ou dor:</label
+          >
+          <textarea
+            id="dor"
+            name="dor"
+            class="form-control"
+            placeholder="Descreva com detalhes o que está sentindo, local da dor, intensidade e há quanto tempo"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="tratamento" class="form-label"
+            >Já fez algum tratamento? (qual?)</label
+          >
+          <input
+            type="text"
+            id="tratamento"
+            name="tratamento"
+            class="form-control"
+            placeholder="Ex: Fisioterapia, acupuntura, medicamentos..."
+          />
+        </div>
+
+        <button type="submit" class="form-submit">
+          Enviar para WhatsApp
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 12H19M19 12L12 5M19 12L12 19"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </form>
+    </section>
+
+    <script src="../js/scripts.js"></script>
+  </body>
+</html>

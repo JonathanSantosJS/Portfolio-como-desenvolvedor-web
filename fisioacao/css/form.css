@@ -1,0 +1,116 @@
+/* =========[ FORMULÁRIO DE PRÉ-ATENDIMENTO ]========= */
+body {
+  background-color: var(--cor-secundaria);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.pre-atendimento-section {
+  background-color: var(--cor-secundaria);
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.pre-atendimento-form {
+  background: #fff;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: var(--borda-arredondada);
+  box-shadow: var(--sombra-elevada);
+}
+
+.pre-atendimento-form h2 {
+  color: var(--cor-principal);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  position: relative;
+}
+
+.pre-atendimento-form h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--cor-destaque);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--cor-neutra);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: var(--borda-arredondada);
+  font-family: var(--fonte-principal);
+  transition: var(--transicao-padrao);
+}
+
+.form-control:focus {
+  border-color: var(--cor-destaque);
+  box-shadow: 0 0 0 3px rgba(242, 153, 74, 0.2);
+  outline: none;
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-submit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  font-size: 1rem;
+  background-color: var(--cor-destaque);
+  color: white;
+  border: none;
+  border-radius: var(--borda-arredondada);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.form-submit:hover {
+  background-color: #e27c1c;
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-elevada);
+}
+
+/* Validação do formulário */
+.form-control:invalid {
+  border-color: #ff6b6b;
+}
+
+.form-control:invalid:focus {
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .pre-atendimento-form {
+    padding: 1.5rem;
+  }
+
+  .pre-atendimento-form h2 {
+    font-size: 1.5rem;
+  }
+}

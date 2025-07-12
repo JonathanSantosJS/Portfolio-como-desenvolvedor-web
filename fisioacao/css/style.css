@@ -1,0 +1,540 @@
+/* =========[ VARIÁVEIS DE TEMA E CONFIGURAÇÕES GLOBAIS ]========= */
+:root {
+  --cor-principal: #613b18;
+  --cor-secundaria: #fde5cd;
+  --cor-destaque: #f2994a;
+  --cor-neutra: #222222;
+  --fonte-principal: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  --borda-arredondada: 8px;
+  --transicao-padrao: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --sombra-padrao: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --sombra-elevada: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* =========[ RESET E BASE SEMÂNTICA ]========= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  background-color: var(--cor-secundaria);
+  color: var(--cor-neutra);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transicao-padrao);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========[ LAYOUT E ESTRUTURA ]========= */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  color: var(--cor-principal);
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--cor-destaque);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* =========[ COMPONENTES REUTILIZÁVEIS ]========= */
+.card {
+  background: #fff;
+  border-left: 5px solid var(--cor-principal);
+  border-radius: var(--borda-arredondada);
+  box-shadow: var(--sombra-padrao);
+  padding: 1.5rem;
+  transition: var(--transicao-padrao);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-elevada);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--cor-destaque);
+  color: #fff;
+  border-radius: var(--borda-arredondada);
+  font-weight: 600;
+  text-align: center;
+  transition: var(--transicao-padrao);
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #e27c1c;
+  transform: translateY(-2px);
+}
+
+.cta-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(242, 153, 74, 0.4);
+}
+
+/* =========[ SEÇÃO HERO / BANNER ]========= */
+.hero {
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  background: url('../img/clinicaWEB.webp') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  animation: fadeInHero 1s ease-in-out;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: var(--borda-arredondada);
+  width: 40%;
+  backdrop-filter: blur(4px);
+}
+
+.hero .logo {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 1rem;
+}
+
+.hero .tagline {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* =========[ SEÇÃO QUEM SOMOS ]========= */
+.about {
+  background-color: #fff;
+}
+
+.about .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.profile-card {
+  position: relative;
+  height: 300px;
+  border-radius: var(--borda-arredondada);
+  overflow: hidden;
+}
+
+.profile-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.profile-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  color: white;
+  z-index: 2;
+}
+
+/* =========[ SEÇÃO SERVIÇOS ]========= */
+.services {
+  background-color: var(--cor-secundaria);
+}
+
+.services-intro {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--cor-neutra);
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #fff9f4, #ffffff);
+  border-left: 4px solid var(--cor-destaque);
+  border-radius: 12px;
+  box-shadow: var(--sombra-padrao);
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  list-style: none;
+}
+
+.services-list li {
+  background: #fff;
+  border-left: 6px solid var(--cor-destaque);
+  border-radius: var(--borda-arredondada);
+  padding: 1.25rem;
+  box-shadow: var(--sombra-padrao);
+  transition: var(--transicao-padrao);
+}
+
+.services-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-elevada);
+}
+
+.pergunta {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--cor-principal);
+  margin-bottom: 0.5rem;
+}
+
+.pergunta::before {
+  content: '❓ ';
+  color: var(--cor-destaque);
+}
+
+/* Estilos para os botões CTA dos serviços */
+.service-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: var(--cor-destaque);
+  color: white;
+  border-radius: var(--borda-arredondada);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transicao-padrao);
+  margin-top: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.service-cta-button:hover {
+  background-color: #e27c1c;
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-elevada);
+}
+
+.service-cta-button svg {
+  transition: transform 0.3s ease;
+}
+
+.service-cta-button:hover svg {
+  transform: translateX(3px);
+}
+
+/* Estilos para o rodapé de serviços */
+.services-footer {
+  background-color: var(--cor-secundaria);
+  border-top: 3px solid var(--cor-principal);
+  border-radius: 0 0 var(--borda-arredondada) var(--borda-arredondada);
+  padding: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-highlight {
+  font-size: 1.1rem;
+  color: var(--cor-principal);
+  line-height: 1.6;
+}
+
+.footer-cta-button {
+  padding: 12px 24px;
+  background-color: var(--cor-principal);
+  color: white;
+  border-radius: var(--borda-arredondada);
+  font-weight: 600;
+  transition: var(--transicao-padrao);
+}
+
+.footer-cta-button:hover {
+  background-color: #4a2d10;
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-elevada);
+}
+
+/* =========[ SEÇÃO DEPOIMENTOS ]========= */
+.testimonials {
+  background: #fff;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  background: var(--cor-secundaria);
+  border-left: 5px solid var(--cor-destaque);
+  border-radius: var(--borda-arredondada);
+  padding: 1.5rem;
+  transition: var(--transicao-padrao);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.testimonial-text::before,
+.testimonial-text::after {
+  content: '"';
+  font-size: 1.5rem;
+  color: var(--cor-destaque);
+  opacity: 0.5;
+}
+
+.testimonial-author {
+  text-align: right;
+  font-weight: 700;
+  color: var(--cor-principal);
+}
+
+/* =========[ LISTA DE SERVIÇOS ]========= */
+.services-list-container {
+  background-color: #fff;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.service-category {
+  background: #fff;
+  border-left: 5px solid var(--cor-principal);
+  border-radius: var(--borda-arredondada);
+  padding: 1.5rem;
+  box-shadow: var(--sombra-padrao);
+}
+
+.service-category h3 {
+  color: var(--cor-principal);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.service-category ul {
+  list-style: none;
+}
+
+.service-category li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.service-category li:last-child {
+  border-bottom: none;
+}
+
+/* =========[ SEÇÃO CONTATO ]========= */
+.contact {
+  background: var(--cor-principal);
+  color: #fff;
+  padding: 4rem 0;
+}
+
+.contact .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+
+
+/* =========[ RODAPÉ ]========= */
+.footer {
+  background: #111;
+  color: #aaa;
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: var(--transicao-padrao);
+}
+
+.social-link:hover {
+  background: var(--cor-destaque);
+  color: #fff;
+}
+
+/* =========[ ANIMAÇÕES ]========= */
+@keyframes fadeInHero {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========[ RESPONSIVIDADE ]========= */
+@media (max-width: 1024px) {
+  .hero .container {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .hero {
+    height: 60vh;
+    min-height: 400px;
+    background-image: url('../img/clinicaMOBILE.webp');
+  }
+
+  .hero .container {
+    width: 85%;
+    padding: 1.5rem;
+  }
+
+  .hero .logo {
+    width: 180px;
+    height: 180px;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 2rem 0;
+  }
+
+  .hero {
+    height: 70vh;
+  }
+
+  .hero .container {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+}
