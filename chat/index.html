@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Heloise - Chat Profissional</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="chat-wrapper">
+      <div class="chat-container">
+        <header class="chat-header">
+          <div class="header-content">
+            <div class="profile-photo">
+              <img src="img/morena.webp" alt="Heloise" loading="eager" />
+            </div>
+            <div class="profile-info">
+              <h1>Heloise</h1>
+              <div class="status-container">
+                <span class="status-indicator"></span>
+                <p class="online-status" id="status-text">Online agora</p>
+              </div>
+            </div>
+            <button class="menu-btn" aria-label="Menu">
+              <i class="fas fa-ellipsis-v"></i>
+            </button>
+          </div>
+        </header>
+
+        <main class="chat-messages" id="chat-messages">
+          <!-- Mensagens serão inseridas aqui via JavaScript -->
+        </main>
+
+        <footer class="chat-footer">
+          <div class="typing-indicator hidden" id="typing-indicator">
+            <span>Digitando</span>
+            <div class="typing-dots">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+
+          <div class="options-container" id="options-container">
+            <!-- Opções serão inseridas aqui via JavaScript -->
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="js/script.js" defer></script>
+  </body>
+</html>
