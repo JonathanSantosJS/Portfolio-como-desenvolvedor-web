@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Eloise - Assistente Virtual</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="chat-background"></div>
+
+    <div class="chat-container">
+      <div class="chat-header">
+        <div class="avatar">
+          <img src="img/morena.webp" alt="Avatar Eloise" />
+          <div class="status-indicator online" id="status-indicator"></div>
+        </div>
+        <div class="header-info">
+          <h3>Eloise</h3>
+          <p id="status-text">Online agora</p>
+        </div>
+      </div>
+
+      <div id="chat-messages" class="chat-messages"></div>
+
+      <div id="typing-indicator" class="typing-indicator hidden">
+        <div class="typing-content">
+          <p>Digitando<span class="typing-dots">...</span></p>
+        </div>
+      </div>
+
+      <div id="options-container" class="options-container"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
