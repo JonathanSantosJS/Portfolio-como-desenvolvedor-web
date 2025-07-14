@@ -11,7 +11,7 @@ function registrarMetrica(stepKey) {
   localStorage.setItem('chat_metrics', JSON.stringify(dados));
 }
 
-// 🔁 Fluxo de conversa original
+// 🔁 Fluxo de conversa refinado
 const conversationFlow = {
   start: {
     message: 'Oi! Posso saber seu nome antes da gente começar? 😊',
@@ -19,7 +19,7 @@ const conversationFlow = {
   },
   emotion_prompt: {
     message: (name) =>
-      `Ei, ${name}... posso te perguntar uma coisa meio pessoal? Você já se sentiu exausta tentando cuidar de tudo — da casa, do trabalho, da família — e mesmo assim parece que nunca sobra tempo pra cuidar de você? 😓`,
+      `Ei, ${name}... posso te perguntar uma coisa meio pessoal?\nVocê já se sentiu exausta tentando cuidar de tudo — da casa, do trabalho, da família — e mesmo assim parece que nunca sobra tempo pra cuidar de você? 😓`,
     options: [
       { text: 'Sim… já senti isso 😔', next: 'story_open' },
       { text: 'Não muito', next: 'neutral_exit' },
@@ -113,13 +113,13 @@ const conversationFlow = {
   },
 };
 
-// 🔁 Renderização principal
+// ⚙️ Renderização
 function renderStep(stepKey) {
   const step = conversationFlow[stepKey];
   if (!step) return;
 
   chatState.step = stepKey;
-  registrarMetrica(stepKey); // <-- GRAVA a métrica
+  registrarMetrica(stepKey);
 
   const messageBox = document.getElementById('chat-messages');
   const optionsBox = document.getElementById('options-container');
@@ -176,7 +176,6 @@ function renderStep(stepKey) {
           } else if (stepKey === 'confirm_interest') {
             chatState.diagnosticFinal = value;
 
-            // Grava a resposta no localStorage
             const respostas = JSON.parse(
               localStorage.getItem('diagnosticos') || '[]'
             );
@@ -227,7 +226,6 @@ function renderStep(stepKey) {
   }, typingTime);
 }
 
-// Inicializa o chat
 document.addEventListener('DOMContentLoaded', () => {
   renderStep(chatState.step);
 });
