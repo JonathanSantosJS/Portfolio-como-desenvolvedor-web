@@ -103,7 +103,7 @@ const conversationFlow = {
       'Obrigada por pensar nisso! 💬 Essa conversa pode ajudar alguém que esteja passando pelo mesmo…',
     cta: {
       text: '👉 Compartilhar o chat com alguém',
-      url: 'https://go.hotmart.com/L100798133T',
+      url: 'https://webjs.com.br/chat',
     },
     options: [
       { text: 'Quero compartilhar, Obrigada! 🤗', next: 'end_chat' },
