@@ -130,10 +130,19 @@ function renderStep(stepKey) {
   typing.classList.remove('hidden');
   if (statusText) statusText.innerText = 'Digitando...';
 
-  const textContent =
+  let textContent =
     typeof step.message === 'function'
       ? step.message(chatState.name)
       : step.message;
+
+  // Efeito especial se a pessoa também se chamar Maria
+  if (stepKey === 'story_open') {
+    if (chatState.name.trim().toLowerCase() === 'maria') {
+      textContent = `Uau, que coincidência! 😲 Você também se chama Maria? Então acho que vai se identificar ainda mais com essa história…<br><br>${textContent}`;
+    } else if (chatState.name.trim().toLowerCase() === 'eloise') {
+      textContent = `Que nome lindo! ✨ Assim como eu, Eloise. Acho que você vai se sentir super à vontade aqui.<br><br>${textContent}`;
+    }
+  }
 
   const typingTime = Math.min(3000, Math.max(1000, textContent.length * 20));
 
