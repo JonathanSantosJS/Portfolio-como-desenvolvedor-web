@@ -113,7 +113,7 @@ const conversationFlow = {
 
   end_chat: {
     message:
-      'Obrigada por conversar comigo! 🕊️ Quando quiser voltar, estarei aqui.\nSe quiser salvar o link para enviar depois:\n🔗 https://go.hotmart.com/L100798133T\nCuide de você com carinho — você merece. 💚',
+      'Obrigada por conversar comigo! 🕊️ Quando quiser voltar, estarei aqui.\nSe quiser salvar o link para enviar depois:\n🔗 https://webjs.com.br/chat\nCuide de você com carinho — você merece. 💚',
   },
 };
 
