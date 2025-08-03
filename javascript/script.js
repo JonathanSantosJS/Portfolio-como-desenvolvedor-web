@@ -1,47 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
+  const container = document.querySelector('.formas-flutuantes');
+  const tipos = ['circulo', 'quadrado', 'triangulo'];
+  const cores = ['branca', 'laranja'];
+  const tamanhos = ['pequena', 'media', 'grande'];
 
-    // Toggle mobile menu
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+  for (let i = 0; i < 20; i++) {
+    const span = document.createElement('span');
+    span.classList.add('forma');
+    span.classList.add(tipos[Math.floor(Math.random() * tipos.length)]);
+    span.classList.add(cores[Math.floor(Math.random() * cores.length)]);
+    span.classList.add(tamanhos[Math.floor(Math.random() * tamanhos.length)]);
+    span.style.left = Math.random() * 100 + '%';
+    span.style.animationDuration = (15 + Math.random() * 15) + 's';
+    container.appendChild(span);
+  }
 
-    // Close mobile menu when clicking a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
+/*BOTÃO FLUTUANTE PARA VOLTAR AO TOPO*/
+// Mostra o botão ao rolar
+window.onscroll = function() {
+    const btn = document.getElementById("btnTopo");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+};
 
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Add scroll animation for elements
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            }
-        });
-    }, observerOptions);
-
-    // Observe all sections
-    document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
-    });
+// Rola suavemente até o topo
+document.getElementById("btnTopo").addEventListener("click", function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
