@@ -1,161 +1,466 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="img/web.jpg" type="image/x-icon" />
-    <title>Portfólio | Jônathan Barbosa</title>
-    <link rel="stylesheet" href="css/main.css" />
+    <title>Sites para Pequenos Negócios em Maceió - WebJS</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!--SEO-->
+    <meta name="author" content="Jônathan Santos" />
+
+    <!-- Meta Keywords -->
+    <meta
+      name="keywords"
+      content="desenvolvimento web, sites Maceió, web designer, portfólio online, Jônathan Santos, WebJS, sites para negócios locais"
+    />
+    <!-- Meta Description -->
+    <meta
+      name="description"
+      content="Desenvolvimento de sites profissionais e sob medida para pequenos negócios em Maceió. Aumente sua visibilidade no Google e conquiste mais clientes locais."
+    />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://webjs.com.br/" />
+
+    <!-- Open Graph (para compartilhamento em redes sociais) -->
+    <meta
+      property="og:title"
+      content="Sites para Pequenos Negócios em Maceió - WebJS"
+    />
+    <meta
+      property="og:description"
+      content="Sites personalizados para pequenos negócios locais. Desenvolvedor web em Maceió com soluções sob medida."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webjs.com.br/" />
+    <meta
+      property="og:image"
+      content="https://webjs.com.br/img/thumb-webjs.jpg"
+    />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="WebJS - Jônathan Santos" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Sites para Pequenos Negócios em Maceió - WebJS"
+    />
+    <meta
+      name="twitter:description"
+      content="Criação de sites modernos, rápidos e responsivos para pequenos negócios em Maceió."
+    />
+    <meta
+      name="twitter:image"
+      content="https://webjs.com.br/img/thumb-webjs.jpg"
+    />
+    <meta name="twitter:creator" content="@SeuUsuarioTwitter" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/img/favicon16x16.png" />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon16x16.svg" />
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka:wght@300..700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icones -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <script src="javascript/script.js" defer></script>
   </head>
   <body>
     <header>
-      <nav class="navbar">
-        <div class="logo">
-          <span class="logo-text">JB</span>
-        </div>
-        <ul class="nav-menu">
-          <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">Sobre</a></li>
-          <li><a href="#skills" class="nav-link">Habilidades</a></li>
-          <li><a href="#projects" class="nav-link">Projetos</a></li>
-          <li><a href="#contact" class="nav-link">Contato</a></li>
-        </ul>
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </nav>
+      <section class="containerLogo">
+        <h1 class="logo">WebJS</h1>
+        <h2 class="soblogo">Desenvolvimento Web</h2>
+      </section>
+      <section class="containerMenu">
+        <nav class="menu" aria-label="Menu principal">
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#portfolio">Trabalhos Realizados</a></li>
+            <li><a href="#servicos">Soluções Web</a></li>
+            <li><a href="#sobre">Profissional por Trás</a></li>
+            <li><a href="#contato">Orçamento Rápido</a></li>
+          </ul>
+        </nav>
+      </section>
     </header>
-
-    <main>
-      <section id="home" class="hero">
-        <div class="hero-content">
-          <h1>Olá, eu sou <span class="highlight">Jônathan Barbosa</span></h1>
-          <h2>Desenvolvedor Web Full Stack</h2>
-          <p>Transformando ideias em experiências digitais incríveis</p>
-          <div class="cta-buttons">
-            <a href="#projects" class="btn primary">Ver Projetos</a>
-            <a href="#contact" class="btn secondary">Contato</a>
-          </div>
+    <main id="inicio">
+      <section class="banner">
+        <div class="formas-flutuantes">
+          <span class="forma circulo pequena branca"></span>
+          <span class="forma quadrado media laranja"></span>
+          <span class="forma triangulo grande branca"></span>
+          <span class="forma circulo media laranja"></span>
+          <span class="forma quadrado pequena branca"></span>
+          <span class="forma triangulo pequena laranja"></span>
+        </div>
+        <div class="filtroimg">
+          <h1 class="titulobanner">
+            Seu Negócio Local com Presença Profissional na Internet
+          </h1>
+          <h2 class="subtitulobanner">
+            Sites rápidos, bonitos e feitos sob medida para atrair mais clientes
+            em Maceió
+          </h2>
         </div>
       </section>
 
-      <section id="about" class="about">
-        <div class="container">
-          <h2 class="section-title">Sobre Mim</h2>
-          <div class="about-content">
-            <div class="about-image">
-              <img src="img/jb.jpeg" alt="Jônathan Barbosa" />
-            </div>
-            <div class="about-text">
+      <section class="servicos" id="servicos">
+        <h2>O que eu posso fazer pelo seu negócio</h2>
+        <div class="cards-servicos">
+          <a href="#pacotes" class="card">
+            <h3>Criação de Sites Profissionais</h3>
+            <p>
+              Sites modernos, rápidos e personalizados para negócios locais. Com
+              integração ao WhatsApp, Google Maps e visual responsivo para
+              celular.
+            </p>
+          </a>
+          <a href="#pacotes" class="card">
+            <h3>Convites Digitais Interativos</h3>
+            <p>
+              Convites elegantes com RSVP, galeria de fotos, localização e
+              contagem regressiva — ideal para aniversários, casamentos e
+              eventos especiais.
+            </p>
+          </a>
+          <a href="#pacotes" class="card">
+            <h3>Chatbots de Atendimento</h3>
+            <p>
+              Automatize o atendimento do seu negócio com um chatbot eficiente
+              no WhatsApp. Fluxo inteligente e respostas 24h por dia.
+            </p>
+          </a>
+        </div>
+      </section>
+
+      <section class="portfolio" id="portfolio">
+        <h2>Veja meus trabalhos</h2>
+        <div class="galeria">
+          <div class="item">
+            <a
+              href="https://www.webjs.com.br/fisioacao"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="img/fisioacao.webp" alt="Imagem do site Fisio Ação" />
+            </a>
+            <p>Site Clínica Fisio Ação</p>
+          </div>
+          <div class="item">
+            <a
+              href="https://www.webjs.com.br/convite"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="img/convitedavi.webp" alt="Imagem do convite digital" />
+            </a>
+            <p>Convite digital de Davi Barbosa</p>
+          </div>
+        </div>
+      </section>
+      <!--DEPOIMENTO-->
+      <section class="depoimentos" id="depoimentos">
+        <h2>O que dizem os clientes</h2>
+        <div class="depoimentos-container">
+          <div class="depoimento">
+            <img
+              src="img/janycleia.jpg"
+              alt="Foto de janycleia"
+              class="foto-cliente"
+            />
+            <div>
               <p>
-                Estudante de Ciência da Computação apaixonado por tecnologia e
-                desenvolvimento web. Busco constantemente aprender novas
-                tecnologias e criar soluções inovadoras.
+                "Quando recebi o convite digital da festa do meu filho, fiquei
+                emocionada. O Jônathan fez tudo com tanto carinho e atenção aos
+                detalhes que parecia feito por alguém da família. Foi lindo e
+                muito elogiado!"
               </p>
-              <div class="personal-info">
-                <div class="info-item">
-                  <i class="fas fa-graduation-cap"></i>
-                  <span>Ciência da Computação</span>
-                </div>
-                <div class="info-item">
-                  <i class="fas fa-code"></i>
-                  <span>Desenvolvedor Full Stack</span>
-                </div>
+              <div class="estrelas">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
               </div>
+              <span class="nome-cliente">- Janycleia Barbosa</span>
+            </div>
+          </div>
+          <div class="depoimento">
+            <img
+              src="img/wilyanna.webp"
+              alt="Foto de wilyanna"
+              class="foto-cliente"
+            />
+            <div>
+              <p>
+                "Profissionalismo, leveza e criatividade. O trabalho que o
+                Jônathan fez para minha clínica foi além do esperado!"
+              </p>
+              <div class="estrelas">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="nome-cliente">- Maria wilyanna </span>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="skills" class="skills">
-        <div class="container">
-          <h2 class="section-title">Habilidades</h2>
-          <div class="skills-grid">
-            <div class="skill-card">
-              <i class="fab fa-html5"></i>
-              <h3>HTML5</h3>
-            </div>
-            <div class="skill-card">
-              <i class="fab fa-css3-alt"></i>
-              <h3>CSS3</h3>
-            </div>
-            <div class="skill-card">
-              <i class="fab fa-js"></i>
-              <h3>JavaScript</h3>
-            </div>
-            <div class="skill-card">
-              <i class="fab fa-python"></i>
-              <h3>Python</h3>
-            </div>
+      <section class="sobre" id="sobre">
+        <div class="container-sobre">
+          <div class="foto-perfil">
+            <img
+              src="img/jonathan-santos-web-dev.jpg"
+              alt="Foto de Jônathan Santos, desenvolvedor WebJS"
+            />
+          </div>
+          <div class="texto-sobre">
+            <h2>Quem está por trás da WebJS</h2>
+            <p>
+              Me chamo <strong>Jônathan Santos</strong>, desenvolvedor web
+              apaixonado por transformar ideias em soluções digitais práticas,
+              leves e bonitas. A <strong>WebJS</strong> carrega meu nome e meu
+              compromisso: entregar resultado com seriedade, estética e
+              performance.
+            </p>
+            <p>
+              Trabalho diretamente com você, sem enrolação. Cada projeto é feito
+              à mão, com foco em clareza, identidade e valor real para o seu
+              público.
+            </p>
+            <p>📍 Atendendo de Maceió para todo o Brasil.</p>
+          </div>
+        </div>
+      </section>
+      <section id="pacotes" class="secao-pacotes">
+        <h2 class="titulo-pacotes">Escolha seu Pacote</h2>
+        <div class="container-pacotes">
+          <!-- Pacote 1 - Cliente que quer só um site simples -->
+          <div class="pacote">
+            <h3>Presença Online</h3>
+            <ul>
+              <li>1 página única (landing page)</li>
+              <li>Design responsivo</li>
+              <li>Botão direto para WhatsApp</li>
+              <li>Domínio e hospedagem por conta do cliente</li>
+            </ul>
+            <span class="preco">R$<strong>297,00</strong></span>
+            <a
+              href="https://wa.me/5582987353564?text=Olá!%20Tenho%20interesse%20no%20pacote%20Presença%20Online.%20Meu%20nome%20é%3A%20"
+              class="btn-pacote"
+              target="_blank"
+              >Quero esse</a
+            >
+          </div>
+
+          <!-- Pacote 2 - Cliente que quer um site completo e paga por atualizações avulsas -->
+          <div class="pacote destaque">
+            <h3>Profissional Local ⭐<br /><small>(Mais vendido)</small></h3>
+            <ul>
+              <li>Site com até 5 páginas</li>
+              <li>SEO local básico (Google Meu Negócio)</li>
+              <li>Integração WhatsApp e Google Maps</li>
+              <li>Suporte opcional sob demanda</li>
+            </ul>
+            <span class="preco">R$<strong>897,00</strong></span>
+            <a
+              href="https://wa.me/5582987353564?text=Olá!%20Tenho%20interesse%20no%20pacote%20Profissional%20Local.%20Meu%20nome%20é%3A%20"
+              class="btn-pacote"
+              target="_blank"
+              >Quero esse</a
+            >
+          </div>
+
+          <!-- Pacote 3 - Cliente que quer estrutura completa e suporte avulso 
+          <div class="pacote">
+            <h3>Avançado com Liberdade</h3>
+            <ul>
+              <li>Site com blog e painel de controle</li>
+              <li>Hospedagem e domínio inclusos</li>
+              <li>Treinamento básico para editar</li>
+              <li>Atualizações pagas por demanda</li>
+            </ul>
+            <span class="preco">R$<strong>1.297,00</strong></span>
+            <a
+              href="https://wa.me/5582987353564?text=Olá!%20Tenho%20interesse%20no%20pacote%20Avançado%20com%20Liberdade.%20Meu%20nome%20é%3A%20"
+              class="btn-pacote"
+              target="_blank"
+              >Quero esse</a
+            >
+          </div> -->
+
+          <!-- Pacote 3 "Avançado com Liberdade" -->
+          <div class="pacote">
+            <h3>
+              Avançado com Liberdade
+              <span style="color: orange">(em breve)</span>
+            </h3>
+            <ul>
+              <li>Site com blog e painel de controle</li>
+              <li>Hospedagem e domínio inclusos</li>
+              <li>Treinamento básico para editar</li>
+              <li>Atualizações pagas por demanda</li>
+            </ul>
+            <p style="font-size: 0.9em; color: gray">
+              <em
+                >Estamos preparando este pacote para ser lançado em breve. Fique
+                à vontade para conhecer os outros disponíveis!</em
+              >
+            </p>
+          </div>
+          
+          <!-- TODO: Ativar este pacote quando eu dominar blog dinâmico + painel de controle -->
+          <!-- Pacote 4 - Serviço com mensalidade (recorrência) 
+           
+          <div class="pacote">
+            <h3>
+              WebJS Total 🔄<br /><small>(Tudo incluso + Suporte mensal)</small>
+            </h3>
+            <ul>
+              <li>Site completo + blog + painel</li>
+              <li>Hospedagem + domínio + manutenção</li>
+              <li>Atualizações ilimitadas</li>
+              <li>Relatórios de desempenho mensais</li>
+            </ul>
+            <span class="preco">R$<strong>129/mês</strong></span>
+            <a
+              href="https://wa.me/5582987353564?text=Olá!%20Tenho%20interesse%20no%20plano%20WebJS%20Total%20com%20mensalidade.%20Meu%20nome%20é%3A%20"
+              class="btn-pacote"
+              target="_blank"
+              >Assinar agora</a
+            >
+          </div> -->
+          
+          <div class="pacote">
+            <h3>Chatbot Inteligente</h3>
+            <ul>
+              <li>Fluxo de atendimento personalizado</li>
+              <li>Integração com WhatsApp Business</li>
+              <li>Script para dúvidas frequentes</li>
+              <li>Atendimento 24h automático</li>
+            </ul>
+            <span class="preco">R$<strong>197,00</strong></span>
+            <a
+              href="https://wa.me/5582987353564?text=Olá!%20Tenho%20interesse%20no%20Chatbot%20Inteligente.%20Meu%20nome%20é%3A%20"
+              class="btn-pacote"
+              target="_blank"
+              >Quero esse</a
+            >
+          </div>
+          <div class="pacote">
+            <h3>Convite Digital com RSVP</h3>
+            <ul>
+              <li>Layout personalizado (tema infantil, casamento etc.)</li>
+              <li>RSVP com confirmação automática</li>
+              <li>Galeria de fotos e localização</li>
+              <li>Contagem regressiva do evento</li>
+            </ul>
+            <span class="preco">R$<strong>147,00</strong></span>
+            <a
+              href="https://wa.me/5582987353564?text=Olá!%20Tenho%20interesse%20no%20Convite%20Digital.%20Meu%20nome%20é%3A%20"
+              class="btn-pacote"
+              target="_blank"
+              >Quero esse</a
+            >
           </div>
         </div>
       </section>
 
-      <section id="projects" class="projects">
-        <div class="container">
-          <h2 class="section-title">Projetos</h2>
-          <div class="projects-grid">
-            <article class="project-card">
-              <div class="project-content">
-                <h3>Novo projeto aqui</h3>
-                <p>
-                  Descrição do novo projeto
-                </p>
-                <div class="project-links">
-                  <a
-                    href="https://github.com/JonathanSantosJS/Portfolio-como-desenvolvedor-web/tree/main/"
-                    class="btn-project"
-                    ><i class="fab fa-github"></i> GitHub</a
-                  >
-                  <a href="#" class="btn-project"
-                    ><i class="fas fa-external-link-alt"></i> Demo</a
-                  >
-                </div>
-              </div>
-            </article>
-            <!-- Adicione mais projetos aqui -->
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="contact">
-        <div class="container">
-          <h2 class="section-title">Contato</h2>
-          <div class="contact-content">
-            <div class="contact-info">
-              <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:jonathan.santos-ti@hotmail.com"
-                  >jonathan.santos-ti@hotmail.com</a
-                >
-              </div>
-              <div class="contact-item">
-                <i class="fab fa-linkedin"></i>
-                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-              </div>
-              <div class="contact-item">
-                <i class="fab fa-github"></i>
-                <a href="https://github.com/JonathanSantosJS" target="_blank"
-                  >GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
+      <section class="contato-direto" id="contato">
+        <h2>Vamos conversar?</h2>
+        <p>Me chama no WhatsApp e tire suas dúvidas.</p>
+        <a href="https://wa.me/5582987353564" class="botao">Fazer Orçamento</a>
       </section>
     </main>
-
+    <aside>
+      <section class="contato">
+        <nav aria-label="Contatos">
+          <ul>
+            <li>
+              <a
+                href="mailto:jonathan.santos-ti@hotmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-envelope"></i> jonathan.santos-ti@hotmail.com
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+      <button id="btnTopo" title="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+      <section>
+        <a
+          href="https://wa.me/5582987353564"
+          class="whatsapp-float"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </section>
+      <section class="barra"></section>
+      <section class="redeSocial">
+        <nav aria-label="Rede Social">
+          <ul>
+            <li>
+              <a
+                href="https://github.com/JonathanSantosJS/Portfolio-como-desenvolvedor-web"
+                target="_blank"
+                ><i class="fab fa-github"></i> GitHub</a
+              >
+            </li>
+            <li>
+              <a href="https://instagram.com" target="_blank"
+                ><i class="fab fa-instagram"></i> Instagram</a
+              >
+            </li>
+            <li>
+              <a href="https://facebook.com" target="_blank"
+                ><i class="fab fa-facebook"></i> Facebook</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </aside>
     <footer>
-      <div class="container">
-        <p>© 2024 Jônathan Barbosa. Todos os direitos reservados.</p>
-      </div>
+      <p>&copy; 2025 Jônathan Santos | Todos os direitos garantidos</p>
     </footer>
+    <script src="js/animacao.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "WebJS",
+        "url": "https://webjs.com.br",
+        "description": "Desenvolvedor web em Maceió especializado em sites para pequenos negócios. Sites otimizados para Google, bonitos e funcionais para atrair clientes locais.",
+        "inLanguage": "pt-BR",
+        "author": {
+          "@type": "Person",
+          "name": "Jônathan Santos",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Maceió",
+            "addressCountry": "BR"
+          }
+        }
+      }
+    </script>
   </body>
 </html>
