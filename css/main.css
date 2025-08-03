@@ -440,7 +440,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
     padding: 2rem 1rem;
 }
 
@@ -812,6 +812,10 @@ footer{
   .botao {
     padding: 0.8rem 1.5rem;
     font-size: 0.95rem;
+  }
+  .whatsapp-float{
+     width: 3.7rem
+     
   }
 
   /* Aside / Campo de Contato */
