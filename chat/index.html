@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Helena - Chat Profissional</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="chat-wrapper">
+      <div class="chat-container">
+        <header class="chat-header">
+          <div class="header-content">
+            <div class="profile-photo">
+              <img src="img/morena.webp" alt="Helena" loading="eager" />
+            </div>
+            <div class="profile-info">
+              <h1>Helena</h1>
+              <div class="status-container">
+                <span class="status-indicator"></span>
+                <p class="online-status" id="status-text">Online agora</p>
+              </div>
+            </div>
+            <button class="menu-btn" aria-label="Menu">
+              <i class="fas fa-ellipsis-v"></i>
+            </button>
+          </div>
+        </header>
+
+        <main class="chat-messages" id="chat-messages">
+          <!-- Mensagens serão inseridas aqui via JavaScript -->
+        </main>
+
+        <footer class="chat-footer">
+          <div class="typing-indicator hidden" id="typing-indicator">
+            <span>Digitando</span>
+            <div class="typing-dots">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+
+          <div class="options-container" id="options-container">
+            <!-- Opções serão inseridas aqui via JavaScript -->
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Painel oculto de métricas -->
+    <div
+      id="analytics-panel"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        overflow: auto;
+        padding: 20px;
+        z-index: 9999;
+      "
+    >
+      <h2>Relatório de Métricas - Helena</h2>
+      <pre id="metrics-output" style="white-space: pre-wrap"></pre>
+      <button
+        onclick="document.getElementById('analytics-panel').style.display='none'"
+      >
+        Fechar
+      </button>
+    </div>
+
+    <script src="js/script.js" defer></script>
+    <script>
+      // Atalho para abrir o painel com "barra/painel"
+      window.addEventListener('keydown', function (e) {
+        if (e.key === '/' && !document.activeElement.closest('input')) {
+          document.getElementById('analytics-panel').style.display = 'block';
+          const metrics = localStorage.getItem('eloise_metrics') || '{}';
+          document.getElementById('metrics-output').textContent =
+            JSON.stringify(JSON.parse(metrics), null, 2);
+        }
+      });
+    </script>
+  </body>
+</html>
