@@ -1,90 +1,72 @@
 /* 🎨 Paleta 60-30-10 */
 :root {
-  --azul-marinho: #001f3f; /* 60% */
-  --branco: #ffffff;       /* 30% */
-  --laranja: #ff7a00;      /* 10% */
+  --azul-marinho: #001f3f;
+  --branco: #ffffff;
+  --laranja: #ff7a00;
   --cinza-claro: #f1f1f1;
-  --cinza-escuro: #666666;
 }
 
-/* 🧱 Layout geral MOBILE FIRST */
-body {
+/* 🧱 RESET COMPLETO PARA TELA CHEIA MOBILE */
+* {
   margin: 0;
   padding: 0;
-  background-color: var(--azul-marinho);
-  font-family: "Segoe UI", Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  height: 100vh;
-  overflow: hidden;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* 📱 Container do chat - MOBILE: TELA CHEIA */
-#chat-container {
+html, body {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: var(--azul-marinho);
+}
+
+/* 📱 CONTAINER PRINCIPAL - TELA CHEIA FIXA */
+#chat-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: var(--branco);
-  border-radius: 0;
-  box-shadow: none;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  position: relative;
+  z-index: 1000;
 }
 
-/* 🔝 Logo WEBJS no canto superior direito */
-#webjs-logo {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  z-index: 100;
-}
-
-#webjs-logo span {
-  background: var(--laranja);
-  color: var(--branco);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(255, 122, 0, 0.3);
-}
-
-/* 🔝 Cabeçalho estilo WhatsApp */
+/* 🔝 CABEÇALHO - OTIMIZADO MOBILE */
 #header {
   display: flex;
   align-items: center;
-  padding: 15px 20px;
+  padding: 20px 15px;
   background-color: var(--azul-marinho);
   color: var(--branco);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  position: relative;
-  min-height: 60px;
+  min-height: 80px;
+  flex-shrink: 0;
 }
 
 #perfil {
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 12px;
+  margin-right: 15px;
 }
 
 #status h3 {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
 }
 
 #status-perfil {
-  font-size: 14px;
+  font-size: 16px;
   opacity: 0.8;
 }
 
-/* 💬 Mensagens - ÁREA PRINCIPAL */
+/* 💬 ÁREA DE MENSAGENS - FLEXÍVEL */
 #messages {
   flex: 1;
   padding: 15px 10px;
@@ -93,48 +75,48 @@ body {
   display: flex;
   flex-direction: column;
   -webkit-overflow-scrolling: touch;
+  min-height: 0;
 }
 
-/* Bolhas da Helena - MAIORES PARA MOBILE */
-.mensagem.helena {
+/* 🗨️ BOLHAS DE MENSAGEM - GRANDES PARA MOBILE */
+.mensagem {
   display: flex;
+  margin: 12px 0;
+}
+
+.mensagem.helena {
   justify-content: flex-start;
-  margin: 10px 0;
+}
+
+.mensagem.usuario {
+  justify-content: flex-end;
+}
+
+.mensagem .conteudo {
+  max-width: 85%;
+  padding: 16px 18px;
+  border-radius: 20px;
+  font-size: 18px;
+  line-height: 1.5;
+  word-wrap: break-word;
 }
 
 .mensagem.helena .conteudo {
   background: var(--branco);
   color: var(--azul-marinho);
-  border-radius: 18px 18px 18px 6px;
-  padding: 12px 16px;
+  border-radius: 20px 20px 20px 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  max-width: 85%;
-  font-size: 16px;
-  line-height: 1.5;
-  word-wrap: break-word;
-}
-
-/* Bolhas do usuário - MAIORES PARA MOBILE */
-.mensagem.usuario {
-  display: flex;
-  justify-content: flex-end;
-  margin: 10px 0;
 }
 
 .mensagem.usuario .conteudo {
   background: var(--laranja);
   color: var(--branco);
-  border-radius: 18px 18px 6px 18px;
-  padding: 12px 16px;
-  max-width: 85%;
-  font-size: 16px;
-  line-height: 1.5;
-  word-wrap: break-word;
+  border-radius: 20px 20px 8px 20px;
 }
 
-/* 🧾 Card do produto - OTIMIZADO PARA MOBILE */
+/* 🖼️ CARD DE PRODUTO */
 .card {
-  margin-top: 10px;
+  margin-top: 12px;
   border-radius: 16px;
   overflow: hidden;
   background: var(--branco);
@@ -143,43 +125,41 @@ body {
 
 .card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
   display: block;
-  cursor: pointer;
-  transition: transform 0.2s ease;
 }
 
 .card img:active {
   transform: scale(0.98);
 }
 
-/* 🔘 BOTÕES - MOBILE: EMPILHADOS (DEFAULT) */
+/* 🔘 BOTÕES - GRANDES E TOCÁVEIS */
 #buttons {
-  padding: 15px 10px;
+  padding: 20px 15px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   background: var(--branco);
   border-top: 1px solid #e0e0e0;
+  flex-shrink: 0;
 }
 
 .botao {
   background: var(--laranja);
   color: var(--branco);
   border: none;
-  padding: 16px 20px;
-  border-radius: 12px;
+  padding: 20px;
+  border-radius: 14px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
   width: 100%;
-  font-size: 16px;
-  min-height: 54px;
+  font-size: 18px;
+  min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s ease;
 }
 
 .botao:active {
@@ -187,17 +167,17 @@ body {
   transform: scale(0.98);
 }
 
-/* 🔄 Animação de digitando */
+/* 🔄 ANIMAÇÃO DIGITANDO */
 .digitando {
   display: flex;
-  gap: 6px;
-  padding: 12px 16px;
+  gap: 8px;
+  padding: 16px 18px;
   align-items: center;
 }
 
 .digitando span {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: var(--azul-marinho);
   opacity: 0.6;
@@ -213,96 +193,90 @@ body {
 }
 
 @keyframes piscar {
-  0%, 80%, 100% {
-    opacity: 0.3;
-    transform: scale(0.8);
+  0%, 80%, 100% { 
+    opacity: 0.3; 
+    transform: scale(0.8); 
   }
-  40% {
-    opacity: 1;
-    transform: scale(1);
+  40% { 
+    opacity: 1; 
+    transform: scale(1); 
   }
 }
 
-/* ⚠️ Aviso de afiliação */
+/* 🏷️ LOGO WEBJS */
+#webjs-logo {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  z-index: 100;
+}
+
+#webjs-logo span {
+  background: var(--laranja);
+  color: var(--branco);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(255, 122, 0, 0.3);
+}
+
+/* ⚠️ AVISO AFILIAÇÃO */
 #aviso-afiliacao {
   background: #fff3cd;
   color: #856404;
-  padding: 12px 15px;
-  font-size: 12px;
+  padding: 15px;
+  font-size: 14px;
   text-align: center;
   border-top: 1px solid #ffeaa7;
-  border-bottom: 1px solid #ffeaa7;
   line-height: 1.4;
+  flex-shrink: 0;
 }
 
-/* 👣 Rodapé */
+/* 👣 RODAPÉ */
 #rodape {
   background: var(--azul-marinho);
   color: var(--branco);
-  padding: 12px 15px;
-  font-size: 12px;
+  padding: 15px;
+  font-size: 14px;
   text-align: center;
-  opacity: 0.9;
+  flex-shrink: 0;
 }
 
 /* ========================================= */
-/* 🖥️ DESKTOP/TABLET - TELA ABERTA E BOTÕES LADO A LADO */
+/* 🖥️ DESKTOP - SÓ APLICA ACIMA DE 768px */
 /* ========================================= */
-
 @media (min-width: 768px) {
-  body {
-    padding: 20px;
-    height: auto;
-    min-height: 100vh;
+  html, body {
+    overflow: auto;
     background: linear-gradient(135deg, var(--azul-marinho) 0%, #003366 100%);
   }
   
-  /* DESKTOP: Container maior, centralizado, com sombra */
   #chat-container {
+    position: relative;
     width: 90%;
     max-width: 1200px;
     height: 90vh;
     max-height: 800px;
+    margin: 5vh auto;
     border-radius: 24px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    border: 1px solid rgba(255,255,255,0.1);
   }
   
-  /* DESKTOP: Cabeçalho maior */
   #header {
     padding: 20px 30px;
     min-height: 70px;
+    border-radius: 24px 24px 0 0;
   }
   
-  #perfil {
-    width: 55px;
-    height: 55px;
-  }
-  
-  #status h3 {
-    font-size: 20px;
-  }
-  
-  #status-perfil {
-    font-size: 15px;
-  }
-  
-  /* DESKTOP: Área de mensagens maior */
-  #messages {
-    padding: 20px 15px;
-  }
-  
-  /* DESKTOP: Bolhas um pouco menores para aproveitar espaço */
-  .mensagem.helena .conteudo,
-  .mensagem.usuario .conteudo {
+  .mensagem .conteudo {
     max-width: 70%;
-    font-size: 15px;
+    font-size: 16px;
     padding: 14px 18px;
   }
   
-  /* DESKTOP: Cards maiores */
   .card img {
-    height: 200px;
+    height: 180px;
   }
   
   .card img:hover {
@@ -311,20 +285,18 @@ body {
   
   /* 🎯 DESKTOP: BOTÕES LADO A LADO */
   #buttons {
-    padding: 20px 15px;
-    display: flex;
-    flex-direction: row; /* MUDANÇA PRINCIPAL: LADO A LADO */
-    gap: 12px;
-    flex-wrap: wrap; /* Permite quebra de linha se muitos botões */
+    flex-direction: row;
+    gap: 15px;
+    padding: 20px;
   }
   
   .botao {
-    width: auto; /* MUDANÇA: Largura automática */
-    flex: 1; /* MUDANÇA: Botões se expandem igualmente */
-    min-width: 120px; /* Largura mínima para não ficar muito pequeno */
-    padding: 14px 20px;
-    font-size: 15px;
-    min-height: 50px;
+    width: auto;
+    flex: 1;
+    min-width: 140px;
+    padding: 16px 20px;
+    font-size: 16px;
+    min-height: 55px;
   }
   
   .botao:hover {
@@ -333,17 +305,15 @@ body {
     box-shadow: 0 4px 12px rgba(255, 122, 0, 0.3);
   }
   
-  /* DESKTOP: Logo maior */
   #webjs-logo span {
-    padding: 8px 16px;
     font-size: 15px;
+    padding: 6px 14px;
   }
 }
 
 /* ========================================= */
-/* 🖥️ DESKTOP GRANDE - OTIMIZAÇÕES ADICIONAIS */
+/* 🖥️ DESKTOP GRANDE */
 /* ========================================= */
-
 @media (min-width: 1024px) {
   #chat-container {
     width: 85%;
@@ -352,7 +322,6 @@ body {
     max-height: 900px;
   }
   
-  /* DESKTOP GRANDE: Botões com mais espaço */
   #buttons {
     gap: 15px;
     padding: 25px 20px;
@@ -364,13 +333,10 @@ body {
     min-height: 55px;
   }
   
-  /* DESKTOP GRANDE: Mensagens com largura menor */
-  .mensagem.helena .conteudo,
-  .mensagem.usuario .conteudo {
+  .mensagem .conteudo {
     max-width: 65%;
   }
   
-  /* DESKTOP GRANDE: Cards mais altos */
   .card img {
     height: 220px;
   }
@@ -383,38 +349,38 @@ body {
 /* Celulares muito pequenos */
 @media (max-width: 360px) {
   #header {
-    padding: 12px 15px;
+    padding: 15px 12px;
+    min-height: 70px;
   }
   
   #perfil {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
   }
   
-  .mensagem.helena .conteudo,
-  .mensagem.usuario .conteudo {
-    font-size: 15px;
-    padding: 10px 14px;
+  .mensagem .conteudo {
+    font-size: 16px;
+    padding: 14px 16px;
     max-width: 90%;
   }
   
   .botao {
-    padding: 14px 16px;
-    font-size: 15px;
-    min-height: 50px;
+    padding: 18px;
+    font-size: 16px;
+    min-height: 55px;
   }
 }
 
-/* 🍎 AJUSTES PARA iPHONE NOTCH */
+/* 🍎 AJUSTES SAFE AREA PARA IPHONE */
 @supports (padding: max(0px)) {
   #header {
-    padding-top: max(15px, env(safe-area-inset-top));
-    padding-left: max(20px, env(safe-area-inset-left));
-    padding-right: max(20px, env(safe-area-inset-right));
+    padding-top: max(20px, env(safe-area-inset-top));
+    padding-left: max(15px, env(safe-area-inset-left));
+    padding-right: max(15px, env(safe-area-inset-right));
   }
   
   #buttons {
-    padding-bottom: max(15px, env(safe-area-inset-bottom));
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
   }
 }
 
@@ -427,12 +393,5 @@ body {
   .digitando span {
     animation: none;
     opacity: 0.6;
-  }
-}
-
-/* 📲 PREVENIR ZOOM EM INPUTS NO iOS */
-@media (max-width: 768px) {
-  input, select, textarea {
-    font-size: 16px;
   }
 }
