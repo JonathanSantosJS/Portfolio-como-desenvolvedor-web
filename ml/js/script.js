@@ -16,7 +16,7 @@ function setStatusDigitando() {
 
 // 🟦 Mensagens iniciais
 const data = [
-  { texto: "Oi! Eu sou a Helena 👋, especialista em promoções e tecnologia!" },
+  { texto: "Oi! Eu sou a Helena 👋, uma IA especialista em promoções e tecnologia!" },
   { texto: "Todo dia eu trago ofertas incríveis do Mercado Livre 💸" },
   { texto: "Ah, e também posso te ajudar a colocar o seu negócio na internet com a WebJS! 👩‍💻" },
   { texto: "Mas primeiro, que tal ver as ofertas que separei pra você hoje? 😍" }
@@ -218,4 +218,5 @@ async function mostrarMensagemFinal() {
 window.onload = function() {
   setStatusOnline();
   mostrarMensagens();
+
 };
