@@ -1,0 +1,417 @@
+/* 🎨 Paleta 60-30-10 */
+:root {
+  --azul-marinho: #001f3f; /* 60% */
+  --branco: #ffffff;       /* 30% */
+  --laranja: #ff7a00;      /* 10% */
+  --cinza-claro: #f1f1f1;
+}
+
+/* 🧱 Layout geral */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--azul-marinho);
+  font-family: "Segoe UI", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#chat-container {
+  width: 400px;
+  height: 90vh;
+  background: var(--branco);
+  border-radius: 16px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 🔝 Cabeçalho estilo WhatsApp */
+#header {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: var(--azul-marinho);
+  color: var(--branco);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#perfil {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+#status h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+#status-perfil {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* 💬 Mensagens */
+#messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background: var(--cinza-claro);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bolhas da Helena */
+.mensagem.helena {
+  display: flex;
+  justify-content: flex-start;
+  margin: 8px 0;
+}
+
+.mensagem.helena .conteudo {
+  background: var(--branco);
+  color: var(--azul-marinho);
+  border-radius: 12px 12px 12px 4px;
+  padding: 10px 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 80%;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* Bolhas do usuário */
+.mensagem.usuario {
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px 0;
+}
+
+.mensagem.usuario .conteudo {
+  background: var(--laranja);
+  color: var(--branco);
+  border-radius: 12px 12px 4px 12px;
+  padding: 10px 14px;
+  max-width: 80%;
+  font-size: 15px;
+}
+
+/* 🧾 Card do produto */
+.card {
+  margin-top: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--branco);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card img:hover {
+  transform: scale(1.02);
+}
+
+/* 🔘 Botões */
+#buttons {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: var(--branco);
+  border-top: 1px solid #ddd;
+}
+
+.botao {
+  background: var(--laranja);
+  color: var(--branco);
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+  font-size: 14px;
+}
+
+.botao:hover {
+  background: #ff9433;
+}
+
+/* 🔄 Animação de digitando */
+.digitando {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px;
+}
+
+.digitando span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--azul-marinho);
+  opacity: 0.6;
+  animation: piscar 1.4s infinite both;
+}
+
+.digitando span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.digitando span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes piscar {
+  0%, 80%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 🎨 Paleta 60-30-10 */
+:root {
+  --azul-marinho: #001f3f; /* 60% */
+  --branco: #ffffff;       /* 30% */
+  --laranja: #ff7a00;      /* 10% */
+  --cinza-claro: #f1f1f1;
+  --cinza-escuro: #666666;
+}
+
+/* 🧱 Layout geral */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--azul-marinho);
+  font-family: "Segoe UI", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#chat-container {
+  width: 400px;
+  height: 90vh;
+  background: var(--branco);
+  border-radius: 16px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 🔝 Logo WEBJS no canto superior direito */
+#webjs-logo {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  z-index: 10;
+}
+
+#webjs-logo span {
+  background: var(--laranja);
+  color: var(--branco);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(255, 122, 0, 0.3);
+}
+
+/* 🔝 Cabeçalho estilo WhatsApp */
+#header {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: var(--azul-marinho);
+  color: var(--branco);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+#perfil {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+#status h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+#status-perfil {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* 💬 Mensagens */
+#messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background: var(--cinza-claro);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bolhas da Helena */
+.mensagem.helena {
+  display: flex;
+  justify-content: flex-start;
+  margin: 8px 0;
+}
+
+.mensagem.helena .conteudo {
+  background: var(--branco);
+  color: var(--azul-marinho);
+  border-radius: 12px 12px 12px 4px;
+  padding: 10px 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 80%;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* Bolhas do usuário */
+.mensagem.usuario {
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px 0;
+}
+
+.mensagem.usuario .conteudo {
+  background: var(--laranja);
+  color: var(--branco);
+  border-radius: 12px 12px 4px 12px;
+  padding: 10px 14px;
+  max-width: 80%;
+  font-size: 15px;
+}
+
+/* 🧾 Card do produto */
+.card {
+  margin-top: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--branco);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card img:hover {
+  transform: scale(1.02);
+}
+
+/* 🔘 Botões */
+#buttons {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: var(--branco);
+  border-top: 1px solid #ddd;
+}
+
+.botao {
+  background: var(--laranja);
+  color: var(--branco);
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+  font-size: 14px;
+}
+
+.botao:hover {
+  background: #ff9433;
+}
+
+/* 🔄 Animação de digitando */
+.digitando {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px;
+}
+
+.digitando span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--azul-marinho);
+  opacity: 0.6;
+  animation: piscar 1.4s infinite both;
+}
+
+.digitando span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.digitando span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes piscar {
+  0%, 80%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ⚠️ Aviso de afiliação */
+#aviso-afiliacao {
+  background: #fff3cd;
+  color: #856404;
+  padding: 8px 12px;
+  font-size: 11px;
+  text-align: center;
+  border-top: 1px solid #ffeaa7;
+  border-bottom: 1px solid #ffeaa7;
+}
+
+/* 👣 Rodapé */
+#rodape {
+  background: var(--azul-marinho);
+  color: var(--branco);
+  padding: 10px 15px;
+  font-size: 11px;
+  text-align: center;
+  opacity: 0.9;
+}
