@@ -4,198 +4,10 @@
   --branco: #ffffff;       /* 30% */
   --laranja: #ff7a00;      /* 10% */
   --cinza-claro: #f1f1f1;
-}
-
-/* 🧱 Layout geral */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--azul-marinho);
-  font-family: "Segoe UI", Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-#chat-container {
-  width: 400px;
-  height: 90vh;
-  background: var(--branco);
-  border-radius: 16px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  position: relative;
-}
-
-/* 🔝 Cabeçalho estilo WhatsApp */
-#header {
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
-  background-color: var(--azul-marinho);
-  color: var(--branco);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-#perfil {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 10px;
-}
-
-#status h3 {
-  margin: 0;
-  font-size: 16px;
-}
-
-#status-perfil {
-  font-size: 13px;
-  opacity: 0.8;
-}
-
-/* 💬 Mensagens */
-#messages {
-  flex: 1;
-  padding: 10px;
-  overflow-y: auto;
-  background: var(--cinza-claro);
-  display: flex;
-  flex-direction: column;
-}
-
-/* Bolhas da Helena */
-.mensagem.helena {
-  display: flex;
-  justify-content: flex-start;
-  margin: 8px 0;
-}
-
-.mensagem.helena .conteudo {
-  background: var(--branco);
-  color: var(--azul-marinho);
-  border-radius: 12px 12px 12px 4px;
-  padding: 10px 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  max-width: 80%;
-  font-size: 15px;
-  line-height: 1.4;
-}
-
-/* Bolhas do usuário */
-.mensagem.usuario {
-  display: flex;
-  justify-content: flex-end;
-  margin: 8px 0;
-}
-
-.mensagem.usuario .conteudo {
-  background: var(--laranja);
-  color: var(--branco);
-  border-radius: 12px 12px 4px 12px;
-  padding: 10px 14px;
-  max-width: 80%;
-  font-size: 15px;
-}
-
-/* 🧾 Card do produto */
-.card {
-  margin-top: 8px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: var(--branco);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
-
-.card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  display: block;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.card img:hover {
-  transform: scale(1.02);
-}
-
-/* 🔘 Botões */
-#buttons {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  background: var(--branco);
-  border-top: 1px solid #ddd;
-}
-
-.botao {
-  background: var(--laranja);
-  color: var(--branco);
-  border: none;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-  width: 100%;
-  font-size: 14px;
-}
-
-.botao:hover {
-  background: #ff9433;
-}
-
-/* 🔄 Animação de digitando */
-.digitando {
-  display: flex;
-  gap: 4px;
-  padding: 8px 12px;
-}
-
-.digitando span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--azul-marinho);
-  opacity: 0.6;
-  animation: piscar 1.4s infinite both;
-}
-
-.digitando span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.digitando span:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-@keyframes piscar {
-  0%, 80%, 100% {
-    opacity: 0.3;
-    transform: scale(0.8);
-  }
-  40% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* 🎨 Paleta 60-30-10 */
-:root {
-  --azul-marinho: #001f3f; /* 60% */
-  --branco: #ffffff;       /* 30% */
-  --laranja: #ff7a00;      /* 10% */
-  --cinza-claro: #f1f1f1;
   --cinza-escuro: #666666;
 }
 
-/* 🧱 Layout geral */
+/* 🧱 Layout geral MOBILE FIRST */
 body {
   margin: 0;
   padding: 0;
@@ -204,15 +16,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
   height: 100vh;
+  overflow: hidden;
 }
 
+/* 📱 Container do chat - MOBILE: TELA CHEIA */
 #chat-container {
-  width: 400px;
-  height: 90vh;
+  width: 100%;
+  height: 100vh;
   background: var(--branco);
-  border-radius: 16px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+  border-radius: 0;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -222,17 +37,17 @@ body {
 /* 🔝 Logo WEBJS no canto superior direito */
 #webjs-logo {
   position: absolute;
-  top: 12px;
+  top: 15px;
   right: 15px;
-  z-index: 10;
+  z-index: 100;
 }
 
 #webjs-logo span {
   background: var(--laranja);
   color: var(--branco);
-  padding: 4px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   letter-spacing: 0.5px;
   box-shadow: 0 2px 8px rgba(255, 122, 0, 0.3);
@@ -242,134 +57,147 @@ body {
 #header {
   display: flex;
   align-items: center;
-  padding: 10px 15px;
+  padding: 15px 20px;
   background-color: var(--azul-marinho);
   color: var(--branco);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   position: relative;
+  min-height: 60px;
 }
 
 #perfil {
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 10px;
+  margin-right: 12px;
 }
 
 #status h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 #status-perfil {
-  font-size: 13px;
+  font-size: 14px;
   opacity: 0.8;
 }
 
-/* 💬 Mensagens */
+/* 💬 Mensagens - ÁREA PRINCIPAL */
 #messages {
   flex: 1;
-  padding: 10px;
+  padding: 15px 10px;
   overflow-y: auto;
   background: var(--cinza-claro);
   display: flex;
   flex-direction: column;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Bolhas da Helena */
+/* Bolhas da Helena - MAIORES PARA MOBILE */
 .mensagem.helena {
   display: flex;
   justify-content: flex-start;
-  margin: 8px 0;
+  margin: 10px 0;
 }
 
 .mensagem.helena .conteudo {
   background: var(--branco);
   color: var(--azul-marinho);
-  border-radius: 12px 12px 12px 4px;
-  padding: 10px 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  max-width: 80%;
-  font-size: 15px;
-  line-height: 1.4;
+  border-radius: 18px 18px 18px 6px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 85%;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
 }
 
-/* Bolhas do usuário */
+/* Bolhas do usuário - MAIORES PARA MOBILE */
 .mensagem.usuario {
   display: flex;
   justify-content: flex-end;
-  margin: 8px 0;
+  margin: 10px 0;
 }
 
 .mensagem.usuario .conteudo {
   background: var(--laranja);
   color: var(--branco);
-  border-radius: 12px 12px 4px 12px;
-  padding: 10px 14px;
-  max-width: 80%;
-  font-size: 15px;
+  border-radius: 18px 18px 6px 18px;
+  padding: 12px 16px;
+  max-width: 85%;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
 }
 
-/* 🧾 Card do produto */
+/* 🧾 Card do produto - OTIMIZADO PARA MOBILE */
 .card {
-  margin-top: 8px;
-  border-radius: 12px;
+  margin-top: 10px;
+  border-radius: 16px;
   overflow: hidden;
   background: var(--branco);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .card img {
   width: 100%;
-  height: 150px;
+  height: 180px;
   object-fit: cover;
   display: block;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
 
-.card img:hover {
-  transform: scale(1.02);
+.card img:active {
+  transform: scale(0.98);
 }
 
-/* 🔘 Botões */
+/* 🔘 BOTÕES - MOBILE: EMPILHADOS (DEFAULT) */
 #buttons {
-  padding: 10px;
+  padding: 15px 10px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
   background: var(--branco);
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #e0e0e0;
 }
 
 .botao {
   background: var(--laranja);
   color: var(--branco);
   border: none;
-  padding: 12px 16px;
-  border-radius: 8px;
+  padding: 16px 20px;
+  border-radius: 12px;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.botao:hover {
-  background: #ff9433;
+.botao:active {
+  background: #e56a00;
+  transform: scale(0.98);
 }
 
 /* 🔄 Animação de digitando */
 .digitando {
   display: flex;
-  gap: 4px;
-  padding: 8px 12px;
+  gap: 6px;
+  padding: 12px 16px;
+  align-items: center;
 }
 
 .digitando span {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--azul-marinho);
   opacity: 0.6;
@@ -399,19 +227,212 @@ body {
 #aviso-afiliacao {
   background: #fff3cd;
   color: #856404;
-  padding: 8px 12px;
-  font-size: 11px;
+  padding: 12px 15px;
+  font-size: 12px;
   text-align: center;
   border-top: 1px solid #ffeaa7;
   border-bottom: 1px solid #ffeaa7;
+  line-height: 1.4;
 }
 
 /* 👣 Rodapé */
 #rodape {
   background: var(--azul-marinho);
   color: var(--branco);
-  padding: 10px 15px;
-  font-size: 11px;
+  padding: 12px 15px;
+  font-size: 12px;
   text-align: center;
   opacity: 0.9;
+}
+
+/* ========================================= */
+/* 🖥️ DESKTOP/TABLET - TELA ABERTA E BOTÕES LADO A LADO */
+/* ========================================= */
+
+@media (min-width: 768px) {
+  body {
+    padding: 20px;
+    height: auto;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--azul-marinho) 0%, #003366 100%);
+  }
+  
+  /* DESKTOP: Container maior, centralizado, com sombra */
+  #chat-container {
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    max-height: 800px;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  /* DESKTOP: Cabeçalho maior */
+  #header {
+    padding: 20px 30px;
+    min-height: 70px;
+  }
+  
+  #perfil {
+    width: 55px;
+    height: 55px;
+  }
+  
+  #status h3 {
+    font-size: 20px;
+  }
+  
+  #status-perfil {
+    font-size: 15px;
+  }
+  
+  /* DESKTOP: Área de mensagens maior */
+  #messages {
+    padding: 20px 15px;
+  }
+  
+  /* DESKTOP: Bolhas um pouco menores para aproveitar espaço */
+  .mensagem.helena .conteudo,
+  .mensagem.usuario .conteudo {
+    max-width: 70%;
+    font-size: 15px;
+    padding: 14px 18px;
+  }
+  
+  /* DESKTOP: Cards maiores */
+  .card img {
+    height: 200px;
+  }
+  
+  .card img:hover {
+    transform: scale(1.03);
+  }
+  
+  /* 🎯 DESKTOP: BOTÕES LADO A LADO */
+  #buttons {
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: row; /* MUDANÇA PRINCIPAL: LADO A LADO */
+    gap: 12px;
+    flex-wrap: wrap; /* Permite quebra de linha se muitos botões */
+  }
+  
+  .botao {
+    width: auto; /* MUDANÇA: Largura automática */
+    flex: 1; /* MUDANÇA: Botões se expandem igualmente */
+    min-width: 120px; /* Largura mínima para não ficar muito pequeno */
+    padding: 14px 20px;
+    font-size: 15px;
+    min-height: 50px;
+  }
+  
+  .botao:hover {
+    background: #ff9433;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 122, 0, 0.3);
+  }
+  
+  /* DESKTOP: Logo maior */
+  #webjs-logo span {
+    padding: 8px 16px;
+    font-size: 15px;
+  }
+}
+
+/* ========================================= */
+/* 🖥️ DESKTOP GRANDE - OTIMIZAÇÕES ADICIONAIS */
+/* ========================================= */
+
+@media (min-width: 1024px) {
+  #chat-container {
+    width: 85%;
+    max-width: 1400px;
+    height: 85vh;
+    max-height: 900px;
+  }
+  
+  /* DESKTOP GRANDE: Botões com mais espaço */
+  #buttons {
+    gap: 15px;
+    padding: 25px 20px;
+  }
+  
+  .botao {
+    padding: 16px 24px;
+    font-size: 16px;
+    min-height: 55px;
+  }
+  
+  /* DESKTOP GRANDE: Mensagens com largura menor */
+  .mensagem.helena .conteudo,
+  .mensagem.usuario .conteudo {
+    max-width: 65%;
+  }
+  
+  /* DESKTOP GRANDE: Cards mais altos */
+  .card img {
+    height: 220px;
+  }
+}
+
+/* ========================================= */
+/* 📱 AJUSTES ESPECÍFICOS PARA CELULAR */
+/* ========================================= */
+
+/* Celulares muito pequenos */
+@media (max-width: 360px) {
+  #header {
+    padding: 12px 15px;
+  }
+  
+  #perfil {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .mensagem.helena .conteudo,
+  .mensagem.usuario .conteudo {
+    font-size: 15px;
+    padding: 10px 14px;
+    max-width: 90%;
+  }
+  
+  .botao {
+    padding: 14px 16px;
+    font-size: 15px;
+    min-height: 50px;
+  }
+}
+
+/* 🍎 AJUSTES PARA iPHONE NOTCH */
+@supports (padding: max(0px)) {
+  #header {
+    padding-top: max(15px, env(safe-area-inset-top));
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+  
+  #buttons {
+    padding-bottom: max(15px, env(safe-area-inset-bottom));
+  }
+}
+
+/* 🎯 MELHORIAS DE ACESSIBILIDADE */
+@media (prefers-reduced-motion: reduce) {
+  .botao, .card img {
+    transition: none;
+  }
+  
+  .digitando span {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+/* 📲 PREVENIR ZOOM EM INPUTS NO iOS */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px;
+  }
 }
