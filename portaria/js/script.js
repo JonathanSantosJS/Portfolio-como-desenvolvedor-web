@@ -10,7 +10,7 @@ const numerosMoradores = {
   "Jonathan Barbosa": "5582987353564",
   "Emanuelle cristine": "5582993743566",
   "Lucas Paulo": "5582988123444",
-  "Janycleia Barbosa": "5582999918026",
+  "Janycléa Barbosa": "5582999918026",
   "Jonas Barbosa": "5582987315598",
   "Maria Gorete": "5582988469214"
 };
@@ -138,3 +138,4 @@ window.onload = function() {
   setStatusOnline();
   iniciarFluxo();
 };
+
