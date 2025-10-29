@@ -7,7 +7,7 @@ const moradores = ["Jonathan Barbosa", "Emanuelle cristine", "Lucas Paulo", "Jan
 
 // Mapear números para cada morador
 const numerosMoradores = {
-  "Jonathan Barbosa": "5582987353564",
+  "Jônathan Barbosa": "5582987353564",
   "Emanuelle cristine": "5582993743566",
   "Lucas Paulo": "5582988123444",
   "Janycléa Barbosa": "5582999918026",
@@ -138,4 +138,5 @@ window.onload = function() {
   setStatusOnline();
   iniciarFluxo();
 };
+
 
