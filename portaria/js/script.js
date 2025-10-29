@@ -3,12 +3,12 @@ const chat = document.getElementById("messages");
 const statusPerfil = document.getElementById("status-perfil");
 
 // Lista de moradores
-const moradores = ["Jonathan Barbosa", "Emanuelle cristine", "Lucas Paulo", "Janycleia Barbosa", "Jonas Barbosa", "Maria Gorete"];
+const moradores = ["Jônathan Barbosa", "Emanuelle Cristine", "Lucas Paulo", "Janycléa Barbosa", "Jonas Barbosa", "Maria Gorete"];
 
 // Mapear números para cada morador
 const numerosMoradores = {
   "Jônathan Barbosa": "5582987353564",
-  "Emanuelle cristine": "5582993743566",
+  "Emanuelle Cristine": "5582993743566",
   "Lucas Paulo": "5582988123444",
   "Janycléa Barbosa": "5582999918026",
   "Jonas Barbosa": "5582987315598",
@@ -138,5 +138,6 @@ window.onload = function() {
   setStatusOnline();
   iniciarFluxo();
 };
+
 
 
