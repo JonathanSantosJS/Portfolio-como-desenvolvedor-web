@@ -76,7 +76,7 @@ function buildWhatsAppMessage(formData) {
  * @param {string} message - Mensagem a ser enviada
  */
 function openWhatsAppWithMessage(message) {
-  const phoneNumber = '5582987353564'; // Número formatado sem caracteres especiais
+  const phoneNumber = '9999999999'; // Número formatado sem caracteres especiais
   const encodedMessage = encodeURIComponent(message);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
@@ -106,3 +106,4 @@ function showErrorFeedback(errorMessage) {
 // document.getElementById('telefone').addEventListener('input', function(e) {
 //   e.target.value = formatPhoneNumber(e.target.value);
 // });
+
