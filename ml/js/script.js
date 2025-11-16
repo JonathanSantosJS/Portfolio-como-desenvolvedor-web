@@ -1,222 +1,388 @@
-const chat = document.getElementById("messages");
-const buttonsDiv = document.getElementById("buttons");
-const statusPerfil = document.getElementById("status-perfil");
-
-function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function setStatusOnline() {
-  if (statusPerfil) statusPerfil.innerText = "online";
-}
-
-function setStatusDigitando() {
-  if (statusPerfil) statusPerfil.innerText = "digitando...";
-}
-
-// 🟦 Mensagens iniciais
-const data = [
-  { texto: "Oi! Eu sou a Helena 👋, uma IA especialista em promoções e tecnologia!" },
-  { texto: "Todo dia eu trago ofertas incríveis do Mercado Livre 💸" },
-  { texto: "Ah, e também posso te ajudar a colocar o seu negócio na internet com a WebJS! 👩‍💻" },
-  { texto: "Mas primeiro, que tal ver as ofertas que separei pra você hoje? 😍" }
-];
-
-// 🛒 Produtos
-const produtos = [
-  {
-    id: 1,
-    introducao: `🚀 Tenho uma super oferta hoje! O **Notebook Lenovo IdeaPad Slim 3** acabou de entrar na minha lista de promoções do Mercado Livre 💻
-
-É um modelo com **Intel Core i5 (13ª geração)**, **8GB RAM DDR5** e **SSD 512GB** — ideal pra estudar, trabalhar ou jogar leve! 🎯`,
-    imagem_url: "https://http2.mlstatic.com/D_NQ_NP_2X_929328-MLA96110026015_102025-F.webp",
-    produto_url: "https://mercadolivre.com/sec/1QxwiNZ",
-    saibaMais: [
-      `✨ Tela Full HD IPS de 15.3" com cores vivas e som Dolby Audio — imagem e som de cinema! 🍿`,
-      `💡 Windows 11 original, garantia de 12 meses e suporte Lenovo oficial.`,
-      `📈 Avaliações ⭐⭐⭐⭐⭐ — "Desempenho ótimo pra trabalho e estudo, leve e rápido!"`,
-      `⚡ Estoque limitado! Aproveite o frete full e receba em até 2 dias úteis 🚚💨`
-    ]
-  },
-  {
-  id: 2,
-  introducao: `🔥 **OFERTA DO DIA!** A **Fritadeira Elétrica Air Fryer Quad Fry Elgin** — **CAMPEÃ DE VENDAS** com avaliação estelar de **4.9⭐ de 5** baseada em **859 opiniões reais**! 
-
-Esta beleza em **preto moderno** com **4,2L de capacidade** e **1400W de potência** vai revolucionar sua cozinha! Prepare batatas crocantes, frangos dourados e salgados perfeitos com até **80% menos óleo**! 🥑`,
-  imagem_url: "https://http2.mlstatic.com/D_NQ_NP_2X_603078-MLA96143989197_102025-F.webp", 
-  produto_url: "https://mercadolivre.com/sec/2ZmRMXG",
-  saibaMais: [
-    `🎯 **Tecnologia Air Circuit 360º** - Distribuição uniforme do ar quente para resultados perfeitos em todos os alimentos!`,
-    `⏱️ **Programação inteligente** - Timer de 60min com desligamento automático e controle preciso de temperatura (80°C-200°C)!`,
-    `💎 **Design premium** - Superfície antiaderente black resist, grelha removível e base antiderrapante para máxima segurança!`,
-    `👨‍👩‍👧‍👦 **Capacidade familiar** - 4,2L perfeitos para preparar refeições completas para toda a família!`,
-    `⭐ **DEPOIMENTOS REAIS** — "Amei! Frita tudo rapidinho e fica perfeito!" • "Compacta e potente, ideal pra quem mora sozinho!" • "Design lindo e muito eficiente!"`,
-    `🛡️ **COMPRA GARANTIDA** - 30 dias de garantia Mercado Livre + 12 meses do fabricante!`,
-    `⚡ **ÚLTIMAS UNIDADES!** Frete grátis para todo Brasil — entrega rápida em até 48h! Não perca essa promoção! 🏃‍♂️💨`
-  ]
-},
-  {
-  id: 3,
-  introducao: `👑 **KIT DOS SONHOS!** Apresento o **Kit Desmaia Cabelo Forever Liss** — o **tratamento completo** que vai transformar seus cabelos em **sedas brilhantes**! 💖
-
-Com **avaliação estelar** e **668 depoimentos comprovados**, este kit **VEGANO E CRUELTY-FREE** é a solução definitiva para cabelos **ressecados, com frizz e volume excessivo**! Prepare-se para **resultados de salão** na sua casa! 🏡✨`,
-  imagem_url: "https://http2.mlstatic.com/D_NQ_NP_2X_737648-MLA95666828940_102025-F.webp",
-  produto_url: "https://mercadolivre.com/sec/1UtH6xS",
-  saibaMais: [
-    `✨ **COMPOSIÇÃO PREMIUM** - Queratina Brasileira, Colágeno, D'Pantenol e Sinergia de Aminoácidos para reconstrução total dos fios!`,
-    `🛡️ **PROTEÇÃO TÉRMICA AVANÇADA** - Sérum com proteção até 200°C contra secador e chapinha! Cabelos lindos e protegidos!`,
-    `🎁 **KIT SUPER COMPLETO** - 5 produtos profissionais + BRINDE ESCOVA exclusiva! Tudo que você precisa em um só lugar!`,
-    `🌱 **SAUDÁVEL E CONSCIENTE** - Formulação vegana, sem sulfatos, parabenos, glúten e livre de crueldade animal!`,
-    `💬 **DEPOIMENTOS REAIS** — "Cabelo macio e super hidratado!" • "Consistência da máscara é maravilhosa!" • "Cheiro incrível que dura o dia todo!"`,
-    `⚡ **RESULTADO IMEDIATO** - Redução do volume e controle do frizz desde a primeira lavagem! Efeito "desmaia" comprovado!`,
-    `🎯 **PROMOÇÃO ESPECIAL** - Kit completo com **FRETE GRÁTIS**! Estoque limitado para entrega imediata! 🏃‍♀️💨`
-  ]
-}
-];
-
-// 🧡 Mensagem final
-const mensagemFinal = {
-  texto: "Ah, antes de encerrar 😄 Se você tem um pequeno negócio e quer ter um site profissional, posso te ajudar com isso!",
-  extra: [
-    "Eu faço parte da equipe da WebJS 🌐 — especializada em criar sites incríveis para empreendedores.",
-    "Quer que eu te mostre como seu site pode ficar?"
-  ],
-  botoes: [
-    { texto: "Falar com a Helena sobre meu site", link: "https://webjs.com.br/chat" },
-    { texto: "Visitar WebJS.com.br", link: "https://webjs.com.br" }
-  ]
-};
-
-let produtoIndex = 0;
-
-// 📦 Criar mensagem
-function criarMensagem(texto, tipo = "helena", imagem_url = "", produto_url = "") {
-  const div = document.createElement("div");
-  div.classList.add("mensagem", tipo);
-
-  let conteudo = tipo === "helena"
-    ? `<div class="conteudo">
-        <div class="texto"><p>${texto.replace(/\n/g, '<br>')}</p></div>
-        ${imagem_url ? `<div class="card"><img src="${imagem_url}" alt="Produto" loading="lazy" onclick="window.open('${produto_url}','_blank')"></div>` : ""}
-      </div>`
-    : `<div class="conteudo usuario"><p>${texto}</p></div>`;
-
-  div.innerHTML = conteudo;
-  chat.appendChild(div);
-  chat.scrollTop = chat.scrollHeight;
-}
-
-// ✍️ Mostrar digitando
-async function mostrarDigitando(ms) {
-  setStatusDigitando();
-  
-  // Criar elemento de digitando
-  const typingDiv = document.createElement("div");
-  typingDiv.classList.add("mensagem", "helena");
-  typingDiv.innerHTML = `
-    <div class="conteudo">
-      <div class="digitando">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  `;
-  typingDiv.id = "current-typing";
-  chat.appendChild(typingDiv);
-  chat.scrollTop = chat.scrollHeight;
-  
-  await delay(ms);
-  
-  // Remover o digitando
-  const currentTyping = document.getElementById("current-typing");
-  if (currentTyping) {
-    currentTyping.remove();
+// Premium Slider with 3D Stack Effect
+class StackSlider3D {
+  constructor() {
+    this.slides = Array.from(document.querySelectorAll('.slide'));
+    this.thumbs = Array.from(document.querySelectorAll('.thumb'));
+    this.prevBtn = document.querySelector('.slider-nav.prev');
+    this.nextBtn = document.querySelector('.slider-nav.next');
+    
+    this.currentIndex = 0;
+    this.totalSlides = this.slides.length;
+    this.autoPlayInterval = null;
+    this.isAnimating = false;
+    
+    this.init();
   }
-  setStatusOnline();
-}
 
-// 🔘 Criar botão empilhado
-function criarBotao(texto, onClick) {
-  const btn = document.createElement("button");
-  btn.classList.add("botao");
-  btn.innerText = texto;
-  btn.onclick = onClick;
-  return btn;
-}
+  init() {
+    if (this.totalSlides === 0) {
+      console.warn('No slides found');
+      return;
+    }
 
-// 🚀 Mostrar mensagens iniciais
-async function mostrarMensagens() {
-  for (let msg of data) {
-    await mostrarDigitando(Math.min(msg.texto.length * 40, 2000));
-    criarMensagem(msg.texto, "helena");
+    console.log(`🎄 Initializing 3D slider with ${this.totalSlides} slides`);
+
+    // Initialize slides positions
+    this.updateSlidesPosition();
+
+    // Add thumb click handlers
+    this.thumbs.forEach(thumb => {
+      thumb.addEventListener('click', (e) => {
+        const index = Number(thumb.dataset.index);
+        console.log(`Thumb clicked: ${index}`);
+        this.goToSlide(index);
+      });
+    });
+
+    // Navigation buttons
+    if (this.prevBtn) {
+      this.prevBtn.addEventListener('click', () => this.prev());
+    }
+    
+    if (this.nextBtn) {
+      this.nextBtn.addEventListener('click', () => this.next());
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') this.next();
+      if (e.key === 'ArrowLeft') this.prev();
+    });
+
+    // Auto-play
+    this.startAutoPlay();
+    
+    // Pause on hover
+    const gallery = document.getElementById('gallery');
+    if (gallery) {
+      gallery.addEventListener('mouseenter', () => this.stopAutoPlay());
+      gallery.addEventListener('mouseleave', () => this.startAutoPlay());
+    }
+
+    // Touch/swipe support
+    this.addTouchSupport();
+
+    // Preload images
+    this.preloadImages();
+
+    console.log('✅ 3D Stack Slider initialized successfully!');
   }
-  mostrarProduto(0);
+
+  preloadImages() {
+    console.log('🖼️ Preloading images...');
+    this.slides.forEach(slide => {
+      const img = slide.querySelector('img');
+      if (img) {
+        const src = img.src;
+        const preloadImg = new Image();
+        preloadImg.src = src;
+        preloadImg.onload = () => {
+          console.log(`✅ Image loaded: ${src}`);
+          img.style.opacity = '1';
+        };
+        preloadImg.onerror = () => {
+          console.error(`❌ Failed to load image: ${src}`);
+        };
+      }
+    });
+  }
+
+  updateSlidesPosition() {
+    this.slides.forEach((slide, index) => {
+      // Remove all classes first
+      slide.classList.remove('prev', 'active', 'next', 'hidden');
+      
+      // Calculate position based on current index
+      const position = (index - this.currentIndex + this.totalSlides) % this.totalSlides;
+      
+      // Apply classes based on position
+      if (position === 0) {
+        // Current active slide
+        slide.classList.add('active');
+      } else if (position === 1) {
+        // Next slide
+        slide.classList.add('next');
+      } else if (position === this.totalSlides - 1) {
+        // Previous slide
+        slide.classList.add('prev');
+      } else {
+        // Hidden slides
+        slide.classList.add('hidden');
+      }
+    });
+
+    // Update thumbs
+    this.thumbs.forEach(thumb => {
+      const thumbIndex = Number(thumb.dataset.index);
+      thumb.classList.toggle('active', thumbIndex === this.currentIndex);
+    });
+  }
+
+  goToSlide(index) {
+    if (this.isAnimating || index === this.currentIndex) return;
+    
+    this.isAnimating = true;
+    this.currentIndex = (index + this.totalSlides) % this.totalSlides;
+    
+    console.log(`🔄 Going to slide: ${this.currentIndex}`);
+    
+    this.updateSlidesPosition();
+    
+    // Reset animation flag after transition
+    setTimeout(() => {
+      this.isAnimating = false;
+    }, 600);
+  }
+
+  next() {
+    this.goToSlide(this.currentIndex + 1);
+  }
+
+  prev() {
+    this.goToSlide(this.currentIndex - 1);
+  }
+
+  startAutoPlay() {
+    this.stopAutoPlay();
+    this.autoPlayInterval = setInterval(() => {
+      this.next();
+    }, 4000); // 4 seconds
+  }
+
+  stopAutoPlay() {
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval);
+      this.autoPlayInterval = null;
+    }
+  }
+
+  addTouchSupport() {
+    let startX = 0;
+    let currentX = 0;
+    let isSwiping = false;
+
+    const slidesContainer = document.querySelector('.slides-container');
+    if (!slidesContainer) return;
+
+    slidesContainer.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isSwiping = true;
+      this.stopAutoPlay();
+    });
+
+    slidesContainer.addEventListener('touchmove', (e) => {
+      if (!isSwiping) return;
+      currentX = e.touches[0].clientX;
+      const diff = startX - currentX;
+      
+      // Apply temporary transform during swipe
+      if (Math.abs(diff) > 10) {
+        const transform = (diff / slidesContainer.offsetWidth) * 30;
+        this.slides.forEach(slide => {
+          slide.style.transform = `translateX(${transform}%) scale(0.95)`;
+        });
+      }
+    });
+
+    slidesContainer.addEventListener('touchend', (e) => {
+      if (!isSwiping) return;
+      
+      const diff = startX - currentX;
+      const swipeThreshold = 50;
+      
+      if (diff > swipeThreshold) {
+        this.next();
+      } else if (diff < -swipeThreshold) {
+        this.prev();
+      } else {
+        // Return to current position
+        this.updateSlidesPosition();
+      }
+      
+      // Reset temporary transforms
+      this.slides.forEach(slide => {
+        slide.style.transform = '';
+      });
+      
+      isSwiping = false;
+      this.startAutoPlay();
+    });
+  }
 }
 
-// 🛍️ Mostrar produto
-async function mostrarProduto(index) {
-  if (index >= produtos.length) {
-    buttonsDiv.innerHTML = "";
-    await delay(800);
-    mostrarMensagemFinal();
+// Enhanced smooth scroll with offset
+function smoothScrollTo(target, offset = 0) {
+  const element = document.querySelector(target);
+  if (!element) {
+    console.warn(`Element ${target} not found`);
     return;
   }
 
-  produtoIndex = index;
-  const prod = produtos[index];
-  await mostrarDigitando(Math.min(prod.introducao.length * 40, 2000));
-  criarMensagem(prod.introducao, "helena", prod.imagem_url, prod.produto_url);
+  const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+  const offsetPosition = elementPosition - offset;
 
-  // Botões
-  buttonsDiv.innerHTML = "";
-  buttonsDiv.appendChild(criarBotao("Saiba mais", () => dialogoProduto(prod)));
-  buttonsDiv.appendChild(criarBotao("Ver produto no Mercado Livre", () => window.open(prod.produto_url, "_blank")));
-  
-  if (index < produtos.length - 1) {
-    buttonsDiv.appendChild(criarBotao("Próximo produto", () => mostrarProduto(produtoIndex + 1)));
-  } else {
-    buttonsDiv.appendChild(criarBotao("Ver ofertas finais", () => mostrarProduto(produtoIndex + 1)));
-  }
-}
-
-// 💬 Fluxo "Saiba mais"
-async function dialogoProduto(produto) {
-  buttonsDiv.innerHTML = "";
-  for (let msg of produto.saibaMais) {
-    await mostrarDigitando(Math.min(msg.length * 35, 1800));
-    criarMensagem(msg, "helena");
-  }
-
-  // Botões finais do produto
-  buttonsDiv.appendChild(criarBotao("Ver produto no Mercado Livre", () => window.open(produto.produto_url, "_blank")));
-  
-  if (produtoIndex < produtos.length - 1) {
-    buttonsDiv.appendChild(criarBotao("Próximo produto", () => mostrarProduto(produtoIndex + 1)));
-  } else {
-    buttonsDiv.appendChild(criarBotao("Ver ofertas finais", () => mostrarProduto(produtoIndex + 1)));
-  }
-}
-
-// 🌐 Mensagem final
-async function mostrarMensagemFinal() {
-  await mostrarDigitando(1200);
-  criarMensagem(mensagemFinal.texto, "helena");
-
-  for (const linha of mensagemFinal.extra) {
-    await mostrarDigitando(Math.min(linha.length * 40, 1500));
-    criarMensagem(linha, "helena");
-  }
-
-  buttonsDiv.innerHTML = "";
-  mensagemFinal.botoes.forEach(btnInfo => {
-    buttonsDiv.appendChild(criarBotao(btnInfo.texto, () => window.open(btnInfo.link, "_blank")));
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: 'smooth'
   });
 }
 
-// 🎯 Inicializar chatbot
-window.onload = function() {
-  setStatusOnline();
-  mostrarMensagens();
+// Image error handling
+function handleImageErrors() {
+  const images = document.querySelectorAll('img');
+  images.forEach(img => {
+    img.addEventListener('error', function() {
+      console.error(`❌ Image failed to load: ${this.src}`);
+      this.style.opacity = '0.5';
+      this.alt = 'Imagem não carregada - ' + this.alt;
+    });
+    
+    img.addEventListener('load', function() {
+      console.log(`✅ Image loaded successfully: ${this.src}`);
+      this.style.opacity = '1';
+    });
+  });
+}
 
-};
+// Função para adicionar efeito de neve natalino - CORRIGIDA
+function addSnowEffect() {
+  // Verificar se já existe o container de neve
+  if (document.querySelector('.snow-container')) {
+    console.log('❄️ Snow effect already exists');
+    return;
+  }
+
+  const snowContainer = document.createElement('div');
+  snowContainer.className = 'snow-container';
+  document.body.appendChild(snowContainer);
+
+  console.log('❄️ Creating snow effect...');
+
+  // Criar flocos de neve
+  const snowflakeCount = 60;
+  for (let i = 0; i < snowflakeCount; i++) {
+    createSnowflake(snowContainer, i);
+  }
+
+  console.log(`✅ Created ${snowflakeCount} snowflakes`);
+}
+
+function createSnowflake(container, index) {
+  const snowflake = document.createElement('div');
+  snowflake.className = 'snowflake';
+  
+  // Tamanhos aleatórios para variedade
+  const sizes = ['3px', '4px', '5px', '6px'];
+  const size = sizes[Math.floor(Math.random() * sizes.length)];
+  
+  // Opacidades aleatórias
+  const opacities = ['0.3', '0.5', '0.7', '0.9'];
+  const opacity = opacities[Math.floor(Math.random() * opacities.length)];
+  
+  // Configurações de animação
+  const duration = 8 + Math.random() * 8; // 8-16 segundos
+  const delay = Math.random() * 5;
+  const endX = (Math.random() - 0.5) * 150; // Movimento lateral final
+  const swayAmount = 10 + Math.random() * 20;
+
+  snowflake.style.cssText = `
+    position: absolute;
+    top: -30px;
+    width: ${size};
+    height: ${size};
+    background: white;
+    border-radius: 50%;
+    opacity: ${opacity};
+    filter: blur(0.5px);
+    pointer-events: none;
+    left: ${Math.random() * 100}vw;
+    --end-x: ${endX}px;
+    --sway-amount: ${swayAmount}px;
+    animation: 
+      snowFall ${duration}s linear ${delay}s infinite,
+      snowSway ${duration * 0.8}s ease-in-out ${delay}s infinite;
+  `;
+
+  // Adicionar classe especial para alguns flocos (brilho dourado)
+  if (index % 5 === 0) {
+    snowflake.classList.add('special');
+  }
+
+  container.appendChild(snowflake);
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('🎄 DOM loaded, initializing premium 3D jewelry store...');
+
+  // Adicionar efeito de neve primeiro
+  addSnowEffect();
+
+  // Initialize 3D stack slider
+  const slider = new StackSlider3D();
+
+  // Enhanced smooth scroll for "Saiba mais" button
+  const learnBtn = document.getElementById('learnBtn');
+  if (learnBtn) {
+    learnBtn.addEventListener('click', () => {
+      smoothScrollTo('.product-hero', 80);
+    });
+  }
+
+  // Handle image errors
+  handleImageErrors();
+
+  // Add loading animation to elements as they come into view
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements for scroll animations
+  document.querySelectorAll('.testimonial, .imagebox, .textbox').forEach(el => {
+    el.style.opacity = '0';
+    observer.observe(el);
+  });
+
+  // Enhanced button hover effects
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-2px)';
+    });
+    
+    btn.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+    });
+  });
+
+  // Add subtle parallax effect to hero background
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const heroBg = document.querySelector('.hero-bg');
+    if (heroBg) {
+      heroBg.style.transform = `scale(1.02) translateY(${scrolled * 0.4}px)`;
+    }
+  });
+
+  console.log('✅ Premium 3D Jewelry Store with Snow Effect initialized successfully!');
+});
+
+// Add some festive console message
+console.log(`%c✨ Colar Nossa Senhora - Edição Natalina 3D ✨`, 
+  'color: #D4AF37; font-size: 18px; font-weight: bold; text-shadow: 1px 1px 2px #000;'
+);
+console.log(`%cEfeito 3D Stack + Neve Natalina Ativado! 🎄❄️`, 
+  'color: #1f7a3a; font-size: 14px; font-style: italic;'
+);
+console.log(`%cQue a magia do Natal ilumine seu dia! 🌟`, 
+  'color: #b92b2b; font-size: 12px;'
+);
