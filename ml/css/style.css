@@ -774,167 +774,185 @@ body {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
-@media (min-width: 768px) {
-  .hero-inner {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 80px;
-  }
-  
-  .hero-media {
-    justify-self: center;
-  }
-  
-  .hero-copy {
-    text-align: left;
-    padding-left: 0;
-  }
-  
-  .social-inner {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: stretch;
-  }
-  
-  .testimonial {
-    flex: 1;
-  }
-  
-  .grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-  }
-}
-
+/* ===== CORREÇÕES PARA MOBILE ===== */
 @media (max-width: 767px) {
   .hero {
-    padding: 40px 0 60px;
-    min-height: 0;
+    padding: 80px 0 40px; /* Mais padding no topo para o título */
+    min-height: auto;
     height: auto;
+    position: relative;
+    z-index: 2;
   }
-  
+
   .hero-inner {
-    gap: 40px;
-    padding: 0 20px;
+    gap: 30px;
+    padding: 0 16px;
+    position: relative;
+    z-index: 3;
   }
-  
+
+  .hero-copy {
+    position: relative;
+    z-index: 4; /* Z-index mais alto que a galeria */
+    margin-bottom: 20px;
+  }
+
   .headline {
     font-size: 2rem;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 5;
   }
-  
+
   .gallery {
-    height: 400px;
+    height: 300px; /* Altura reduzida para mobile */
+    margin-top: 20px;
+    position: relative;
+    z-index: 2; /* Z-index menor que o título */
   }
-  
+
+  .slides-container {
+    margin-top: 0;
+  }
+
   .slide {
-    padding: 20px;
+    padding: 15px;
+    border-radius: 16px;
   }
-  
+
+  .slide img {
+    max-width: 250px;
+    max-height: 250px;
+  }
+
+  /* Ajuste das setas de navegação */
   .slider-nav {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .slider-nav.prev {
+    left: -15px;
+  }
+
+  .slider-nav.next {
+    right: -15px;
+  }
+
+  /* Ajuste das miniaturas */
+  .thumbs {
+    padding: 20px 10px 10px;
+    margin-top: 10px;
+    gap: 8px;
+  }
+
+  .thumb {
     width: 50px;
     height: 50px;
-    font-size: 20px;
   }
-  
-  .slider-nav.prev {
-    left: -20px;
+
+  /* Ajuste do card de especificações */
+  .card.specs {
+    margin-top: 16px;
+    padding: 20px;
+    position: relative;
+    z-index: 3;
   }
-  
-  .slider-nav.next {
-    right: -20px;
-  }
-  
-  .thumb {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .btn {
-    width: 100%;
-    justify-content: center;
-  }
-  
+
+  /* Ajuste dos botões CTA */
   .cta-row {
+    margin-top: 20px;
+    gap: 12px;
+  }
+
+  .btn {
+    padding: 16px 24px;
+    font-size: 1rem;
+  }
+
+  /* Garantir que a neve não interfira */
+  .snow-container {
+    z-index: 1; /* Abaixo de tudo */
+  }
+
+  /* Ajuste do hero background */
+  .hero-bg {
+    z-index: 1;
+  }
+}
+
+/* ===== CORREÇÕES ADICIONAIS PARA TELAS MUITO PEQUENAS ===== */
+@media (max-width: 480px) {
+  .hero {
+    padding: 60px 0 30px;
+  }
+
+  .headline {
+    font-size: 1.75rem;
+  }
+
+  .gallery {
+    height: 250px;
+  }
+
+  .slide img {
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+  .card.specs {
+    padding: 16px;
+  }
+
+  .thumbs {
+    gap: 6px;
+  }
+
+  .thumb {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* ===== GARANTIR QUE O TÍTULO SEMPRE FIQUE ACIMA ===== */
+.hero-copy {
+  position: relative;
+  z-index: 10; /* Z-index muito alto para garantir sobreposição */
+}
+
+/* ===== AJUSTE NA ORDEM DOS ELEMENTOS NO MOBILE ===== */
+@media (max-width: 767px) {
+  .hero-inner {
+    display: flex;
     flex-direction: column;
   }
-  
-  .badge {
-    flex: 1;
-    min-width: 120px;
-    justify-content: center;
-    text-align: center;
+
+  .hero-copy {
+    order: 1; /* Título primeiro */
   }
 
-  /* Ajustes da neve para mobile */
-  .snowflake {
-    filter: blur(0.3px);
+  .hero-media {
+    order: 2; /* Galeria depois */
   }
 }
 
-/* ===== FALLBACKS E ANIMAÇÕES ===== */
-/* Fallback para navegadores que não suportam backdrop-filter */
-@supports not (backdrop-filter: blur(10px)) {
-  .slide,
-  .slider-nav,
-  .thumb,
-  .card.specs,
-  .testimonial {
-    background: rgba(255, 255, 255, 0.9);
+/* ===== CORREÇÃO ESPECÍFICA PARA OVERLAP ===== */
+@media (max-width: 767px) {
+  .hero-media {
+    margin-top: 0;
+    padding-top: 0;
   }
-  
-  .slide {
-    background: linear-gradient(145deg, 
-      rgba(255, 255, 255, 0.25) 0%, 
-      rgba(255, 255, 255, 0.15) 100%);
-  }
-  
-  .slider-nav,
-  .thumb {
-    background: rgba(255, 255, 255, 0.25);
-  }
-  
-  .card.specs {
-    background: rgba(255, 255, 255, 0.18);
-  }
-  
-  .testimonial {
-    background: rgba(255, 255, 255, 0.15);
-  }
-}
 
-/* Loading animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+  .gallery {
+    transform: none; /* Remove transformações que podem causar overlap */
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .slides-container {
+    transform: none;
   }
-}
-
-.hero-inner > * {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-.hero-media {
-  animation-delay: 0.2s;
-}
-
-.hero-copy {
-  animation-delay: 0.4s;
-}
-
-/* Focus styles for accessibility */
-.btn:focus,
-.thumb:focus,
-.slider-nav:focus {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
 }
