@@ -1,41 +1,112 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>ChatBot Helena</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Colar Nossa Senhora — Edição de Natal</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <div id="chat-container">
-    <div id="webjs-logo">
-      <span>WEBJS</span>
-      <strong style="color: white;">Desenvolvimento web</strong>
-    </div>
+  <main class="page">
 
-    <div id="header">
-      <img src="assets/img/helena.webp" alt="Helena" id="perfil">
-      <div id="status">
-        <h3>Helena</h3>
-        <span id="status-perfil">online</span>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-media">
+          <div class="gallery" id="gallery">
+            <div class="slides-container">
+              <div class="slides" id="slides">
+                <div class="slide"><img src="https://http2.mlstatic.com/D_NQ_NP_2X_765479-MLA95832724577_102025-F.webp" alt="Colar Nossa Senhora - vista frontal"></div>
+                <div class="slide"><img src="https://http2.mlstatic.com/D_NQ_NP_2X_830974-MLA82936206485_032025-F.webp" alt="Pingente detalhado"></div>
+                <div class="slide"><img src="https://http2.mlstatic.com/D_NQ_NP_2X_845958-MLA80132736395_102024-F.webp" alt="Close no banho dourado"></div>
+                <div class="slide"><img src="https://http2.mlstatic.com/D_NQ_NP_2X_971693-MLA82936148183_032025-F.webp" alt="Detalhe do banho dourado"></div>
+              </div>
+              <button class="slider-nav prev">‹</button>
+              <button class="slider-nav next">›</button>
+            </div>
+            <div class="thumbs" id="thumbs">
+              <button class="thumb" data-index="0" aria-label="Ver imagem 1"><img src="https://http2.mlstatic.com/D_NQ_NP_2X_765479-MLA95832724577_102025-F.webp" alt=""></button>
+              <button class="thumb" data-index="1" aria-label="Ver imagem 2"><img src="https://http2.mlstatic.com/D_NQ_NP_2X_830974-MLA82936206485_032025-F.webp" alt=""></button>
+              <button class="thumb" data-index="2" aria-label="Ver imagem 3"><img src="https://http2.mlstatic.com/D_NQ_NP_2X_845958-MLA80132736395_102024-F.webp" alt=""></button>
+              <button class="thumb" data-index="2" aria-label="Ver imagem 3"><img src="https://http2.mlstatic.com/D_NQ_NP_2X_971693-MLA82936148183_032025-F.webp" alt=""></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-copy">
+          <h1 class="headline">Para iluminar seu Natal com beleza, fé e proteção.</h1>
+          <p class="lead">Há momentos do ano que pedem algo especial — e o Natal sempre desperta esse desejo silencioso de se sentir mais bonita, protegida e segura para viver uma nova fase.</p>
+
+          <div class="card specs">
+            <p class="desc">
+              Este colar de <strong>Nossa Senhora Aparecida</strong>, feito em <strong>100% Moeda Antiga</strong> com acabamento de joalheria em banho dourado, une exatamente aquilo que o coração procura nesta época: beleza, delicadeza e uma presença espiritual que acompanha, cuida e abençoa.
+            </p>
+            <p class="desc small">O brilho não é apenas estético — é simbólico. É o toque final no seu look de Natal, o presente perfeito para quem você ama. Acompanha shampoo limpa jóias para manutenção do brilho.</p>
+
+            <div class="cta-row">
+              <!-- Replace #ML_LINK with your Mercado Livre URL later -->
+              <a id="mlLink" class="btn primary" href="https://mercadolivre.com/sec/2twcqD7" target="_blank" rel="noopener">Garantir agora no Mercado Livre</a>
+              <button class="btn ghost" id="learnBtn">Saiba mais</button>
+            </div>
+
+            <div class="badge-row">
+              <span class="badge green">Pronta Entrega</span>
+              <span class="badge red">Edição Natalina</span>
+              <span class="badge gold">Brilho Duradouro</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </header>
 
-    <div id="messages"></div>
+    <!-- PROVA SOCIAL COMPACTA -->
+    <section class="social">
+      <div class="social-inner">
+        <div class="testimonial">
+          <p class="q">"Muito lindo, estou apaixonada — chegou rápido e o brilho é lindo."</p>
+          <p class="who">— Cliente verificada, 4.6 ★ (42 avaliações)</p>
+        </div>
+        <div class="testimonial">
+          <p class="q">"Perfeito para a ceia — combinei com meu vestido vermelho e recebi muitos elogios."</p>
+          <p class="who">— Cliente verificada</p>
+        </div>
+      </div>
+    </section>
 
-    <div id="buttons"></div>
+    <!-- APRESENTAÇÃO DO PRODUTO (DETALHES VISUAIS) -->
+    <section class="product-hero">
+      <div class="container">
+        <div class="grid">
+          <div class="box imagebox">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_2X_765479-MLA95832724577_102025-F.webp" alt="Artesanato exclusivo" />
+          </div>
+          <div class="box textbox">
+            <h2 class="title">Durabilidade eterna. Significado que atravessa gerações.</h2>
+            <p class="lead-sm">Modelo: Cordão Feminino 1,5mm + Pingente N. Senhora.<br>Comprimento 45cm • Pingente 2,5cm • Peso 15g. 100% Moeda Antiga com acabamento joalheria e verniz antialérgico.</p>
 
-    <div id="aviso-afiliacao">
-      💡 Este site é de afiliação com o Mercado Livre e <br> <strong>NÃO É UM CHAT OFICIAL</strong>
-    </div>
+            <ul class="features">
+              <li><strong>Material:</strong> 100% Moeda Antiga — banho dourado</li>
+              <li><strong>Acabamento:</strong> Joalheria premium + verniz antialérgico</li>
+              <li><strong>Acompanha:</strong> Shampoo Limpa Jóias para manter o brilho</li>
+              <li><strong>Pronta entrega</strong> para envio rápido antes do Natal</li>
+            </ul>
 
-    <div id="rodape">
-      © 2025 Jônathan Santos | Todos os direitos garantidos
-    </div>
-  </div>
+            <div class="cta-row tight">
+              <a id="mlLink2" class="btn primary outline" href="https://mercadolivre.com/sec/2twcqD7" target="_blank" rel="noopener">Comprar no Mercado Livre</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <script src="js/script.js"></script>
 </body>
 </html>
-
-
