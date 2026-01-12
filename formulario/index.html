@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Helena • Assistente WEBJS</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --azul-escuro: #0b1f3b;
+  --azul-medio: #1a3a5f;
+  --azul-claro: #2a4a7a;
+  --laranja: #ff8c00;
+  --laranja-claro: #ffa033;
+  --branco: #ffffff;
+  --cinza-claro: #f5f7fa;
+  --cinza-medio: #e1e5eb;
+  --cinza-escuro: #8a94a6;
+  --verde: #28a745;
+  --verde-claro: #34ce57;
+  --sombra: rgba(11, 31, 59, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--azul-escuro);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.chat-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--branco);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho */
+.chat-header {
+  background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+  color: var(--branco);
+  padding: 16px 15px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 3px 10px var(--sombra);
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.chat-header i {
+  color: var(--laranja);
+}
+
+/* Área de mensagens */
+.chat-messages {
+  flex: 1;
+  padding: 16px 12px;
+  overflow-y: auto;
+  background: var(--cinza-claro);
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+
+/* Estilização da barra de rolagem */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: var(--cinza-medio);
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: var(--azul-claro);
+  border-radius: 10px;
+}
+
+/* Mensagens */
+.msg {
+  max-width: 85%;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  font-size: 15px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  position: relative;
+  animation: fadeIn 0.3s ease-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bot {
+  background: var(--branco);
+  border: 1px solid var(--cinza-medio);
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+}
+
+.bot::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  bottom: 0;
+  width: 15px;
+  height: 15px;
+  background: var(--branco);
+  border-bottom: 1px solid var(--cinza-medio);
+  border-left: 1px solid var(--cinza-medio);
+  border-radius: 0 0 0 10px;
+  z-index: -1;
+}
+
+.user {
+  background: linear-gradient(135deg, var(--laranja) 0%, var(--laranja-claro) 100%);
+  color: var(--branco);
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
+
+.user::before {
+  content: "";
+  position: absolute;
+  right: -8px;
+  bottom: 0;
+  width: 15px;
+  height: 15px;
+  background: var(--laranja);
+  border-bottom: 1px solid var(--laranja);
+  border-right: 1px solid var(--laranja);
+  border-radius: 0 0 10px 0;
+  z-index: -1;
+}
+
+/* Botões rápidos */
+.quick-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  margin-top: 5px;
+}
+
+.quick-buttons button {
+  background: var(--branco);
+  border: 2px solid var(--laranja);
+  color: var(--laranja);
+  padding: 10px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(255, 140, 0, 0.1);
+}
+
+.quick-buttons button:hover {
+  background: var(--laranja);
+  color: var(--branco);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 140, 0, 0.2);
+}
+
+.quick-buttons button:active {
+  transform: translateY(0);
+}
+
+/* Área de entrada */
+.chat-input {
+  padding: 12px 15px;
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid var(--cinza-medio);
+  background: var(--branco);
+  align-items: center;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: 25px;
+  border: 2px solid var(--cinza-medio);
+  font-size: 15px;
+  background: var(--cinza-claro);
+  transition: border 0.3s;
+}
+
+.chat-input input:focus {
+  outline: none;
+  border-color: var(--azul-claro);
+  background: var(--branco);
+}
+
+.chat-input input:disabled {
+  background: var(--cinza-medio);
+  color: var(--cinza-escuro);
+}
+
+.chat-input button {
+  background: linear-gradient(135deg, var(--azul-medio) 0%, var(--azul-escuro) 100%);
+  color: var(--branco);
+  border: none;
+  padding: 14px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  min-width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(11, 31, 59, 0.2);
+}
+
+.chat-input button:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--azul-claro) 0%, var(--azul-medio) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(11, 31, 59, 0.3);
+}
+
+.chat-input button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.chat-input button:disabled {
+  background: var(--cinza-escuro);
+  cursor: not-allowed;
+}
+
+/* Botão de dúvida */
+.doubt-btn {
+  background: transparent;
+  border: none;
+  color: var(--azul-claro);
+  cursor: pointer;
+  font-size: 13px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  transition: all 0.2s;
+  align-self: flex-start;
+}
+
+.doubt-btn:hover {
+  background: rgba(42, 74, 122, 0.1);
+}
+
+.doubt-btn i {
+  font-size: 12px;
+}
+
+/* Resposta de dúvida */
+.doubt-answer {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--cinza-medio);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--azul-escuro);
+  line-height: 1.4;
+  animation: slideDown 0.3s ease-out;
+  align-self: flex-start;
+  max-width: 90%;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Indicador de digitação */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: var(--branco);
+  border-radius: 18px;
+  align-self: flex-start;
+  margin-bottom: 16px;
+  border: 1px solid var(--cinza-medio);
+}
+
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  background: var(--azul-claro);
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 2px;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+  0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* Botão do WhatsApp */
+.whatsapp-btn {
+  background: linear-gradient(135deg, var(--verde) 0%, var(--verde-claro) 100%);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 10px rgba(40, 167, 69, 0.3);
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+}
+
+.whatsapp-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsividade adicional */
+@media (max-width: 480px) {
+  .chat-header {
+    padding: 14px 12px;
+    font-size: 16px;
+  }
+  
+  .chat-messages {
+    padding: 14px 10px;
+  }
+  
+  .msg {
+    max-width: 90%;
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  
+  .quick-buttons button {
+    padding: 9px 16px;
+    font-size: 13px;
+  }
+  
+  .chat-input input {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .chat-input button {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+}
+
+/* Indicador de nova mensagem */
+.new-message-indicator {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--laranja);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 5;
+  animation: pulse 2s infinite;
+  display: none;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 140, 0, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(255, 140, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 140, 0, 0); }
+}
+</style>
+</head>
+
+<body>
+<div class="chat-container">
+  <div class="chat-header">
+    <i class="fas fa-robot"></i>
+    <span>Helena • Assistente WEBJS</span>
+  </div>
+
+  <div class="chat-messages" id="chat"></div>
+
+  <div class="new-message-indicator" id="newMessageIndicator">
+    <i class="fas fa-arrow-down"></i> Nova mensagem
+  </div>
+
+  <div class="chat-input">
+    <input type="text" id="input" placeholder="Digite sua resposta..." disabled />
+    <button onclick="sendMessage()" disabled id="sendBtn">
+      <i class="fas fa-paper-plane"></i>
+    </button>
+  </div>
+</div>
+
+<script>
+const chat = document.getElementById("chat");
+const input = document.getElementById("input");
+const sendBtn = document.getElementById("sendBtn");
+const newMessageIndicator = document.getElementById("newMessageIndicator");
+
+let step = 0;
+let started = false;
+let answers = [];
+let userDoubtActive = false;
+let lastScrollPosition = 0;
+
+// Número do WhatsApp - TROQUE AQUI
+const whatsappNumber = "5582987353564";
+
+// Perguntas atualizadas conforme solicitado
+const questions = [
+  "Quais são as principais dúvidas que os clientes costumam fazer antes de agendar um atendimento?",
+  "Quais informações sobre preços e serviços você gostaria que o chatbot passasse automaticamente?",
+  "Quais tipos de atendimento ou especialidades você quer que o chatbot mencione?",
+  "Que tipo de informações sobre horários de atendimento o chatbot deve informar?",
+  "Que perguntas o chatbot deve fazer para entender rapidamente o motivo do contato (exemplo: área do corpo com dor, se já fez tratamento antes etc.)?",
+  "Você quer que o chatbot colete algum dado de contato (nome, telefone, e-mail) antes de encaminhar para a atendente?",
+  "Em que situações o chatbot deve transferir o atendimento imediatamente para a atendente humana?",
+  "Qual o tom da conversa que o chatbot deve ter? (formal, amigável, descontraído, etc.)",
+  "Há alguma pergunta ou situação que você prefere que o chatbot evite, para não causar confusão ou expectativas erradas?",
+  "Que resultado final você espera do chatbot? (ex: reduzir ligações, qualificar clientes, aumentar agendamentos, etc.)"
+];
+
+// Respostas de dúvidas pré-definidas
+const doubtAnswers = {
+  0: "Esta pergunta nos ajuda a identificar quais informações são mais importantes para incluir no chatbot, tornando-o mais útil para seus clientes.",
+  1: "Saber quais informações sobre preços e serviços são mais relevantes ajuda a evitar perguntas repetitivas e agiliza o atendimento.",
+  2: "Listar as especialidades que você oferece permite que o chatbot direcione melhor os clientes e mostre toda a gama de serviços disponíveis.",
+  3: "Informações sobre horários de atendimento ajudam a gerenciar as expectativas dos clientes e evitar frustrações.",
+  4: "Perguntas bem direcionadas ajudam a qualificar o contato desde o início, facilitando o trabalho da equipe de atendimento.",
+  5: "Coletar dados de contato antes da transferência permite que a atendente já tenha informações básicas para um atendimento mais personalizado.",
+  6: "Saber quando transferir para um humano é crucial para não perder clientes que precisam de atendimento mais especializado ou urgente.",
+  7: "Definir o tom da conversa ajuda a manter a identidade da sua marca e criar uma experiência consistente para o cliente.",
+  8: "Saber o que evitar é tão importante quanto saber o que incluir, prevenindo mal-entendidos e expectativas irreais.",
+  9: "Entender seu objetivo principal com o chatbot nos permite priorizar funcionalidades que realmente impactem seus resultados."
+};
+
+// Função para mostrar mensagem do bot
+function botMessage(text) {
+  const div = document.createElement("div");
+  div.className = "msg bot";
+  div.innerText = text;
+  chat.appendChild(div);
+  
+  // Adicionar botão de dúvida para cada pergunta
+  if (started && step < questions.length) {
+    const doubtBtn = document.createElement("button");
+    doubtBtn.className = "doubt-btn";
+    doubtBtn.innerHTML = '<i class="fas fa-question-circle"></i> Entenda melhor esta pergunta';
+    doubtBtn.onclick = () => showDoubtAnswer(step);
+    chat.appendChild(doubtBtn);
+  }
+  
+  updateScroll();
+}
+
+// Função para mostrar mensagem do usuário
+function userMessage(text) {
+  const div = document.createElement("div");
+  div.className = "msg user";
+  div.innerText = text;
+  chat.appendChild(div);
+  updateScroll();
+}
+
+// Função para mostrar resposta da dúvida
+function showDoubtAnswer(questionIndex) {
+  // Remove qualquer resposta de dúvida existente
+  const existingAnswer = document.querySelector('.doubt-answer');
+  if (existingAnswer) existingAnswer.remove();
+  
+  const answer = document.createElement("div");
+  answer.className = "doubt-answer";
+  answer.innerText = doubtAnswers[questionIndex] || "Esta pergunta nos ajuda a entender melhor suas necessidades para criar um chatbot mais eficiente.";
+  chat.appendChild(answer);
+  updateScroll();
+}
+
+// Função para mostrar botões rápidos de resposta
+function showQuickButtons(buttonsData) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "quick-buttons";
+  
+  buttonsData.forEach(button => {
+    const btn = document.createElement("button");
+    btn.innerText = button.text;
+    btn.onclick = () => {
+      wrapper.remove();
+      // Remove respostas de dúvida ao escolher uma resposta rápida
+      const doubtAnswer = document.querySelector('.doubt-answer');
+      if (doubtAnswer) doubtAnswer.remove();
+      
+      userMessage(button.text);
+      answers.push(button.text);
+      
+      if (button.callback) {
+        button.callback();
+      } else {
+        proceedToNextQuestion();
+      }
+    };
+    wrapper.appendChild(btn);
+  });
+  
+  chat.appendChild(wrapper);
+  updateScroll();
+}
+
+// Função para mostrar opções de início
+function showStartButtons() {
+  const buttonsData = [
+    { text: "Sim, pode começar", callback: startQuestions },
+    { text: "Tenho uma dúvida antes", callback: askDoubtBeforeStart }
+  ];
+  
+  showQuickButtons(buttonsData);
+}
+
+// Função para ativar entrada de texto
+function enableInput() {
+  input.disabled = false;
+  sendBtn.disabled = false;
+  input.focus();
+  
+  // Adiciona listener para enviar com Enter
+  input.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  });
+}
+
+// Função para desativar entrada de texto
+function disableInput() {
+  input.disabled = true;
+  sendBtn.disabled = true;
+}
+
+// Função para processar dúvida antes de começar
+function askDoubtBeforeStart() {
+  userDoubtActive = true;
+  botMessage("Claro! Fico feliz em tirar suas dúvidas antes de começarmos. 😊\n\nO que gostaria de saber?");
+  enableInput();
+}
+
+// Função para iniciar as perguntas
+function startQuestions() {
+  started = true;
+  userDoubtActive = false;
+  enableInput();
+  
+  // Adiciona um pequeno atraso para simular digitação
+  setTimeout(() => {
+    botMessage(questions[step]);
+  }, 600);
+}
+
+// Função para ir para próxima pergunta
+function proceedToNextQuestion() {
+  step++;
+  
+  // Remove respostas de dúvida anteriores
+  const doubtAnswer = document.querySelector('.doubt-answer');
+  if (doubtAnswer) doubtAnswer.remove();
+  
+  if (step < questions.length) {
+    // Mostra indicador de digitação
+    showTypingIndicator();
+    
+    setTimeout(() => {
+      removeTypingIndicator();
+      botMessage(questions[step]);
+    }, 800);
+  } else {
+    finishChat();
+  }
+}
+
+// Função para mostrar indicador de digitação
+function showTypingIndicator() {
+  const typingDiv = document.createElement("div");
+  typingDiv.className = "typing-indicator";
+  typingDiv.id = "typingIndicator";
+  typingDiv.innerHTML = '<span></span><span></span><span></span>';
+  chat.appendChild(typingDiv);
+  updateScroll();
+}
+
+// Função para remover indicador de digitação
+function removeTypingIndicator() {
+  const typingIndicator = document.getElementById("typingIndicator");
+  if (typingIndicator) typingIndicator.remove();
+}
+
+// Função para enviar mensagem
+function sendMessage() {
+  const message = input.value.trim();
+  if (!message) return;
+  
+  userMessage(message);
+  input.value = "";
+  
+  if (userDoubtActive) {
+    // Se era uma dúvida, voltamos para o início
+    botMessage("Obrigada pelo esclarecimento! Agora vamos começar com as perguntas. 😊");
+    setTimeout(() => {
+      botMessage("Posso começar?");
+      showStartButtons();
+    }, 800);
+    userDoubtActive = false;
+    return;
+  }
+  
+  answers.push(message);
+  
+  // Remove respostas de dúvida anteriores
+  const doubtAnswer = document.querySelector('.doubt-answer');
+  if (doubtAnswer) doubtAnswer.remove();
+  
+  proceedToNextQuestion();
+}
+
+// Função para finalizar o chat
+function finishChat() {
+  showTypingIndicator();
+  
+  setTimeout(() => {
+    removeTypingIndicator();
+    botMessage("Perfeito! Já coletei todas as informações necessárias. 😊\n\nAgora posso criar um chatbot personalizado para sua clínica!");
+    
+    const wrapper = document.createElement("div");
+    wrapper.className = "quick-buttons";
+    
+    const sendBtn = document.createElement("button");
+    sendBtn.className = "whatsapp-btn";
+    sendBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Enviar respostas para o WhatsApp';
+    sendBtn.onclick = sendToWhatsApp;
+    
+    wrapper.appendChild(sendBtn);
+    chat.appendChild(wrapper);
+    updateScroll();
+    
+    disableInput();
+  }, 1000);
+}
+
+// Função para enviar para WhatsApp
+function sendToWhatsApp() {
+  let message = "📋 *Respostas do Chatbot Helena – WEBJS*\n\n";
+  message += "*Clínica/Profissional:*\n";
+  message += "Data: " + new Date().toLocaleDateString('pt-BR') + "\n\n";
+  
+  questions.forEach((q, i) => {
+    message += `*${i + 1}. ${q}*\n${answers[i] || "-"}\n\n`;
+  });
+  
+  message += "\n---\n";
+  message += "Gerado automaticamente pelo assistente Helena • WEBJS";
+  
+  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+}
+
+// Função para atualizar a rolagem
+function updateScroll() {
+  const isAtBottom = chat.scrollHeight - chat.clientHeight <= chat.scrollTop + 100;
+  
+  if (isAtBottom) {
+    setTimeout(() => {
+      chat.scrollTop = chat.scrollHeight;
+      newMessageIndicator.style.display = 'none';
+    }, 100);
+  } else {
+    // Mostra indicador de nova mensagem
+    if (chat.children.length > 2) {
+      newMessageIndicator.style.display = 'block';
+    }
+  }
+}
+
+// Adiciona evento para o indicador de nova mensagem
+newMessageIndicator.onclick = function() {
+  chat.scrollTop = chat.scrollHeight;
+  this.style.display = 'none';
+};
+
+// Adiciona evento de rolagem para ocultar/mostrar indicador
+chat.addEventListener('scroll', function() {
+  const isAtBottom = chat.scrollHeight - chat.clientHeight <= chat.scrollTop + 100;
+  
+  if (isAtBottom) {
+    newMessageIndicator.style.display = 'none';
+  }
+});
+
+// Inicia o chat
+function startChat() {
+  setTimeout(() => {
+    botMessage("Olá! Eu sou a Helena assistente virtual do Jônathan 😊\n\nVou te ajudar a criar o chatbot perfeito para sua clínica ou consultório.");
+    
+    setTimeout(() => {
+      botMessage("Vou fazer algumas perguntas para entender como você atende e como posso otimizar seu atendimento.");
+      
+      setTimeout(() => {
+        botMessage("Vamos começar?");
+        showStartButtons();
+      }, 800);
+    }, 1000);
+  }, 500);
+}
+
+// Inicia o chatbot quando a página carrega
+window.onload = startChat;
+</script>
+</body>
+</html>
