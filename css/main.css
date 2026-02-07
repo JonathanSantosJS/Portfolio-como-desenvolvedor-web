@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka:wght@300..700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root{
     /*Paleta base*/
@@ -60,7 +59,7 @@ header {
 
 .sublogo {
     color: var(--cor-principal);
-    font-family: var(--font-conteudo);
+    font-family: var(--font-principal);
     font-size: 1.2em;
 }
 
@@ -112,8 +111,6 @@ header {
     transform: scale(1.05);
 }
 
-
-
 /*corpo principal e banner*/
 
 main {
@@ -160,7 +157,7 @@ main {
 .subtitulobanner {
   color: var(--cor-principal);
   font-size: 1.5em;
-  font-family: var(--font-conteudo);
+  font-family: var(--font-principal);
   user-select: none;
   z-index: 3;
 }
@@ -318,32 +315,34 @@ main {
 .pacote {
     background-color: var(--cor-principal);
     border-radius: 1rem;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
-    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 2.5rem 2rem;
     width: 300px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pacote:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 .pacote h3 {
     font-size: 1.8rem;
-    color: var(--laranja);
+    color: #e67e22;
     margin-bottom: 1rem;
+    font-family: var(--font-headline);
+    font-weight: 600;
 }
 
 .pacote ul {
     list-style: none;
     padding: 0;
     margin: 1rem 0 2rem;
-    color: #444;
+    color: #555;
 }
 
 .pacote ul li {
-    margin-bottom: 0.75rem;
-    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
 }
 
 .preco {
@@ -365,21 +364,24 @@ main {
     border-radius: 2rem;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    border: 1.5px solid var(--cor-destaque);
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 .btn-pacote:hover {
     background-color: #e67300;
+    border-color: #d66f00;
+    color: var(--cor-principal);
 }
 
 /* Destaque no pacote do meio (opcional) */
 .pacote.destaque {
     border: 2px solid var(--cor-destaque);
-    transform: scale(1.05);
+    transform: scale(1.04);
     background-color: var(--cor-principal);
 }
 .pacote.destaque:hover{
-  transform: scale(1.09);
+  transform: scale(1.06);
 }
 
 /* === PORTFÓLIO === */
@@ -557,10 +559,6 @@ main {
     border: 2px solid var(--cor-secundaria);
 }
 
-
-
-
-
 /*Campo informativo para contato*/
 aside{
     background-color: var(--cor-secundaria);
@@ -668,8 +666,6 @@ aside a:hover {
     background-color: #e05500;
 }
 
-
-
 /*Rodapé*/
 
 footer{
@@ -680,175 +676,39 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: auto;
-}
-/*=================================================================================*/
-
-/* == Mobile ==*/
-@media (max-width: 768px) {
-
-  /* Header */
-  header {
-    flex-direction: column;
-    padding: 1rem;
-    text-align: center;
-  }
-
-  .containerLogo {
-    justify-content: center;
-    padding: 0;
-    gap: 0.5rem;
-  }
-
-  .logo {
-    font-size: 2.2em;
-  }
-
-  .sublogo {
-    font-size: 1em;
-  }
-
-  .containerMenu {
-    width: 100%;
-    padding: 0;
-    margin-top: 1rem;
-  }
-
-  .menu ul {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .menu a {
-    padding: 8px 16px;
-    font-size: 0.95em;
-  }
-
-  /* Banner */
-  .banner {
-    height: 50vh;
-  }
-
-  .titulobanner {
-    font-size: 2.2em;
-  }
-
-  .subtitulobanner {
-    font-size: 1.1em;
-  }
-
-  /* Serviços */
-  .servicos {
-    padding: 2rem 1rem;
-  }
-
-  .servicos h2 {
-    font-size: 2rem;
-  }
-
-  .card {
-    max-width: 100%;
-    flex: 1 1 100%;
-    padding: 1.5rem;
-  }
-
-  .card h3 {
-    font-size: 1.3rem;
-  }
-
-  .card p {
-    font-size: 0.95rem;
-  }
-
-  /* Portfólio */
-  .portfolio {
-    padding: 2rem 1rem;
-  }
-
-  .portfolio h2 {
-    font-size: 2rem;
-  }
-
-  .item {
-    max-width: 100%;
-    padding: 1rem;
-  }
-
-  .item p {
-    font-size: 0.95rem;
-  }
-
-  /* Sobre */
-  .sobre {
-    padding: 2rem 1rem;
-  }
-
-  .texto-sobre h2 {
-    font-size: 2rem;
-  }
-
-  .texto-sobre p {
-    font-size: 0.95rem;
-  }
-
-  .foto-perfil img {
-    width: 150px;
-    height: 150px;
-  }
-
-  /* Contato direto */
-  .contato-direto {
-    padding: 2rem 1rem;
-  }
-
-  .contato-direto h2 {
-    font-size: 2rem;
-  }
-
-  .contato-direto p {
-    font-size: 1rem;
-  }
-
-  .botao {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.95rem;
-  }
-  .whatsapp-float{
-     width: 3.7rem
-     
-  }
-
-  /* Aside / Campo de Contato */
-  aside {
-    flex-direction: column;
-    height: auto;
-    padding: 2rem 1rem;
-    gap: 2rem;
-    text-align: center;
-  }
-
-  .contato,
-  .redeSocial {
-    margin: 0;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .contato ul,
-  .redeSocial ul {
-    align-items: center;
-  }
-
-  .barra {
-    display: none;
-  }
-
-  /* Footer */
-  footer {
-    height: auto;
-    padding: 1rem;
     font-size: 0.9rem;
-    text-align: center;
-  }
+    letter-spacing: 2px;
+}
 
+/*RESPONSIVIDADE*/
+@media (max-width: 900px){
+    .containerMenu {
+        width: 70%;
+    }
+    .menu ul {
+        gap: 0.4rem;
+    }
+    .cards-servicos {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .container-pacotes {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+@media (max-width: 500px){
+    .menu a {
+        padding: 8px 12px;
+    }
+    .cards-servicos {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .portfolio {
+        padding: 2rem 1rem;
+    }
+    .container-pacotes {
+        gap: 1.5rem;
+    }
 }
