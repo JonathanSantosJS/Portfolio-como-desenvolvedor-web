@@ -4,77 +4,122 @@ window.conversationFlow = {
   start: {
     message: 'Olá! 👋 Eu sou a Helena, assistente virtual do Jônathan. Qual seu nome? 😊',
     input: true,
+    next: 'intro',
   },
-  intro: {  // renomeado de after_name para intro para alinhar com script.js
+
+  // 🔹 Conecta com o vídeo
+  intro: {
     message: (name) =>
-      `Prazer, ${name}! Você sabia que mais de 70% dos consumidores pesquisam online antes de contratar um serviço? Se seu negócio ainda não tem presença digital, pode estar perdendo clientes todos os dias. 😱 Mas fica tranquilo, eu tô aqui pra ajudar! Quer saber como?`,
+      `Prazer, ${name}. Deixa eu te fazer uma pergunta sincera.\n\nHoje, se alguém procurar o seu serviço no Google, você sabe exatamente o que essa pessoa vai encontrar?`,
     options: [
-        { text: 'Claro, quero saber!', next: 'education' },
-        { text: 'Prefiro visitar o site', next: 'go_site' },
-        { text: 'Fala diretamente com Jônathan', next: 'ask_topic' },
+      { text: 'Nunca pensei nisso', next: 'pain_1' },
+      { text: 'Acho que só minhas redes sociais', next: 'pain_1' },
+      { text: 'Tenho site ou algo parecido', next: 'has_site' },
     ],
   },
-  education: {
+
+  // 🔹 Amplia a dor
+  pain_1: {
     message:
-      'Ter um site profissional não é só “estar na internet”. É sobre transmitir confiança, ser encontrado no Google, e facilitar o contato com seus clientes — tudo isso com um visual bonito e rápido, feito sob medida pra você. Aqui na WebJS, criamos sites que funcionam bem no celular, têm botão direto pro WhatsApp e integração com Google Maps. Também temos chatbots para automatizar seu atendimento! 🤖 Quer saber sobre nossos pacotes e preços?',
+      'Isso é mais comum do que parece. O problema é que, nesse momento, muita gente compara opções e escolhe quem transmite mais confiança.\n\nPosso te perguntar rapidinho: qual é o tipo do seu negócio?',
     options: [
-      { text: 'Sim, quero os pacotes', next: 'pricing' },
-      { text: 'Prefiro visitar o site', next: 'go_site' },
+      { text: 'Comércio local', next: 'segment' },
+      { text: 'Prestador de serviço', next: 'segment' },
+      { text: 'Clínica / saúde', next: 'segment' },
+      { text: 'Outro', next: 'segment' },
     ],
   },
-  pricing: {
+
+  has_site: {
     message:
-      'Nossos pacotes são acessíveis e pensados pra você:\n\n' +
-      '💻 Presença Online — R$297\n1 página única, design responsivo, botão WhatsApp\n\n' +
-      '⭐ Profissional Local — R$897 (mais vendido)\nAté 5 páginas, SEO local, WhatsApp e Google Maps\n\n' +
-      '🤖 Chatbot Inteligente — R$197\nAtendimento 24h, fluxo personalizado, integração WhatsApp\n\n' +
-      '🎉 Convite Digital — R$147\nLayout personalizado, RSVP automático, galeria e contagem regressiva\n\n' +
-      'Quer que eu te envie o link para o site para escolher ou prefere conversar direto com Jônathan pelo WhatsApp?',
+      'Legal. Ter um site já ajuda bastante. Mas me conta: ele realmente gera contatos ou está mais parado?',
     options: [
-      { text: 'Enviar link do site', next: 'go_site' },
-      { text: 'Quero falar no WhatsApp', next: 'ask_topic' },
+      { text: 'Quase não gera', next: 'segment' },
+      { text: 'Gera, mas poderia melhorar', next: 'segment' },
+      { text: 'Funciona bem', next: 'segment' },
     ],
   },
+
+  // 🔹 Termômetro + autoridade
+  segment: {
+    message:
+      'Perfeito. Muitos negócios como o seu acabam perdendo oportunidades simplesmente porque não têm um ponto central online que organize tudo.\n\nÉ exatamente isso que o Jônathan faz: ajuda empreendedores locais a transformarem presença digital em algo que realmente funcione.',
+    options: [
+      { text: 'Como assim?', next: 'authority' },
+      { text: 'Prefiro ver direto no site', next: 'go_site' },
+      { text: 'Quero falar com ele', next: 'ask_topic' },
+    ],
+  },
+
+  // 🔹 Autoridade sem pitch
+  authority: {
+    message:
+      'Ele cria sites pensados para negócios reais, com foco em:\n\n' +
+      '✔ ser encontrado no Google\n' +
+      '✔ passar mais confiança\n' +
+      '✔ facilitar o contato pelo WhatsApp\n' +
+      '✔ funcionar perfeitamente no celular\n\nNada de site bonito que não gera resultado.\n\nComo você prefere continuar?',
+    options: [
+      { text: 'Quero entender melhor', next: 'soft_offer' },
+      { text: 'Quero falar com ele direto', next: 'ask_topic' },
+      { text: 'Ver no site', next: 'go_site' },
+    ],
+  },
+
+  // 🔹 Oferta suave
+  soft_offer: {
+    message:
+      'Existem soluções diferentes dependendo do momento do negócio — desde presença básica até projetos mais completos.\n\nVocê prefere analisar isso com calma no site ou conversar direto com o Jônathan para entender o que faz mais sentido pra você?',
+    options: [
+      { text: 'Conversar com ele', next: 'ask_topic' },
+      { text: 'Ver no site', next: 'go_site' },
+    ],
+  },
+
+  // 🔹 Captura de intenção
   ask_topic: {
-    message: 'Pra eu entender melhor, me conta rapidinho qual o assunto que quer tratar com o Jônathan?',
+    message:
+      'Perfeito 😊 Me conta rapidinho qual é a sua dúvida ou o que você gostaria de melhorar no seu negócio.',
     input: true,
+    next: 'show_cta',
   },
+
   show_cta: {
     message:
-      'Beleza! Agora é só clicar no botão abaixo para enviar sua mensagem no WhatsApp para o Jônathan, ou visitar o site para conhecer mais sobre nossos serviços.',
+      'Show! Agora é só escolher como prefere continuar 👇',
     options: [
-      { text: 'Enviar mensagem no WhatsApp 📲', next: 'go_whatsapp' },
-      { text: 'Visitar site oficial 🌐', next: 'go_site' },
+      { text: 'Falar com o Jônathan no WhatsApp 📲', next: 'go_whatsapp' },
+      { text: 'Visitar o site 🌐', next: 'go_site' },
     ],
   },
+
   go_whatsapp: {
-    message: 'Abrindo WhatsApp para você enviar sua mensagem. Aguarde…',
+    message: 'Abrindo o WhatsApp para você continuar a conversa…',
     cta: {
       text: 'Abrir WhatsApp',
-      url: '', // será gerado dinamicamente no script.js/chatCore.js
+      url: '',
     },
   },
+
   go_site: {
     message:
-      'Aqui está o link para o site oficial da WebJS. Fique à vontade para explorar e escolher o melhor pacote para você! 🌟',
+      'Aqui está o site oficial da WebJS. Fique à vontade para explorar 👇',
     cta: {
       text: 'Visitar webjs.com.br',
       url: 'https://webjs.com.br/',
     },
   },
+
   end_chat: {
-    message: 'Obrigado pelo contato! Qualquer coisa, estarei aqui para ajudar. Até mais! 👋',
+    message: 'Qualquer coisa, estarei por aqui. 😊',
   },
 };
 
-
-// Iniciar o chat usando chatCore.js
+// init
 window.addEventListener('DOMContentLoaded', () => {
   if (window.startChatEngine) {
     window.startChatEngine(conversationFlow, {
-      phone: '5582987353564', // coloque seu telefone real aqui
+      phone: '5582987353564',
     });
-  } else {
-    console.error('Motor do chat não encontrado. Verifique se chatCore.js foi carregado.');
   }
 });
