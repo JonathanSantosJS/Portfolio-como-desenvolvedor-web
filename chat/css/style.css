@@ -1,13 +1,16 @@
 :root {
-  /* Cores mantidas conforme solicitado */
-  --primary-color: #25d366;
-  --secondary-color: #dcf8c6;
-  --accent-color: #128c7e;
-  --user-message: #34b7f1;
-  --bot-message: #ffffff;
-  --bg-color: #ece5dd;
-  --header-color: #075e54;
-  --text-color: #333;
+  /* Paleta extraída diretamente do site WebJS */
+  --primary-color: #0A1833;     /* azul escuro principal */
+  --accent-color: #F28705;      /* laranja CTA */
+  --secondary-color: #FFFFFF;   /* branco puro para contrastes */
+  
+  --user-message: #F28705;      /* laranja nos balões do usuário */
+  --bot-message: #FFFFFF;       /* fundo branco nos balões do bot */
+
+  --bg-color: #F8F8F8;          /* fundo neutro claro geral */
+  --header-color: #0A1833;      /* cor escura para cabeçalho */
+  --text-color: #333333;        /* cinza escuro para textos */
+
   --radius: 12px;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
@@ -482,3 +485,4 @@ body {
 .options-container {
   padding: 5px;
 }
+
