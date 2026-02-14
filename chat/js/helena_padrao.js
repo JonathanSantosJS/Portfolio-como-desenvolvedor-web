@@ -1,109 +1,101 @@
-// helena_padrao.js
+// helena_padrao_v2.js
 
 window.conversationFlow = {
   start: {
-    message: 'Olá! 👋 Eu sou a Helena, assistente virtual do Jônathan. Qual seu nome? 😊',
+    message:
+      'Olá 👋 Eu sou a Helena, assistente da WebJS.\n\nAntes de te direcionar ao Jônathan, preciso entender rapidamente seu cenário.\n\nQual seu nome?',
     input: true,
     next: 'intro',
   },
 
-  // 🔹 Conecta com o vídeo
+  // 🔹 Pergunta sobre presença no Google
   intro: {
     message: (name) =>
-      `Prazer, ${name}. Deixa eu te fazer uma pergunta sincera.\n\nHoje, se alguém procurar o seu serviço no Google, você sabe exatamente o que essa pessoa vai encontrar?`,
+      `Prazer, ${name}.\n\nHoje, quando alguém pesquisa seu serviço no Google, o que essa pessoa encontra?`,
     options: [
-      { text: 'Nunca pensei nisso', next: 'pain_1' },
-      { text: 'Acho que só minhas redes sociais', next: 'pain_1' },
-      { text: 'Tenho site ou algo parecido', next: 'has_site' },
+      { text: 'Só redes sociais', next: 'pain_1' },
+      { text: 'Quase nada relevante', next: 'pain_1' },
+      { text: 'Tenho site, mas não sei se converte', next: 'has_site' },
     ],
   },
 
-  // 🔹 Amplia a dor
+  // 🔹 Tipo de negócio
   pain_1: {
     message:
-      'Isso é mais comum do que parece. O problema é que, nesse momento, muita gente compara opções e escolhe quem transmite mais confiança.\n\nPosso te perguntar rapidinho: qual é o tipo do seu negócio?',
+      'Entendi.\n\nNegócios que não têm uma estrutura clara online acabam perdendo espaço para concorrentes mais organizados.\n\nQual melhor define seu negócio hoje?',
     options: [
-      { text: 'Comércio local', next: 'segment' },
-      { text: 'Prestador de serviço', next: 'segment' },
-      { text: 'Clínica / saúde', next: 'segment' },
-      { text: 'Outro', next: 'segment' },
+      { text: 'Comércio local (loja física)', next: 'segment' },
+      { text: 'Prestação de serviços', next: 'segment' },
+      { text: 'Clínica / área da saúde', next: 'segment' },
+      { text: 'Outro tipo de negócio', next: 'segment' },
     ],
   },
 
+  // 🔹 Quem já tem site
   has_site: {
     message:
-      'Legal. Ter um site já ajuda bastante. Mas me conta: ele realmente gera contatos ou está mais parado?',
+      'Perfeito.\n\nSobre seu site atual, qual situação mais se aproxima da realidade?',
     options: [
-      { text: 'Quase não gera', next: 'segment' },
-      { text: 'Gera, mas poderia melhorar', next: 'segment' },
-      { text: 'Funciona bem', next: 'segment' },
+      { text: 'Quase não gera contatos', next: 'segment' },
+      { text: 'Gera alguns contatos, mas poderia melhorar', next: 'segment' },
+      { text: 'Funciona bem, mas quero evoluir', next: 'segment' },
     ],
   },
 
-  // 🔹 Termômetro + autoridade
+  // 🔹 Posicionamento estratégico
   segment: {
     message:
-      'Perfeito. Muitos negócios como o seu acabam perdendo oportunidades simplesmente porque não têm um ponto central online que organize tudo.\n\nÉ exatamente isso que o Jônathan faz: ajuda empreendedores locais a transformarem presença digital em algo que realmente funcione.',
+      'Certo.\n\nMuitos negócios locais perdem oportunidades simplesmente por não terem uma estrutura digital que organize tudo em um só lugar.\n\nO Jônathan trabalha justamente criando essa estrutura para gerar mais contato e autoridade.\n\nComo você prefere continuar?',
     options: [
-      { text: 'Como assim?', next: 'authority' },
-      { text: 'Prefiro ver direto no site', next: 'go_site' },
-      { text: 'Quero falar com ele', next: 'ask_topic' },
+      { text: 'Quero entender como funciona', next: 'authority' },
+      { text: 'Prefiro analisar no site primeiro', next: 'go_site' },
+      { text: 'Quero falar direto com ele', next: 'ask_topic' },
     ],
   },
 
-  // 🔹 Autoridade sem pitch
+  // 🔹 Explicação objetiva
   authority: {
     message:
-      'Ele cria sites pensados para negócios reais, com foco em:\n\n' +
-      '✔ ser encontrado no Google\n' +
-      '✔ passar mais confiança\n' +
-      '✔ facilitar o contato pelo WhatsApp\n' +
-      '✔ funcionar perfeitamente no celular\n\nNada de site bonito que não gera resultado.\n\nComo você prefere continuar?',
+      'O foco não é apenas ter um site bonito.\n\nÉ criar uma estrutura que:\n\n' +
+      '✔ Apareça no Google\n' +
+      '✔ Passe confiança\n' +
+      '✔ Facilite contato no WhatsApp\n' +
+      '✔ Funcione perfeitamente no celular\n\nQual próximo passo faz mais sentido para você?',
     options: [
-      { text: 'Quero entender melhor', next: 'soft_offer' },
-      { text: 'Quero falar com ele direto', next: 'ask_topic' },
-      { text: 'Ver no site', next: 'go_site' },
+      { text: 'Falar direto com o especialista 📲', next: 'ask_topic' },
+      { text: 'Ver detalhes no site 🌐', next: 'go_site' },
     ],
   },
 
-  // 🔹 Oferta suave
-  soft_offer: {
-    message:
-      'Existem soluções diferentes dependendo do momento do negócio — desde presença básica até projetos mais completos.\n\nVocê prefere analisar isso com calma no site ou conversar direto com o Jônathan para entender o que faz mais sentido pra você?',
-    options: [
-      { text: 'Conversar com ele', next: 'ask_topic' },
-      { text: 'Ver no site', next: 'go_site' },
-    ],
-  },
-
-  // 🔹 Captura de intenção
+  // 🔹 Captura leve antes do WhatsApp
   ask_topic: {
     message:
-      'Perfeito 😊 Me conta rapidinho qual é a sua dúvida ou o que você gostaria de melhorar no seu negócio.',
+      'Perfeito.\n\nMe conta em poucas palavras: qual principal desafio você quer resolver hoje?',
     input: true,
     next: 'show_cta',
   },
 
   show_cta: {
     message:
-      'Show! Agora é só escolher como prefere continuar 👇',
+      'Ótimo.\n\nAgora é só escolher como prefere continuar 👇',
     options: [
-      { text: 'Falar com o Jônathan no WhatsApp 📲', next: 'go_whatsapp' },
-      { text: 'Visitar o site 🌐', next: 'go_site' },
+      { text: 'Conversar no WhatsApp agora 📲', next: 'go_whatsapp' },
+      { text: 'Explorar o site primeiro 🌐', next: 'go_site' },
     ],
   },
 
   go_whatsapp: {
-    message: 'Abrindo o WhatsApp para você continuar a conversa…',
+    message:
+      'Perfeito. Clique abaixo para continuar a conversa diretamente com o Jônathan 👇',
     cta: {
       text: 'Abrir WhatsApp',
-      url: '',
+      url: 'https://wa.me/5582987353564',
     },
   },
 
   go_site: {
     message:
-      'Aqui está o site oficial da WebJS. Fique à vontade para explorar 👇',
+      'Aqui está o site oficial da WebJS.\n\nFique à vontade para explorar e entender melhor a estrutura 👇',
     cta: {
       text: 'Visitar webjs.com.br',
       url: 'https://webjs.com.br/',
@@ -111,9 +103,10 @@ window.conversationFlow = {
   },
 
   end_chat: {
-    message: 'Qualquer coisa, estarei por aqui. 😊',
+    message: 'Se precisar, estarei por aqui.',
   },
 };
+
 
 // init
 window.addEventListener('DOMContentLoaded', () => {
