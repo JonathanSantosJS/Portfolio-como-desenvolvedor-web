@@ -1,569 +1,141 @@
-<!doctype html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Criação de Sites em Maceió | Web Designer para Negócios Locais - WebJS
-    </title>
-    <link rel="stylesheet" href="css/main.css" />
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebJS | Site simples para pequenos negócios</title>
 
-    <!--SEO-->
-    <meta name="author" content="Jônathan Santos" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-    <!-- Meta Keywords -->
-    <meta
-      name="keywords"
-      content="criação de sites em Maceió, web designer Maceió, site para empresa local, desenvolvimento web Alagoas, site profissional para negócios"
-    />
+<header>
+    <div class="container">
+        <div class="logo">webjs <span>sites rápidos</span></div>
+    </div>
+</header>
 
-    <!-- Meta Description -->
-    <meta
-      name="description"
-      content="Criação de sites profissionais em Maceió para pequenos negócios. Sites rápidos, responsivos e otimizados para atrair clientes no Google e WhatsApp."
-    />
+<main>
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://webjs.com.br/" />
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <h1>Seu negócio precisa aparecer no Google</h1>
+        <p>Crio um site simples para salões, barbearias e pequenos negócios começarem a receber clientes online.</p>
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Sites para Pequenos Negócios - WebJS" />
-    <meta
-      property="og:description"
-      content="Sites simples, rápidos e eficazes para negócios locais. Desenvolvedor web focado em resultados reais."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://webjs.com.br/" />
-    <meta
-      property="og:image"
-      content="https://webjs.com.br/img/thumb-webjs.jpg"
-    />
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content="WebJS - Jônathan Santos" />
+        <div class="preco">R$ 250</div>
+        <div class="preco-small">pagamento único · entrega rápida (1 a 2 dias)</div>
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Sites para Pequenos Negócios em Maceió - WebJS"
-    />
-    <meta
-      name="twitter:description"
-      content="Sites simples, rápidos e eficazes para negócios locais. Desenvolvedor web focado em resultados reais."
-    />
-    <meta
-      name="twitter:image"
-      content="https://webjs.com.br/img/thumb-webjs.jpg"
-    />
-    <meta name="twitter:creator" content="@SeuUsuarioTwitter" />
+        <p style="margin-bottom:20px;">
+            Mais barato do que perder clientes todos os dias por não estar online.
+        </p>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/img/favicon16x16.png" />
-    <link rel="icon" type="image/svg+xml" href="/img/favicon16x16.svg" />
-
-    <!-- Fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka:wght@300..700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Icones -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <header>
-      <section class="containerLogo">
-        <h1 class="logo">WebJS</h1>
-        <h2 class="soblogo">Desenvolvimento Web</h2>
-      </section>
-      <section class="containerMenu">
-        <nav class="menu" aria-label="Menu principal">
-          <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#portfolio">Trabalhos Realizados</a></li>
-            <li><a href="#servicos">Soluções Web</a></li>
-            <li><a href="#sobre">Profissional por Trás</a></li>
-            <li><a href="#contato">Orçamento Rápido</a></li>
-          </ul>
-        </nav>
-      </section>
-    </header>
-    <main id="inicio">
-      <section class="banner">
-        <div class="formas-flutuantes">
-          <span class="forma circulo pequena branca"></span>
-          <span class="forma quadrado media laranja"></span>
-          <span class="forma triangulo grande branca"></span>
-          <span class="forma circulo media laranja"></span>
-          <span class="forma quadrado pequena branca"></span>
-          <span class="forma triangulo pequena laranja"></span>
-        </div>
-        <div class="filtroimg">
-          <h1 class="titulobanner">
-            Seu Negócio em Maceió Precisa de um Site que Gera Clientes
-          </h1>
-          <h2 class="subtitulobanner">
-            Eu crio sites rápidos, profissionais e estratégicos para transformar
-            visitantes em clientes pelo WhatsApp.
-          </h2>
-        </div>
-      </section>
-
-      <section class="servicos" id="servicos">
-        <h2>Como seu negócio pode vender mais com um site profissional</h2>
-        <div class="cards-servicos">
-          <a href="#pacotes" class="card">
-            <h3>Sites Profissionais que Geram Clientes</h3>
-            <p>
-              Criação de sites rápidos, modernos e pensados para converter
-              visitantes em contatos no WhatsApp. Ideal para negócios locais em
-              Maceió.
-            </p>
-          </a>
-          <a href="#pacotes" class="card">
-            <h3>Convites Digitais Elegantes</h3>
-            <p>
-              Convites digitais interativos para aniversários, casamentos e
-              eventos, com confirmação automática (RSVP) e galeria de fotos.
-            </p>
-          </a>
-          <a href="#pacotes" class="card">
-            <h3>Chatbots para Atendimento 24h</h3>
-            <p>
-              Automatize seu atendimento via WhatsApp com chatbot inteligente,
-              com respostas rápidas e fluxo personalizado para seu negócio.
-            </p>
-          </a>
-        </div>
-      </section>
-
-      <section class="portfolio" id="portfolio">
-        <h2>Alguns trabalhos recentes</h2>
-        <div class="galeria">
-          <div class="item">
-            <a
-              href="https://www.webjs.com.br/fisioacao"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="img/fisioacao.webp" alt="Site Clínica Fisio Ação" />
-            </a>
-            <p>Clínica Fisio Ação</p>
-          </div>
-          <div class="item">
-            <a
-              href="https://www.webjs.com.br/convite"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="img/convitedavi.webp"
-                alt="Convite Digital Davi Barbosa"
-              />
-            </a>
-            <p>Convite Digital Davi Barbosa</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="depoimentos" id="depoimentos">
-        <h2>O que falam sobre o meu trabalho</h2>
-        <div class="depoimentos-container">
-          <div class="depoimento">
-            <img
-              src="img/janycleia.jpg"
-              alt="Foto de Janycleia"
-              class="foto-cliente"
-            />
-            <div>
-              <p>
-                "O convite digital que recebi foi incrível. O Jônathan cuidou de
-                tudo com atenção aos detalhes e muito carinho. Recomendo!"
-              </p>
-              <div class="estrelas">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-              <span class="nome-cliente">- Janycleia Barbosa</span>
-            </div>
-          </div>
-          <div class="depoimento">
-            <img
-              src="img/wilyanna.webp"
-              alt="Foto de Wilyanna"
-              class="foto-cliente"
-            />
-            <div>
-              <p>
-                "Profissionalismo e criatividade que superaram as expectativas
-                do meu negócio!"
-              </p>
-              <div class="estrelas">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-              <span class="nome-cliente">- Maria Wilyanna</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="sobre" id="sobre">
-        <div class="container-sobre">
-          <div class="foto-perfil">
-            <img
-              src="img/jonathan-santos-web-dev.jpg"
-              alt="Foto de Jônathan Santos, desenvolvedor WebJS"
-            />
-          </div>
-          <div class="texto-sobre">
-            <h2>Por trás da WebJS</h2>
-            <p>
-              Eu sou <strong>Jônathan Santos</strong>, desenvolvedor web
-              especializado na criação de sites estratégicos para pequenos
-              negócios em Maceió.
-            </p>
-            <p>
-              Meu foco não é apenas criar um site bonito, mas sim desenvolver
-              uma ferramenta que ajude você a atrair clientes, gerar autoridade
-              e vender mais.
-            </p>
-            <p>
-              Trabalho com transparência, entrega rápida e foco total em
-              resultado.
-            </p>
-            <p>📍 Atendimento em Maceió e todo o Brasil.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="pacotes" class="secao-pacotes">
-        <div class="container">
-          <!-- CABEÇALHO DA SEÇÃO -->
-          <div class="secao-header">
-            <h2 class="titulo-pacotes">
-              Estruturas Digitais para <span>Organizar e Fortalecer</span> seu
-              Negócio
-            </h2>
-            <p class="secao-subtitulo">
-              Escolha a solução ideal para o seu momento e leve seu negócio a um
-              novo patamar digital.
-            </p>
-          </div>
-
-          <!-- GRADE DE PACOTES PRINCIPAIS -->
-          <div class="pacotes-grid">
-            <!-- PACOTE 1: ESSENCIAL -->
-            <div class="pacote-card">
-              <div class="pacote-tag">BÁSICO</div>
-              <div class="pacote-header">
-                <span class="pacote-icone">🟢</span>
-                <h3 class="pacote-titulo">Presença Digital Essencial</h3>
-                <p class="pacote-descricao">
-                  Para negócios que precisam começar com estrutura e
-                  profissionalismo.
-                </p>
-              </div>
-              <ul class="pacote-lista">
-                <li>Site estratégico de 1 página</li>
-                <li>Estrutura focada em conversão</li>
-                <li>Integração direta com WhatsApp</li>
-                <li>Mapa e localização</li>
-                <li>SEO básico configurado</li>
-                <li>Pré-atendimento automático simples</li>
-                <li>Layout desenvolvido manualmente</li>
-              </ul>
-              <div class="pacote-footer">
-                <div class="pacote-preco">
-                  <span class="preco-valor">R$ 1.800,00</span>
-                  <span class="preco-detalhe">à vista</span>
-                </div>
-                <p class="pacote-obs">
-                  Projeto único. <strong>Hospedagem não inclusa</strong>.
-                </p>
-                <a
-                  href="https://wa.me/5582987353564?text=Olá!%20Tenho%20interesse%20no%20Pacote%20Essencial.%20Meu%20nome%20é%3A%20"
-                  class="pacote-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Quero este pacote
-                </a>
-              </div>
-            </div>
-
-            <!-- PACOTE 2: PROFISSIONAL -->
-            <div class="pacote-card pacote-destaque">
-              <div class="pacote-tag destaque">MAIS VENDIDO</div>
-              <div class="pacote-header">
-                <span class="pacote-icone">🔵</span>
-                <h3 class="pacote-titulo">Estrutura Digital Profissional</h3>
-                <p class="pacote-descricao">
-                  Ideal para empresas que querem organização real, mais clientes
-                  e automação.
-                </p>
-              </div>
-              <ul class="pacote-lista">
-                <li>Até 5 páginas estratégicas</li>
-                <li>Arquitetura pensada para conversão</li>
-                <li>SEO estruturado e otimização</li>
-                <li>Google Analytics integrado</li>
-                <li>Chatbot com ramificações</li>
-                <li>Direcionamento por setor</li>
-                <li>Ajustes estratégicos pós-entrega</li>
-              </ul>
-              <div class="pacote-footer">
-                <div class="pacote-preco">
-                  <span class="preco-valor">R$ 3.500,00</span>
-                  <span class="preco-detalhe">parcelado disponível</span>
-                </div>
-                <p class="pacote-obs">
-                  Projeto único. <strong>Hospedagem não inclusa</strong>.
-                </p>
-                <a
-                  href="https://wa.me/5582987353564?text=Olá!%20Tenho%20interesse%20no%20Pacote%20Profissional.%20Meu%20nome%20é%3A%20"
-                  class="pacote-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Quero este pacote
-                </a>
-              </div>
-            </div>
-
-            <!-- PACOTE 3: ATENDIMENTO AUTOMATIZADO -->
-            <div class="pacote-card">
-              <div class="pacote-tag">AUTOMAÇÃO</div>
-              <div class="pacote-header">
-                <span class="pacote-icone">🤖</span>
-                <h3 class="pacote-titulo">Atendimento Automatizado</h3>
-                <p class="pacote-descricao">
-                  Organize seu WhatsApp e pare de perder clientes com fluxos
-                  automáticos.
-                </p>
-              </div>
-              <ul class="pacote-lista">
-                <li>Diagnóstico do atendimento atual</li>
-                <li>Mapeamento completo de fluxo</li>
-                <li>Até 10 ramificações estratégicas</li>
-                <li>Respostas personalizadas</li>
-                <li>Implementação e testes</li>
-                <li>Ajuste fino inicial</li>
-              </ul>
-              <div class="pacote-footer">
-                <div class="pacote-preco">
-                  <span class="preco-valor">Setup: R$ 1.200,00</span>
-                </div>
-                <p class="preco-detalhe">
-                  + R$ 147,00/mês (suporte contínuo e monitoramento)
-                </p>
-                <p class="pacote-obs">
-                  <strong>Hospedagem não inclusa</strong>. Chatbot baseado em
-                  fluxos pré-programados, não em inteligência artificial.
-                </p>
-                <a
-                  href="https://wa.me/5582987353564?text=Olá!%20Tenho%20interesse%20no%20Pacote%20Automação.%20Meu%20nome%20é%3A%20"
-                  class="pacote-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Quero este pacote
-                </a>
-              </div>
-            </div>
-
-            <!-- PACOTE 4: CONVITE DIGITAL -->
-            <div class="pacote-card">
-              <div class="pacote-tag">EVENTOS</div>
-              <div class="pacote-header">
-                <span class="pacote-icone">🟠</span>
-                <h3 class="pacote-titulo">Convite Digital Premium</h3>
-              </div>
-              <ul class="pacote-lista">
-                <li>Layout personalizado</li>
-                <li>Confirmação automática (RSVP)</li>
-                <li>Galeria de fotos integrada</li>
-                <li>Localização com rota</li>
-                <li>Contagem regressiva</li>
-                <li>Otimizado para celular</li>
-              </ul>
-              <div class="pacote-footer">
-                <div class="pacote-preco">
-                  <span class="preco-valor">R$ 497,00</span>
-                </div>
-                <p class="pacote-obs">
-                  Projeto único. <strong>Hospedagem não inclusa</strong>.
-                </p>
-                <a
-                  href="https://wa.me/5582987353564?text=Olá!%20Tenho%20interesse%20no%20Convite%20Digital%20Premium.%20Meu%20nome%20é%3A%20"
-                  class="pacote-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Quero este pacote
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- PLANO DE MANUTENÇÃO -->
-          <div class="plano-manutencao">
-            <h3 class="plano-titulo">
-              🔁 Plano WebJS Care - Manutenção Contínua
-            </h3>
-            <p class="plano-subtitulo">
-              Mantenha seu site seguro, atualizado e funcionando com
-              estabilidade
-            </p>
-
-            <div class="plano-card">
-              <div class="plano-card-header">
-                <span class="plano-icone">🛠️</span>
-                <h4>Manutenção e Suporte Contínuo</h4>
-              </div>
-              <ul class="plano-lista">
-                <li>Hospedagem incluída (Cloud Hostnet)</li>
-                <li>Domínio grátis no primeiro ano</li>
-                <li>Backup mensal de segurança</li>
-                <li>Atualizações técnicas</li>
-                <li>Até 2 alterações mensais</li>
-                <li>Monitoramento básico</li>
-              </ul>
-              <div class="plano-footer">
-                <div class="pacote-preco">
-                  <span class="preco-valor">R$ 97,00 a R$ 800,00</span>
-                  <span class="preco-detalhe">/mês</span>
-                </div>
-                <p class="pacote-obs">
-                  Valor varia conforme porte do projeto e plano de hospedagem
-                  necessário:<br />
-                  - Pequeno porte (Cloud 1–2): R$ 97,00 a R$ 197,00/mês<br />
-                  - Médio porte (Cloud 3–4): R$ 250,00 a R$ 350,00/mês<br />
-                  - Grande porte (Cloud 5–6): R$ 600,00 a R$ 800,00/mês<br /><br />
-                  <strong>Domínio grátis no primeiro ano.</strong> A partir do
-                  segundo ano, o custo de renovação é repassado ao cliente.
-                </p>
-                <a
-                  href="https://wa.me/5582987353564?text=Olá!%20Tenho%20interesse%20no%20Plano%20WebJS%20Care.%20Meu%20nome%20é%3A%20"
-                  class="pacote-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Quero suporte contínuo</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- AVISO -->
-          <div class="aviso">
-            <i class="fas fa-info-circle"></i>
-            <p>
-              Valores podem variar conforme a complexidade do projeto.
-              Alterações adicionais, novas funcionalidades ou expansões não
-              previstas no escopo inicial serão orçadas separadamente.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="contato-direto" id="contato">
-        <h2>Vamos conversar?</h2>
-        <p>Chame no WhatsApp para tirar suas dúvidas ou solicitar orçamento.</p>
-        <a href="https://wa.me/5582987353564" class="botao">Fazer Orçamento</a>
-      </section>
-    </main>
-    <aside>
-      <section class="contato">
-        <nav aria-label="Contatos">
-          <ul>
-            <li>
-              <a
-                href="mailto:jonathan.santos-ti@hotmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i class="fas fa-envelope"></i> jonathan.santos-ti@hotmail.com
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </section>
-      <button id="btnTopo" title="Voltar ao topo">
-        <i class="fas fa-arrow-up"></i>
-      </button>
-      <section>
-        <a
-          href="https://wa.me/5582987353564"
-          class="whatsapp-float"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fab fa-whatsapp"></i>
+        <a href="#" class="btn btn-primario btn-grande whatsapp-link">
+            Quero meu site hoje
         </a>
-      </section>
-      <section class="barra"></section>
-      <section class="redeSocial">
-        <nav aria-label="Rede Social">
-          <ul>
-            <li>
-              <a
-                href="https://github.com/JonathanSantosJS/Portfolio-como-desenvolvedor-web"
-                target="_blank"
-                ><i class="fab fa-github"></i> GitHub</a
-              >
-            </li>
-            <li>
-              <a href="https://instagram.com" target="_blank"
-                ><i class="fab fa-instagram"></i> Instagram</a
-              >
-            </li>
-            <li>
-              <a href="https://facebook.com" target="_blank"
-                ><i class="fab fa-facebook"></i> Facebook</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </section>
-    </aside>
-    <footer>
-      <p>&copy; 2025 Jônathan Santos | Todos os direitos garantidos</p>
-    </footer>
-    <script src="javascript/script.js"></script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "WebJS - Criação de Sites em Maceió",
-        "image": "https://webjs.com.br/img/thumb-webjs.jpg",
-        "url": "https://webjs.com.br",
-        "telephone": "+55 82 98735-3564",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Maceió",
-          "addressRegion": "AL",
-          "addressCountry": "BR"
-        },
-        "description": "Criação de sites profissionais em Maceió para pequenos negócios. Sites estratégicos, rápidos e otimizados para atrair clientes no Google e WhatsApp.",
-        "areaServed": {
-          "@type": "City",
-          "name": "Maceió"
-        },
-        "priceRange": "$$"
-      }
-    </script>
-  </body>
+    </div>
+</section>
+
+<!-- BENEFÍCIOS -->
+<section class="beneficios">
+    <div class="container">
+        <h2>O que você ganha</h2>
+
+        <div class="beneficios-grid">
+
+            <div class="beneficio-card">
+                <h3>Mais clientes</h3>
+                <p>Seu negócio aparece no Google e pessoas da sua região conseguem te encontrar.</p>
+            </div>
+
+            <div class="beneficio-card">
+                <h3>Presença profissional</h3>
+                <p>Você deixa de depender só de Instagram e passa a ter um endereço próprio.</p>
+            </div>
+
+            <div class="beneficio-card">
+                <h3>WhatsApp direto</h3>
+                <p>Cliente entra no site e já chama você direto para fechar.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PROVA -->
+<section class="prova">
+    <div class="container">
+        <h2>Exemplo simples</h2>
+        <p>Veja como fica um site básico:</p>
+
+        <a href="https://webjs.com.br/fisioacao/" target="_blank" style="display:inline-block; margin-top:10px;">
+            Ver exemplo
+        </a>
+    </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como-funciona">
+    <div class="container">
+        <h2>Como funciona</h2>
+
+        <div class="passos-grid">
+
+            <div class="passo">
+                <div class="passo-numero">1</div>
+                <h3>Você me chama</h3>
+                <p>Me manda uma mensagem com seu negócio.</p>
+            </div>
+
+            <div class="passo">
+                <div class="passo-numero">2</div>
+                <h3>Eu crio o site</h3>
+                <p>Em até 2 dias seu site está pronto.</p>
+            </div>
+
+            <div class="passo">
+                <div class="passo-numero">3</div>
+                <h3>Você começa a receber clientes</h3>
+                <p>Compartilha o link e começa a receber contatos.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="garantia">
+    <div class="container">
+        <h2>Sem risco</h2>
+        <p>Se não gostar, ajusto até ficar do jeito que você quer.</p>
+    </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+    <div class="container">
+        <h2>Quer começar agora?</h2>
+
+        <div class="preco">R$ 250</div>
+
+        <p>Atendo poucos clientes por dia para manter qualidade.</p>
+
+        <a href="#" class="btn btn-primario btn-grande whatsapp-link">
+            Quero fechar meu site
+        </a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 WebJS · Sites simples para pequenos negócios</p>
+    </div>
+</footer>
+
+<script src="js/animacao.js"></script>
+
+</body>
 </html>
-
-
