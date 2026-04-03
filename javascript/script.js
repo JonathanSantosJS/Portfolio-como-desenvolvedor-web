@@ -1,15 +1,19 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // ===== LINKS WHATSAPP =====
+
+    // ============================================
+    // 1. CONFIGURAÇÃO WHATSAPP
+    // ============================================
     const phone = '5582987353564';
-    const defaultMessage = encodeURIComponent('Olá! Quero um site simples para meu negócio. Meu nome é:');
+    const defaultMessage = encodeURIComponent('Olá! Quero um site para meu negócio. Meu nome é:');
     
     document.querySelectorAll('.whatsapp-link').forEach(link => {
         link.href = `https://wa.me/${phone}?text=${defaultMessage}`;
     });
-    
-    // ===== SCROLL SUAVE =====
+
+    // ============================================
+    // 2. SCROLL SUAVE PARA LINKS ANCORA
+    // ============================================
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -28,62 +32,43 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // ===== ANIMAÇÃO DE ENTRADA =====
+
+    // ============================================
+    // 3. ANIMAÇÃO DE ENTRADA (INTERSECTION OBSERVER)
+    // ============================================
     const observerOptions = {
         threshold: 0.2,
-        rootMargin: '0px 0px -30px 0px'
+        rootMargin: '0px 0px -50px 0px'
     };
     
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
-    document.querySelectorAll('.beneficio-card, .demo-card, .passo').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease';
+    // Aplicar animação em todos os elementos com classes de animação
+    const elementosParaAnimar = document.querySelectorAll('.animate-up, .animate-scale, .animate-card');
+    elementosParaAnimar.forEach(el => {
         observer.observe(el);
     });
-    
-    // ===== BOTÃO VOLTAR AO TOPO (opcional) =====
+
+    // ============================================
+    // 4. BOTÃO VOLTAR AO TOPO
+    // ============================================
     const btnTopo = document.createElement('button');
     btnTopo.innerHTML = '<i class="fas fa-arrow-up"></i>';
     btnTopo.className = 'btn-topo';
-    btnTopo.style.cssText = `
-        position: fixed;
-        bottom: 100px;
-        right: 30px;
-        width: 45px;
-        height: 45px;
-        background: var(--azul-marinho);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 999;
-        font-size: 1.2rem;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    `;
-    
     document.body.appendChild(btnTopo);
     
     window.addEventListener('scroll', function() {
         if (window.scrollY > 500) {
-            btnTopo.style.opacity = '1';
-            btnTopo.style.visibility = 'visible';
+            btnTopo.classList.add('show');
         } else {
-            btnTopo.style.opacity = '0';
-            btnTopo.style.visibility = 'hidden';
+            btnTopo.classList.remove('show');
         }
     });
     
@@ -100,11 +85,67 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.background = 'var(--azul-marinho)';
         this.style.transform = 'translateY(0)';
     });
-    
-    // ===== ANO ATUAL NO FOOTER =====
-    const footerYear = document.querySelector('footer p');
-    if (footerYear) {
-        const currentYear = new Date().getFullYear();
-        footerYear.innerHTML = footerYear.innerHTML.replace('2026', currentYear);
+
+    // ============================================
+    // 5. ANO ATUAL NO FOOTER
+    // ============================================
+    const anoElement = document.getElementById('ano');
+    if (anoElement) {
+        anoElement.textContent = new Date().getFullYear();
     }
+
+    // ============================================
+    // 6. EFEITO PARALLAX NO HERO
+    // ============================================
+    window.addEventListener('scroll', function() {
+        const scrolled = window.scrollY;
+        const hero = document.querySelector('.hero');
+        if (hero && scrolled < 600) {
+            hero.style.backgroundPosition = `center ${scrolled * 0.3}px`;
+        }
+    });
+
+    // ============================================
+    // 7. CARREGAR IMAGENS DOS DEPOIMENTOS (FALLBACK)
+    // ============================================
+    const avatarImages = document.querySelectorAll('.avatar-img');
+    avatarImages.forEach(img => {
+        img.addEventListener('error', function() {
+            // Se a imagem não carregar, mostra ícone de fallback
+            const parent = this.parentElement;
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-user-circle';
+            icon.style.fontSize = '3rem';
+            icon.style.color = 'var(--laranja)';
+            this.style.display = 'none';
+            parent.appendChild(icon);
+        });
+    });
+
+    // ============================================
+    // 8. PREVENIR CLIQUE EM LINKS VAZIOS
+    // ============================================
+    document.querySelectorAll('a[href="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+        });
+    });
+
+    // ============================================
+    // 9. EFEITO DE GLOW NO TÍTULO (HERO)
+    // ============================================
+    const destaque = document.querySelector('.hero-title .destaque');
+    if (destaque) {
+        setInterval(() => {
+            destaque.style.textShadow = '0 0 10px rgba(243, 156, 18, 0.5)';
+            setTimeout(() => {
+                destaque.style.textShadow = 'none';
+            }, 300);
+        }, 3000);
+    }
+
+    // ============================================
+    // 10. LOG DE CARREGAMENTO
+    // ============================================
+    console.log('✅ Site WebJS carregado com sucesso!');
 });
