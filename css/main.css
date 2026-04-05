@@ -690,7 +690,92 @@ header {
     font-size: 0.8rem;
     margin: 0 1px;
 }
+/* ===== PREÇO ===== */
+.preco {
+    padding: 5rem 0;
+    background: var(--cinza-claro);
+}
 
+.preco-card {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--branco);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: var(--sombra-media);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.preco-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--laranja);
+}
+
+.preco-card.destaque {
+    border-color: var(--laranja);
+    box-shadow: 0 20px 50px rgba(243, 156, 18, 0.2);
+}
+
+/* topo */
+.preco-top h3 {
+    font-size: 1.3rem;
+    color: var(--azul-marinho);
+    margin-bottom: 0.5rem;
+}
+
+.preco-antigo {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.preco-valor {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--laranja);
+    font-family: var(--fonte-titulo);
+    margin: 0.5rem 0 1rem;
+}
+
+.preco-badge {
+    display: inline-block;
+    background: rgba(243, 156, 18, 0.15);
+    color: var(--laranja);
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* lista */
+.preco-lista {
+    list-style: none;
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.preco-lista li {
+    margin-bottom: 0.7rem;
+    color: var(--azul-marinho);
+}
+
+/* garantia */
+.garantia {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: green;
+    font-weight: 600;
+}
+
+/* obs */
+.obs {
+    font-size: 0.75rem;
+    color: var(--cinza-texto);
+    margin-top: 1rem;
+}
 /* ===== CTA FINAL ===== */
 .cta-final {
     padding: 5rem 0;
