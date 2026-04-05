@@ -220,21 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ===== MÁSCARA PARA QUANTIDADE DE PESSOAS =====
-    const pessoasInput = document.getElementById('pessoas');
-    if (pessoasInput) {
-        pessoasInput.addEventListener('input', function(e) {
-            let value = parseInt(e.target.value, 10);
-            if (isNaN(value)) return;
-            if (value > 1000) {
-                e.target.value = 1000;
-                alert('⚠️ Capacidade máxima é de 1000 pessoas.');
-            }
-            if (value < 1) {
-                e.target.value = 1;
-            }
-        });
-    }
+    
     
     // ===== PREVENIR DATA RETROATIVA (opcional) =====
     const dataInput = document.getElementById('data');
