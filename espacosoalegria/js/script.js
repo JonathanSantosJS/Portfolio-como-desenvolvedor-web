@@ -226,9 +226,9 @@ document.addEventListener('DOMContentLoaded', function() {
         pessoasInput.addEventListener('input', function(e) {
             let value = parseInt(e.target.value, 10);
             if (isNaN(value)) return;
-            if (value > 100) {
-                e.target.value = 100;
-                alert('⚠️ Capacidade máxima é de 100 pessoas.');
+            if (value > 1000) {
+                e.target.value = 1000;
+                alert('⚠️ Capacidade máxima é de 1000 pessoas.');
             }
             if (value < 1) {
                 e.target.value = 1;
