@@ -1,24 +1,41 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function() {
-
     // ============================================
-    // 1. CONFIGURAÇÃO WHATSAPP
+    // WHATSAPP LINK COM GA4 + UTM
     // ============================================
     const phone = '5582987353564';
     const defaultMessage = encodeURIComponent('Olá! Quero um site para meu negócio. Meu nome é:');
-    
-    document.querySelectorAll('.whatsapp-link').forEach(link => {
-    link.href = `https://wa.me/${phone}?text=${defaultMessage}`;
+    const utm = 'utm_source=site&utm_medium=botao&utm_campaign=whatsapp';
 
-    link.addEventListener('click', function() {
-        if (typeof gtag === 'function') {
-            gtag('event', 'click_whatsapp', {
-                event_category: 'engagement',
-                event_label: 'botao_whatsapp'
+    document.querySelectorAll('.whatsapp-link').forEach(link => {
+        // Monta href com UTM
+        link.href = `https://wa.me/${phone}?text=${defaultMessage}&${utm}`;
+
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // previne navegação imediata
+
+            if (typeof gtag === 'function') {
+                gtag('event', 'click_whatsapp', {
+                    event_category: 'engagement',
+                    event_label: 'botao_whatsapp',
+                    transport_type: 'beacon',
+                    event_callback: function() {
+                        // navega para o WhatsApp só depois do evento
+                        window.location.href = link.href;
+                    }
                 });
+
+                // Fallback caso callback não seja chamado em 1s
+                setTimeout(() => {
+                    window.location.href = link.href;
+                }, 1000);
+            } else {
+                // fallback se gtag não estiver carregado
+                window.location.href = link.href;
             }
         });
     });
+});
 
     // ============================================
     // 2. SCROLL SUAVE PARA LINKS ANCORA
