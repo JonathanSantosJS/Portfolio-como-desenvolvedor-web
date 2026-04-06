@@ -8,7 +8,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const defaultMessage = encodeURIComponent('Olá! Quero um site para meu negócio. Meu nome é:');
     
     document.querySelectorAll('.whatsapp-link').forEach(link => {
-        link.href = `https://wa.me/${phone}?text=${defaultMessage}`;
+    link.href = `https://wa.me/${phone}?text=${defaultMessage}`;
+
+    link.addEventListener('click', function() {
+        if (typeof gtag === 'function') {
+            gtag('event', 'click_whatsapp', {
+                event_category: 'engagement',
+                event_label: 'botao_whatsapp'
+                });
+            }
+        });
     });
 
     // ============================================
