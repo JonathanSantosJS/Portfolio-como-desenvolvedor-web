@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Calculadora de Bem-Estar | IMC + Hábitos</title>
+  <meta name="description" content="Entenda seu IMC e como seus hábitos se relacionam com seu bem-estar. Uma ferramenta simples e útil.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Tela 1: Formulário -->
+  <main id="screenForm" class="screen active">
+    <div class="app-container">
+      <div class="app-header">
+        <div class="app-logo">🌿</div>
+        <h1>Como está seu equilíbrio hoje?</h1>
+        <p>Uma ferramenta simples para entender seu momento e descobrir caminhos possíveis</p>
+      </div>
+
+      <div class="card">
+        <!-- Etapa 1: Dados Físicos -->
+        <div class="form-section">
+          <h2 class="section-title">Suas medidas</h2>
+          <p class="section-desc">Informações básicas para o cálculo</p>
+          
+          <div class="form-group">
+            <label for="peso">Peso (kg)</label>
+            <input 
+              type="number" 
+              id="peso" 
+              step="0.1" 
+              placeholder="Ex: 68,5" 
+              inputmode="decimal"
+              lang="pt-BR"
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="altura">Altura</label>
+            <input 
+              type="number" 
+              id="altura" 
+              step="0.01" 
+              placeholder="Ex: 1,75 ou 175" 
+              inputmode="decimal"
+              lang="pt-BR"
+              autocomplete="off"
+            >
+            <span class="input-hint">Use vírgula ou ponto (1,75 ou 1.75)</span>
+          </div>
+        </div>
+
+        <!-- Etapa 2: Perfil Alimentar -->
+        <div class="form-section">
+          <h2 class="section-title">Sua alimentação</h2>
+          <p class="section-desc">Como você descreveria sua rotina alimentar?</p>
+          
+          <div class="radio-group">
+            <input type="radio" name="alimento" id="alimento-saudavel" value="saudavel">
+            <label for="alimento-saudavel" class="radio-card" tabindex="0">
+              <span class="radio-icon">🥗</span>
+              <div class="radio-card-content">
+                <span class="radio-label">Equilibrada</span>
+                <span class="radio-desc">Frutas, vegetais, comida caseira</span>
+              </div>
+            </label>
+
+            <input type="radio" name="alimento" id="alimento-mista" value="mista">
+            <label for="alimento-mista" class="radio-card" tabindex="0">
+              <span class="radio-icon">🍽️</span>
+              <div class="radio-card-content">
+                <span class="radio-label">Variada</span>
+                <span class="radio-desc">Mistura de caseiro e prático</span>
+              </div>
+            </label>
+
+            <input type="radio" name="alimento" id="alimento-industrializada" value="industrializada">
+            <label for="alimento-industrializada" class="radio-card" tabindex="0">
+              <span class="radio-icon">🍔</span>
+              <div class="radio-card-content">
+                <span class="radio-label">Prática</span>
+                <span class="radio-desc">Mais processados e delivery</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Etapa 3: Perfil de Rotina -->
+        <div class="form-section">
+          <h2 class="section-title">Seu movimento</h2>
+          <p class="section-desc">Qual seu nível de atividade no dia a dia?</p>
+          
+          <div class="radio-group">
+            <input type="radio" name="rotina" id="rotina-sedentaria" value="sedentaria">
+            <label for="rotina-sedentaria" class="radio-card" tabindex="0">
+              <span class="radio-icon">🪑</span>
+              <div class="radio-card-content">
+                <span class="radio-label">Mais parado</span>
+                <span class="radio-desc">Rotina com pouco movimento</span>
+              </div>
+            </label>
+
+            <input type="radio" name="rotina" id="rotina-moderada" value="moderada">
+            <label for="rotina-moderada" class="radio-card" tabindex="0">
+              <span class="radio-icon">🚶</span>
+              <div class="radio-card-content">
+                <span class="radio-label">Na medida</span>
+                <span class="radio-desc">Algumas atividades na semana</span>
+              </div>
+            </label>
+
+            <input type="radio" name="rotina" id="rotina-ativa" value="ativa">
+            <label for="rotina-ativa" class="radio-card" tabindex="0">
+              <span class="radio-icon">🏃</span>
+              <div class="radio-card-content">
+                <span class="radio-label">Bem ativo</span>
+                <span class="radio-desc">Exercícios frequentes</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <button id="calcularBtn" class="btn-primary">
+          Ver meu resultado
+        </button>
+
+        <p class="disclaimer">
+          Esta é uma ferramenta informativa. Para orientação personalizada, consulte um profissional de saúde.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Tela 2: Loading -->
+  <div id="screenLoading" class="screen">
+    <div class="loading-container">
+      <div class="loader-visual">
+        <div class="loader-ring"></div>
+      </div>
+      <p class="loading-text">Analisando suas informações...</p>
+      <div class="loading-steps">
+        <div class="loading-step" data-step="1">
+          <span class="step-indicator"></span>
+          <span>Calculando IMC</span>
+        </div>
+        <div class="loading-step" data-step="2">
+          <span class="step-indicator"></span>
+          <span>Analisando hábitos</span>
+        </div>
+        <div class="loading-step" data-step="3">
+          <span class="step-indicator"></span>
+          <span>Preparando recomendações</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tela 3: Resultado -->
+  <div id="screenResult" class="screen">
+    <div class="app-container">
+      <div class="result-card">
+        <div class="result-header">
+          <span id="resultEmoji">📊</span>
+          <h2 id="resultTitle">Seu resultado</h2>
+        </div>
+
+        <div id="resultContent" class="result-content">
+          <!-- Preenchido dinamicamente -->
+        </div>
+
+        <div class="recommendation-box" id="recommendationBox">
+          <p class="recommendation-title">💡 Uma sugestão para você</p>
+          <p id="recommendationText" class="recommendation-text"></p>
+        </div>
+
+        <a id="ctaButton" href="#" class="btn-cta pulse">
+          Quero conhecer
+        </a>
+
+        <button id="restartBtn" class="btn-restart">
+          Fazer novamente
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/javascript.js"></script>
+</body>
+</html>
